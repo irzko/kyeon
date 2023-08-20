@@ -15,7 +15,19 @@ const CountDays = () => {
     fetch("/api/love")
       .then((res) => res.json())
       .then((data) => {
-        setLove(data);
+        fetch("/api/love", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            love: data + 1,
+          }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            setLove(data);
+          });
       });
   }, []);
 
