@@ -61,7 +61,7 @@ const CountDays = () => {
       <div className="absolute">
         {days ? (
           <div
-            className="flex flex-col justify-center items-center cursor-pointer"
+            className="flex flex-col justify-center items-center"
             onClick={handleClick}
           >
             <svg
