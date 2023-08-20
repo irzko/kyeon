@@ -8,10 +8,34 @@ const CountDays = () => {
   // const [hours, setHours] = useState(0);
   // const [minutes, setMinutes] = useState(0);
   // const [seconds, setSeconds] = useState(0);
-  const [touch, setTouch] = useState(0);
   const router = useRouter();
+  const [love, setLove] = useState(0);
 
   const loveDay = "July, 27, 2023";
+
+  useEffect(() => {
+    fetch("/api/love")
+      .then((res) => res.json())
+      .then((data) => {
+        setLove(data);
+      });
+  }, []);
+
+  const handleClick = () => {
+    fetch("/api/love", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        love: love + 1,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setLove(data);
+      });
+  };
 
   const getTime = (loveDay: string) => {
     const time = Date.now() - Date.parse(loveDay);
@@ -27,62 +51,58 @@ const CountDays = () => {
     return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => {
-    if (touch === 10) {
-      router.push("/gallery");
-    }
-  });
-
-  const handleClick = () => {
-    setTouch(touch + 1);
-  };
   return (
-    <div className="absolute">
-      {days ? (
-        <div
-          className="flex flex-col justify-center items-center"
-          onClick={handleClick}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width={280}
-            fill="#FBA1B7"
-            className="blur-2xl"
-            viewBox="0 0 16 16"
+    <>
+      <div className="absolute bg-red z-50 top-20">
+        <p className="text-red-600 border-2 font-bold border-red-600 px-4 py-2 rounded-full">Số lần thương: {love}</p>
+      </div>
+      <div className="absolute">
+        {days ? (
+          <div
+            className="flex flex-col justify-center items-center"
+            onClick={handleClick}
           >
-            <path
-              fillRule="evenodd"
-              d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
-            />
-          </svg>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width={280}
-            fill="#FBA1B7"
-            className="absolute blur-sm"
-            viewBox="0 0 16 16"
-          >
-            <path
-              fillRule="evenodd"
-              d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
-            />
-          </svg>
-          {/* <Image src={Heart} width={500} height={500} className=" absolute mt-12" alt="" quality={100} /> */}
-          <div className="z-10 absolute mb-10">
-            <h2 className="text-[#FDE5EC]">Nguyệt x Kha</h2>
-            <p className="text-xl font-bold text-[#BB2525]">Đã bên nhau</p>
-            <div className="text-5xl font-bold text-[#FDE5EC]">
-              <span className="text-[#BB2525]">{days}</span> ngày
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width={280}
+              fill="#FBA1B7"
+              className="blur-2xl"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fillRule="evenodd"
+                d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
+              />
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width={280}
+              fill="#FBA1B7"
+              className="absolute"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fillRule="evenodd"
+                d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
+              />
+            </svg>
+            {/* <Image src={Heart} width={500} height={500} className=" absolute mt-12" alt="" quality={100} /> */}
+            <div className="z-10 absolute mb-10">
+              <h2 className="text-[#FDE5EC]">Nguyệt x Kha</h2>
+              <p className="text-xl font-bold text-[#BB2525]">Đã bên nhau</p>
+              <div className="text-5xl font-bold text-[#FDE5EC]">
+                <span className="text-[#BB2525]">{days}</span> ngày
+              </div>
             </div>
-          </div>
-          {/* <p>
+            {/* <p>
             {hours} giờ {minutes} phút {seconds} giây
           </p> */}
-        </div>
-      ) : (
-        <Spinner />
-      )}
-    </div>
+          </div>
+        ) : (
+          <Spinner />
+        )}
+      </div>
+    </>
   );
 };
 
