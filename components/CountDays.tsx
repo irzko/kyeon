@@ -68,7 +68,7 @@ const CountDays = () => {
   return (
     <>
       <div className="absolute">
-        {days ? (
+        {love ? (
           <div
             className="flex flex-col justify-center items-center"
             onClick={handleClick}
