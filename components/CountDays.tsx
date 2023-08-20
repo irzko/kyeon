@@ -104,7 +104,7 @@ const CountDays = () => {
                 <p className="text-[#BB2525] mx-2">đã bên</p> Kha
               </h2>
 
-              <div className="text-5xl font-bold text-[#FDE5EC]">
+              <div className="text-5xl font-bold text-white">
                 <span className="text-[#BB2525]">{days}</span> ngày
               </div>
               <p className="text-[#BB2525] mt-3 font-bold px-4 bg-white rounded-full">
