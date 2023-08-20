@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import Spinner from "./Spinner";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
 
 const CountDays = () => {
   const [days, setDays] = useState(0);
@@ -47,7 +46,7 @@ const CountDays = () => {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width={300}
-            fill="#FFF5E0"
+            fill="#FBA1B7"
             className="blur-2xl"
             viewBox="0 0 16 16"
           >
