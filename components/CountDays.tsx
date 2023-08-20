@@ -46,9 +46,9 @@ const CountDays = () => {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width={280}
-            fill="#FDE5EC"
-            className="animate-heartbeat blur-2xl"
+            width={300}
+            fill="#FBA1B7"
+            className="animate-heartbeat blur-lg"
             viewBox="0 0 16 16"
           >
             <path
@@ -56,7 +56,7 @@ const CountDays = () => {
               d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
             />
           </svg>
-          <svg
+          {/* <svg
             xmlns="http://www.w3.org/2000/svg"
             width={280}
             fill="#FBA1B7"
@@ -67,7 +67,7 @@ const CountDays = () => {
               fillRule="evenodd"
               d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
             />
-          </svg>
+          </svg> */}
           {/* <Image src={Heart} width={500} height={500} className=" absolute mt-12" alt="" quality={100} /> */}
           <div className="z-10 animate-heartbeat absolute mb-10">
             <h2 className="text-[#FDE5EC]">Nguyệt x Kha</h2>
