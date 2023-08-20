@@ -2,7 +2,6 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import clsx from "clsx";
-import Background from "@/components/background";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,7 +23,6 @@ export default function RootLayout({
           "bg-[#916DB3] flex justify-center items-center text-center"
         )}
       >
-        <Background />
         {children}
       </body>
     </html>
