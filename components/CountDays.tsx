@@ -1,14 +1,12 @@
 "use client";
 import { useState, useEffect } from "react";
 import Spinner from "./Spinner";
-import { useRouter } from "next/navigation";
 
 const CountDays = () => {
   const [days, setDays] = useState(0);
   // const [hours, setHours] = useState(0);
   // const [minutes, setMinutes] = useState(0);
   // const [seconds, setSeconds] = useState(0);
-  const router = useRouter();
   const [love, setLove] = useState(0);
 
   const loveDay = "July, 27, 2023";
@@ -22,18 +20,22 @@ const CountDays = () => {
   }, []);
 
   const handleClick = () => {
-    fetch("/api/love", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        love: love + 1,
-      }),
-    })
+    fetch("/api/love")
       .then((res) => res.json())
       .then((data) => {
-        setLove(data);
+        fetch("/api/love", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            love: data + 1,
+          }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            setLove(data);
+          });
       });
   };
 
