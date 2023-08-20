@@ -55,11 +55,6 @@ const CountDays = () => {
 
   return (
     <>
-      <div className="absolute bg-red z-50 top-20">
-        <p className="text-red-600 border-2 font-bold px-4 py-2 bg-white rounded-full">
-          Số lần thương: {love}
-        </p>
-      </div>
       <div className="absolute">
         {days ? (
           <div
@@ -91,8 +86,11 @@ const CountDays = () => {
               />
             </svg>
             {/* <Image src={Heart} width={500} height={500} className=" absolute mt-12" alt="" quality={100} /> */}
-            <div className="z-10 absolute mb-10">
-              <h2 className="text-[#FDE5EC]">Nguyệt x Kha</h2>
+            <div className="z-10 absolute mb-14 flex flex-col items-center">
+              <p className="text-[#BB2525] font-bold px-4 w-24 bg-white rounded-full">
+                {love}
+              </p>
+              <h2 className="text-[#FDE5EC] font-bold">Nguyệt x Kha</h2>
               <p className="text-xl font-bold text-[#BB2525]">Đã bên nhau</p>
               <div className="text-5xl font-bold text-[#FDE5EC]">
                 <span className="text-[#BB2525]">{days}</span> ngày
