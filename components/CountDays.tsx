@@ -47,8 +47,8 @@ const CountDays = () => {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width={300}
-            fill="#FBA1B7"
-            className="blur-xl"
+            fill="#FFF5E0"
+            className="blur-2xl"
             viewBox="0 0 16 16"
           >
             <path
