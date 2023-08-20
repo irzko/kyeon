@@ -76,7 +76,7 @@ const CountDays = () => {
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width={280}
-              fill="#FBA1B7"
+              fill="#FCBAAD"
               className="blur-2xl"
               viewBox="0 0 16 16"
             >
@@ -88,7 +88,7 @@ const CountDays = () => {
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width={280}
-              fill="#FBA1B7"
+              fill="#FCBAAD"
               className="absolute"
               viewBox="0 0 16 16"
             >
@@ -98,15 +98,18 @@ const CountDays = () => {
               />
             </svg>
             {/* <Image src={Heart} width={500} height={500} className=" absolute mt-12" alt="" quality={100} /> */}
-            <div className="z-10 absolute mb-14 flex flex-col items-center">
-              <p className="text-[#BB2525] font-bold px-4 w-24 bg-white rounded-full">
-                {love}
-              </p>
-              <h2 className="text-[#FDE5EC] font-bold">Nguyệt x Kha</h2>
-              <p className="text-xl font-bold text-[#BB2525]">Đã bên nhau</p>
+            <div className="z-10 absolute mb-10 flex flex-col items-center">
+              <h2 className="text-[#A2678A] flex items-center text-xl font-bold">
+                Nguyệt
+                <p className="text-[#BB2525] mx-2">đã bên</p> Kha
+              </h2>
+
               <div className="text-5xl font-bold text-[#FDE5EC]">
                 <span className="text-[#BB2525]">{days}</span> ngày
               </div>
+              <p className="text-[#BB2525] mt-3 font-bold px-4 bg-white rounded-full">
+                Thương x{love} lần
+              </p>
             </div>
             {/* <p>
             {hours} giờ {minutes} phút {seconds} giây
