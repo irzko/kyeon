@@ -54,12 +54,14 @@ const CountDays = () => {
   return (
     <>
       <div className="absolute bg-red z-50 top-20">
-        <p className="text-red-600 border-2 font-bold border-red-600 px-4 py-2 rounded-full">Số lần thương: {love}</p>
+        <p className="text-red-600 border-2 font-bold px-4 py-2 bg-white rounded-full">
+          Số lần thương: {love}
+        </p>
       </div>
       <div className="absolute">
         {days ? (
           <div
-            className="flex flex-col justify-center items-center"
+            className="flex flex-col justify-center items-center cursor-pointer"
             onClick={handleClick}
           >
             <svg
