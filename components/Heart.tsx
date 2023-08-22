@@ -6,7 +6,7 @@ const Heart = () => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={280}
-      fill="#E74646"
+      fill="#fff"
       className="animate-glow"
       viewBox="0 0 16 16"
     >

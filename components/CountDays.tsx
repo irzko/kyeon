@@ -76,13 +76,13 @@ const CountDays = () => {
           >
             <Heart />
             <div className="z-10 absolute mb-10 flex flex-col items-center">
-              <h2 className="text-white flex items-center text-xl font-bold">
+              <h2 className="text-[#A084E8] flex items-center text-xl font-bold">
                 Nguyệt
-                <p className="text-[#C21010] mx-2">đã bên</p> Kha
+                <p className="text-[#8BE8E5] mx-2">đã bên</p> Kha
               </h2>
 
-              <div className="text-5xl font-bold text-white ">
-                <span className="text-[#C21010]">{days}</span> ngày
+              <div className="text-5xl font-bold text-[#A084E8] ">
+                <span className="text-[#8BE8E5]">{days}</span> ngày
               </div>
               {/* <p className="text-[#BB2525] mt-3 font-bold px-4 bg-white rounded-full">
                 Thương x{love} lần
