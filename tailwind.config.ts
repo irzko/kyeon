@@ -19,6 +19,7 @@ const config: Config = {
       },
       animation: {
         heartbeat: "heartbeat 1s infinite",
+        glow: "glow 1.5s ease-in-out infinite alternate",
       },
       keyframes: {
         heartbeat: {
@@ -39,6 +40,17 @@ const config: Config = {
           },
           "100%": {
             transform: "scale( .75 )",
+          },
+        },
+        glow: {
+          from: {
+            filter:
+              "drop-shadow(0 0 5px #fff) drop-shadow(0 0 15px #e74646) drop-shadow(0 0 20px #e74646)",
+          },
+
+          to: {
+            filter:
+              "drop-shadow(0 0 20px #fff) drop-shadow(0 0 25px #e74646) drop-shadow(0 0 40px #e74646)",
           },
         },
       },

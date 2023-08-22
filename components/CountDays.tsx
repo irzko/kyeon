@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Spinner from "./Spinner";
+import Heart from "./Heart";
 
 const CountDays = () => {
   const [days, setDays] = useState(0);
@@ -73,31 +74,7 @@ const CountDays = () => {
             className="flex flex-col justify-center items-center"
             // onClick={handleClick}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width={280}
-              fill="#E74646"
-              className="blur-2xl"
-              viewBox="0 0 16 16"
-            >
-              <path
-                fillRule="evenodd"
-                d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
-              />
-            </svg>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width={280}
-              fill="#E74646"
-              className="absolute"
-              viewBox="0 0 16 16"
-            >
-              <path
-                fillRule="evenodd"
-                d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
-              />
-            </svg>
-            {/* <Image src={Heart} width={500} height={500} className=" absolute mt-12" alt="" quality={100} /> */}
+            <Heart />
             <div className="z-10 absolute mb-10 flex flex-col items-center">
               <h2 className="text-white flex items-center text-xl font-bold">
                 Nguyệt
