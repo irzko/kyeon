@@ -1,6 +1,6 @@
 "use client";
 import PostType from "@/types";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const Dropdown = ({ post }: { post: PostType }) => {
   const [open, setOpen] = useState(false);

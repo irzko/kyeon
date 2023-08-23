@@ -1,7 +1,11 @@
 export default function Spinner({
-  className = "h-4 w-4",
+  className,
+  height = 16,
+  width = 16,
 }: {
   className?: string;
+  height?: string | number | undefined;
+  width?: string | number | undefined;
 }) {
   return (
     <div role="status">
@@ -9,6 +13,8 @@ export default function Spinner({
         aria-hidden="true"
         className={`inline mr-3 fill-gray-600 text-gray-200 animate-spin ${className}`}
         viewBox="0 0 100 101"
+        height={height}
+        width={width}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >

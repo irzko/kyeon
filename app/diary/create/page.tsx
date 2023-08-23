@@ -10,7 +10,7 @@ const Page = ({}) => {
     <>
       <nav className="border-gray-200 bg-gray-50 grid grid-cols-3">
         <div className="flex ml-4 items-center">
-          <button onClick={() => router.push("/diary")}>
+          <button onClick={() => router.replace("/diary")}>
             <svg
               className="w-2.5 h-2.5"
               aria-hidden="true"
@@ -103,7 +103,7 @@ const Page = ({}) => {
           disabled={loading}
           className={`${
             loading
-              ? "cursor-not-allowed border-gray-200 bg-gray-100"
+              ? "cursor-not-allowed border-gray-200 bg-[#F8E8EE]"
               : "border-black bg-[#7F669D] text-white hover:bg-[#F8E8EE]]"
           } focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center`}
         >
