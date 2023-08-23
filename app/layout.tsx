@@ -20,7 +20,7 @@ export default function RootLayout({
       <body
         className={clsx(
           inter.className,
-          "bg-black flex justify-center items-center text-center"
+          "bg-[#FAF3F0]"
         )}
       >
         {children}

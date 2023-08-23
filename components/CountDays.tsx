@@ -2,72 +2,32 @@
 import { useState, useEffect } from "react";
 import Spinner from "./Spinner";
 import Heart from "./Heart";
-
-// const missionX = localFont({
-//   src: "./fonts/SVN-MissionX.otf",
-// });
+import LoadingDots from "./loading-dots";
+import { useRouter } from "next/navigation";
 
 const CountDays = () => {
   const [days, setDays] = useState(0);
-  // const [hours, setHours] = useState(0);
-  // const [minutes, setMinutes] = useState(0);
-  // const [seconds, setSeconds] = useState(0);
-  // const [love, setLove] = useState(0);
+  const [touch, setTouch] = useState(0);
+  const router = useRouter();
 
-  const loveDay = "July, 27, 2023";
+  const loveDate = "July, 27, 2023";
 
-  // useEffect(() => {
-  //   fetch("/api/love")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       fetch("/api/love", {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify({
-  //           love: data + 1,
-  //         }),
-  //       })
-  //         .then((res) => res.json())
-  //         .then((data) => {
-  //           setLove(data);
-  //         });
-  //     });
-  // }, []);
-
-  // const handleClick = () => {
-  //   fetch("/api/love")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       fetch("/api/love", {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify({
-  //           love: data + 1,
-  //         }),
-  //       })
-  //         .then((res) => res.json())
-  //         .then((data) => {
-  //           setLove(data);
-  //         });
-  //     });
-  // };
-
-  const getTime = (loveDay: string) => {
-    const time = Date.now() - Date.parse(loveDay);
+  const getTime = (loveDate: string) => {
+    const time = Date.now() - Date.parse(loveDate);
     setDays(Math.floor(time / (1000 * 60 * 60 * 24)));
-    // setHours(Math.floor((time / (1000 * 60 * 60)) % 24));
-    // setMinutes(Math.floor((time / 1000 / 60) % 60));
-    // setSeconds(Math.floor((time / 1000) % 60));
+  };
+
+  const handleClick = () => {
+    const count = touch + 1;
+    if (count === 3) {
+      router.push("/diary");
+    } else {
+      setTouch(touch + 1);
+    }
   };
 
   useEffect(() => {
-    const interval = setInterval(() => getTime(loveDay), 1000);
-
-    return () => clearInterval(interval);
+    getTime(loveDate);
   }, []);
 
   return (
@@ -76,7 +36,7 @@ const CountDays = () => {
         {days ? (
           <div
             className="flex flex-col justify-center items-center"
-            // onClick={handleClick}
+            onClick={handleClick}
           >
             <Heart />
             <div className="z-10 absolute mb-10 flex flex-col items-center">
@@ -87,9 +47,7 @@ const CountDays = () => {
                 <p className="text-[#8BE8E5] mx-2">x</p> Kha
               </h2>
 
-              <div
-                className={`text-4xl font-bold text-[#A084E8] uppercase`}
-              >
+              <div className={`text-4xl font-bold text-[#A084E8] uppercase`}>
                 <span className="text-[#8BE8E5]">{days}</span> days
               </div>
               {/* <p className="text-[#BB2525] mt-3 font-bold px-4 bg-white rounded-full">
@@ -101,7 +59,7 @@ const CountDays = () => {
           </p> */}
           </div>
         ) : (
-          <Spinner />
+          <LoadingDots />
         )}
       </div>
     </>
