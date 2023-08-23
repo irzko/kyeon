@@ -2,17 +2,10 @@
 import { useState, useEffect } from "react";
 import Spinner from "./Spinner";
 import Heart from "./Heart";
-import localFont from "next/font/local";
 
-// Font files can be colocated inside of `app`
-const housttely = localFont({
-  src: [{ path: "./fonts/SVN-Housttely Signature.otf" }],
-  display: "swap",
-});
-
-const habitat = localFont({
-  src: "./fonts/DFVN MBF Space Habitat Regular.otf",
-});
+// const missionX = localFont({
+//   src: "./fonts/SVN-MissionX.otf",
+// });
 
 const CountDays = () => {
   const [days, setDays] = useState(0);
@@ -88,16 +81,16 @@ const CountDays = () => {
             <Heart />
             <div className="z-10 absolute mb-10 flex flex-col items-center">
               <h2
-                className={`text-[#A084E8] flex items-center text-2xl z-10 ${housttely.className}`}
+                className={`text-[#A084E8] flex items-center text-xl z-10 uppercase`}
               >
                 Nguyệt
-                <p className="text-[#8BE8E5] mx-2">X</p> Kha
+                <p className="text-[#8BE8E5] mx-2">x</p> Kha
               </h2>
 
               <div
-                className={`text-4xl font-bold text-[#A084E8] ${habitat.className}`}
+                className={`text-4xl font-bold text-[#A084E8] uppercase`}
               >
-                <span className="text-[#8BE8E5]">{days}</span> ngày
+                <span className="text-[#8BE8E5]">{days}</span> days
               </div>
               {/* <p className="text-[#BB2525] mt-3 font-bold px-4 bg-white rounded-full">
                 Thương x{love} lần
