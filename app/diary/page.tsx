@@ -5,13 +5,14 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const Post = ({ post }: { post: PostType }) => {
+  const date = new Date(post.date).toLocaleString();
   return (
     <li className="mb-6 ml-4">
       <div className="absolute w-3 h-3 bg-[#7F669D] rounded-full mt-4 -left-1.5 border border-white"></div>
       <div className="relative px-2 py-2 bg-white rounded-3xl">
-        <Dropdown post={post}/>
+        <Dropdown post={post} />
         <time className="mb-1 text-sm leading-none font-bold text-[#7F669D] bg-[#F8E8EE] rounded-full px-2 py-1">
-          {post.date}
+          {date}
         </time>
         <h3 className="text-lg font-semibold text-gray-900">{post.content}</h3>
         <p className="mb-4 text-base font-normal text-gray-500 text-right">

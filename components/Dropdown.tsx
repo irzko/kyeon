@@ -51,7 +51,7 @@ const Dropdown = ({ post }: { post: PostType }) => {
           <li>
             <button
               onClick={handleDelete}
-              className="block px-4 text-left w-full py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+              className="block px-4 text-left w-full py-2 hover:bg-gray-100"
             >
               Xoá
             </button>
