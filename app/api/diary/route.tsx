@@ -19,9 +19,3 @@ export async function DELETE(req: Request) {
   await kv.lrem("posts", 0, post);
   return NextResponse.json({ post });
 }
-
-export async function UPDATE(req: Request) {
-  const { post, content } = await req.json();
-  await kv.lset("posts", post, content);
-  return NextResponse.json({ post, content });
-}
