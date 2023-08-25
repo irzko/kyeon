@@ -8,7 +8,7 @@ async function getDiaries() {
   return res.json();
 }
 
-const Page = async () => {
+export default async function Page() {
   const diaries = await getDiaries();
 
   return (
@@ -51,6 +51,4 @@ const Page = async () => {
       </main>
     </div>
   );
-};
-
-export default Page;
+}
