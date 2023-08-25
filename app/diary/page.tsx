@@ -1,6 +1,6 @@
 "use client";
 import Dropdown from "@/components/Dropdown";
-import LoadingScreen from "@/components/loading-screen";
+// import LoadingScreen from "@/components/loading-screen";
 import DiaryType from "@/types";
 import Link from "next/link";
 import { useEffect, useState } from "react";

@@ -26,25 +26,6 @@ const Dropdown = ({ diary }: { diary: DiaryType }) => {
       });
   };
 
-  const handleEdit = () => {
-    fetch("/api/diary", {
-      method: "UPDATE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        diary: diary,
-      }),
-    })
-      .then(async (res) => {
-        if (res.status === 200) {
-          window.location.reload();
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
   return (
     <div className="absolute right-2 top-2 flex flex-col items-end">
       <button
@@ -64,25 +45,26 @@ const Dropdown = ({ diary }: { diary: DiaryType }) => {
       </button>
 
       <div
-        className={`z-10 bg-white divide-y divide-gray-100 mt-2 rounded-lg shadow w-44 ${
+        className={`z-10 bg-white divide-y divide-gray-100 mt-2 rounded-xl shadow w-44 ${
           open ? "" : "hidden"
         }`}
       >
         <ul className="py-2 text-sm text-gray-700">
           <li>
-            <button
-              onClick={handleDelete}
-              className="block px-4 text-left w-full py-2 hover:bg-gray-100"
-            >
-              Xoá
-            </button>
-          </li>
-          <li>
             <Link href={`/diary/edit/${diary.id}`}>
-              <button className="block px-4 text-left w-full py-2 hover:bg-gray-100">
-                Sửa
+              <button className="block px-4 text-left font-bold w-full py-2 hover:bg-gray-100">
+                Chỉnh sửa nhật ký
               </button>
             </Link>
+          </li>
+          <hr className="mx-2"/>
+          <li>
+            <button
+              onClick={handleDelete}
+              className="block px-4 text-left w-full font-bold py-2 hover:bg-gray-100"
+            >
+              Xoá nhật ký
+            </button>
           </li>
         </ul>
       </div>
