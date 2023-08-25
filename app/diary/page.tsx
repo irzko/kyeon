@@ -2,6 +2,7 @@ import Diary from "@/components/diary";
 import getApiUrl from "@/libs/api-url";
 import DiaryType from "@/types";
 import Link from "next/link";
+import { Suspense } from "react";
 
 async function getDiaries(): Promise<DiaryType[]> {
   const res = await fetch(`${getApiUrl()}/api/diary/`, { cache: "no-store" });
@@ -43,11 +44,13 @@ export default async function Page() {
           </Link>
         </div>
 
-        <ol className="relative border-l border-[#7F669D]">
-          {diaries.map((diary: DiaryType) => (
-            <Diary key={diary.id} diary={diary} />
-          ))}
-        </ol>
+        <Suspense fallback={<div>Loading...</div>}>
+          <ol className="relative border-l border-[#7F669D]">
+            {diaries.map((diary: DiaryType) => (
+              <Diary key={diary.id} diary={diary} />
+            ))}
+          </ol>
+        </Suspense>
       </main>
     </div>
   );
