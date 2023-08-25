@@ -8,7 +8,7 @@ const Dropdown = ({ diary }: { diary: DiaryType }) => {
 
   const handleDelete = () => {
     fetch("/api/diary", {
-      method: "PUT",
+      method: "DELETE",
       headers: {
         "Content-Type": "application/json",
       },
@@ -57,7 +57,7 @@ const Dropdown = ({ diary }: { diary: DiaryType }) => {
               </button>
             </Link>
           </li>
-          <hr className="mx-2"/>
+          <hr className="mx-2" />
           <li>
             <button
               onClick={handleDelete}
