@@ -17,7 +17,7 @@ export default async function Page() {
       <main className="p-4">
         <div className="fixed z-50 w-auto bg-white shadow-xl bottom-4 right-4 rounded-full">
           <Link
-            href="/diary/create"
+            href="/create"
             type="button"
             className="flex items-center h-full"
           >
