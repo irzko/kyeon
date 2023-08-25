@@ -1,26 +1,15 @@
-"use client";
-
 import Diary from "@/components/diary";
 import getApiUrl from "@/libs/api-url";
 import DiaryType from "@/types";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
-export default function Page() {
-  const [diaries, setDiaries] = useState<DiaryType[]>([]);
+async function getDiaries(): Promise<DiaryType[]> {
+  const res = await fetch(`${getApiUrl()}/api/diary/`, { cache: "no-store" });
+  return res.json();
+}
 
-  useEffect(() => {
-    fetch("/api/diary")
-      .then(async (res) => res.json())
-      .then((data: DiaryType[]) => {
-        data.sort((postA: DiaryType, postB: DiaryType) => {
-          const dateA = new Date(postA.datetime);
-          const dateB = new Date(postB.datetime);
-          return dateB.getTime() - dateA.getTime();
-        });
-        setDiaries(data);
-      });
-  }, []);
+export default async function Page() {
+  const diaries = await getDiaries();
 
   return (
     <div>
