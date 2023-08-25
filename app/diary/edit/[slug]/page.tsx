@@ -35,7 +35,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
     }).then(async (res) => {
       setLoading(false);
       if (res.status === 200) {
-        router.push("/diary");
+        router.back();
       }
     });
   };
@@ -44,7 +44,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
     <>
       <nav className="border-gray-200 bg-gray-50 grid grid-cols-3">
         <div className="flex ml-4 items-center">
-          <button onClick={() => router.replace("/diary")}>
+          <button onClick={() => router.back()}>
             <svg
               className="w-2.5 h-2.5"
               aria-hidden="true"
