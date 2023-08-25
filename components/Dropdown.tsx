@@ -27,7 +27,7 @@ const Dropdown = ({ diary }: { diary: DiaryType }) => {
   };
 
   return (
-    <div className="absolute right-2 top-2 flex flex-col items-end">
+    <div className="flex flex-col items-end relative">
       <button
         onClick={() => setOpen(!open)}
         className="inline-flex items-center p-2 text-sm font-medium text-center text-gray-900 bg-white rounded-full hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50"
@@ -45,7 +45,7 @@ const Dropdown = ({ diary }: { diary: DiaryType }) => {
       </button>
 
       <div
-        className={`z-10 bg-white divide-y divide-gray-100 mt-2 rounded-xl shadow w-44 ${
+        className={`z-10 bg-white absolute top-9 mt-2 rounded-xl shadow w-44 ${
           open ? "" : "hidden"
         }`}
       >
@@ -57,7 +57,6 @@ const Dropdown = ({ diary }: { diary: DiaryType }) => {
               </button>
             </Link>
           </li>
-          <hr className="mx-2" />
           <li>
             <button
               onClick={handleDelete}
