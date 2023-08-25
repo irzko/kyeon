@@ -1,18 +1,39 @@
 "use client";
-import PostType from "@/types";
+import DiaryType from "@/types";
+import Link from "next/link";
 import { useState } from "react";
 
-const Dropdown = ({ post }: { post: PostType }) => {
+const Dropdown = ({ diary }: { diary: DiaryType }) => {
   const [open, setOpen] = useState(false);
 
   const handleDelete = () => {
     fetch("/api/diary", {
-      method: "DELETE",
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        post: post,
+        diary: diary,
+      }),
+    })
+      .then(async (res) => {
+        if (res.status === 200) {
+          window.location.reload();
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const handleEdit = () => {
+    fetch("/api/diary", {
+      method: "UPDATE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        diary: diary,
       }),
     })
       .then(async (res) => {
@@ -55,6 +76,13 @@ const Dropdown = ({ post }: { post: PostType }) => {
             >
               Xoá
             </button>
+          </li>
+          <li>
+            <Link href={`/diary/edit/${diary.id}`}>
+              <button className="block px-4 text-left w-full py-2 hover:bg-gray-100">
+                Sửa
+              </button>
+            </Link>
           </li>
         </ul>
       </div>

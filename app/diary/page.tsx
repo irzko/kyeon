@@ -1,23 +1,22 @@
 "use client";
 import Dropdown from "@/components/Dropdown";
 import LoadingScreen from "@/components/loading-screen";
-import PostType from "@/types";
+import DiaryType from "@/types";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const Post = ({ post }: { post: PostType }) => {
-  const date = new Date(post.date).toLocaleString();
+const Diary = ({ diary }: { diary: DiaryType }) => {
   return (
     <li className="mb-6 ml-4">
       <div className="absolute w-3 h-3 bg-[#7F669D] rounded-full mt-4 -left-1.5 border border-white"></div>
       <div className="relative px-2 py-2 bg-white rounded-3xl">
-        <Dropdown post={post} />
+        <Dropdown diary={diary} />
         <time className="mb-1 text-sm leading-none font-bold text-[#7F669D] bg-[#F8E8EE] rounded-full px-2 py-1">
-          {date}
+          {new Date(diary.datetime).toLocaleString()}
         </time>
-        <h3 className="text-lg font-semibold text-gray-900">{post.content}</h3>
+        <h3 className="text-lg font-semibold text-gray-900">{diary.content}</h3>
         <p className="mb-4 text-base font-normal text-gray-500 text-right">
-          - {post.author} -
+          - {diary.author} -
         </p>
       </div>
     </li>
@@ -25,24 +24,24 @@ const Post = ({ post }: { post: PostType }) => {
 };
 
 const Page = () => {
-  const [posts, setPosts] = useState<PostType[]>([]);
+  const [diaries, setDiaries] = useState<DiaryType[]>([]);
 
   useEffect(() => {
     fetch("/api/diary")
       .then(async (res) => res.json())
-      .then((data: PostType[]) => {
-        data.sort((postA: PostType, postB: PostType) => {
-          const dateA = new Date(postA.date);
-          const dateB = new Date(postB.date);
+      .then((data: DiaryType[]) => {
+        data.sort((postA: DiaryType, postB: DiaryType) => {
+          const dateA = new Date(postA.datetime);
+          const dateB = new Date(postB.datetime);
           return dateB.getTime() - dateA.getTime();
         });
-        setPosts(data);
+        setDiaries(data);
       });
   }, []);
 
   return (
     <div>
-      {posts && <LoadingScreen />}
+      {/* {diaries && <LoadingScreen />} */}
       <main className="p-4">
         <div className="fixed z-50 w-auto bg-white shadow-xl bottom-4 right-4 rounded-full">
           <Link
@@ -75,7 +74,8 @@ const Page = () => {
         </div>
 
         <ol className="relative border-l border-[#7F669D]">
-          {posts && posts.map((post) => <Post key={post.postId} post={post} />)}
+          {diaries &&
+            diaries.map((diary) => <Diary key={diary.id} diary={diary} />)}
         </ol>
       </main>
     </div>

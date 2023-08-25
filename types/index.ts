@@ -1,8 +1,8 @@
-interface PostType {
-  postId: string;
-  date: string;
+interface DiaryType {
+  id: string;
+  datetime: string;
   content: string;
   author: string;
 }
 
-export default PostType;
+export default DiaryType;
