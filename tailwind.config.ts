@@ -47,12 +47,12 @@ const config: Config = {
         glow: {
           from: {
             filter:
-              "drop-shadow(0 0 5px #fff) drop-shadow(0 0 15px #E48586) drop-shadow(0 0 20px #E48586)",
+              "drop-shadow(0 0 5px #fff) drop-shadow(0 0 15px #fff) drop-shadow(0 0 20px #fff)",
           },
 
           to: {
             filter:
-              "drop-shadow(0 0 20px #fff) drop-shadow(0 0 25px #E48586) drop-shadow(0 0 40px #E48586)",
+              "drop-shadow(0 0 20px #fff) drop-shadow(0 0 25px #fff) drop-shadow(0 0 40px #fff)",
           },
         },
       },
