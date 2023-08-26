@@ -30,22 +30,21 @@ const Dropdown = ({ diary }: { diary: DiaryType }) => {
     <div className="flex flex-col items-end relative">
       <button
         onClick={() => setOpen(!open)}
-        className="inline-flex items-center p-2 text-sm font-medium text-center text-gray-900 bg-white rounded-full hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50"
+        className="inline-flex items-center p-2 text-sm font-medium text-center text-[#1D192B] bg-[#E8DEF8] hover:bg-[#1d192b]/[.08] focus:bg-[#1d192b]/[.12] rounded-full focus:outline-none"
         type="button"
       >
         <svg
-          className="w-5 h-5"
-          aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
-          fill="currentColor"
-          viewBox="0 0 16 3"
+          height="24"
+          viewBox="0 -960 960 960"
+          width="24"
         >
-          <path d="M2 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm6.041 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM14 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z" />
+          <path d="M240-400q-33 0-56.5-23.5T160-480q0-33 23.5-56.5T240-560q33 0 56.5 23.5T320-480q0 33-23.5 56.5T240-400Zm240 0q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm240 0q-33 0-56.5-23.5T640-480q0-33 23.5-56.5T720-560q33 0 56.5 23.5T800-480q0 33-23.5 56.5T720-400Z" />
         </svg>
       </button>
 
       <div
-        className={`z-10 bg-white absolute top-9 mt-2 rounded-xl shadow w-44 ${
+        className={`z-10 bg-white absolute top-9 mt-2 rounded-xl w-44 shadow ${
           open ? "" : "hidden"
         }`}
       >
