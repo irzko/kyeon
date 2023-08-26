@@ -5,12 +5,12 @@ import LoadingDots from "./loading-dots";
 import { useRouter } from "next/navigation";
 import localFont from "next/font/local";
 
-const rubraCosta = localFont({
+const bohemeFloral = localFont({
   src: "./fonts/DFVN Boheme Floral.otf",
 });
 
 const chloeBold = localFont({
-  src: "./fonts/DFVN Chloe Bold.otf",
+  src: "./fonts/KagePro-Normal.otf",
 });
 
 const CountDays = () => {
@@ -49,16 +49,16 @@ const CountDays = () => {
             <Heart />
             <div className="z-10 absolute mb-10 flex flex-col items-center">
               <h2
-                className={`text-[#A084E8] font-medium flex items-center text-5xl z-10 ${rubraCosta.className}`}
+                className={`font-medium flex items-center text[#9A3B3B] text-5xl z-10  ${bohemeFloral.className}`}
               >
                 Nguyệt
-                <p className="text-[#8BE8E5] mx-2">x</p> Kha
+                <p className="mx-2">x</p> Kha
               </h2>
 
               <div
-                className={`flex items-end text-4xl font-bold text-[#A084E8] ${chloeBold.className}`}
+                className={`flex items-end text-5xl font-bold text-[#FCBAAD] uppercase ${chloeBold.className}`}
               >
-                <span className="text-[#8BE8E5] text-7xl">{days}</span> Days
+                <span className="text-7xl">{days}</span> Days
               </div>
             </div>
           </div>
