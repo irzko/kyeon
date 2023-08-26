@@ -56,7 +56,7 @@ const CountDays = () => {
               </h2>
 
               <div className={`text-6xl font-bold text-[#A084E8] ${rubraCosta.className}`}>
-                <span className="text-[#8BE8E5]">{days}</span> Ngày
+                <span className="text-[#8BE8E5]">{days}</span> Days
               </div>
             </div>
           </div>
