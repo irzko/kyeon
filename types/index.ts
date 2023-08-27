@@ -1,9 +1,9 @@
 interface DiaryType {
   id: string;
-  datetime: string;
+  date: string;
   content: string;
   author: string;
-  felling: string;
+  felling?: string;
 }
 
 export default DiaryType;

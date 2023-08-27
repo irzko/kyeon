@@ -13,8 +13,8 @@ export default function Page() {
       .then(async (res) => res.json())
       .then((data: DiaryType[]) => {
         data.sort((postA: DiaryType, postB: DiaryType) => {
-          const dateA = new Date(postA.datetime);
-          const dateB = new Date(postB.datetime);
+          const dateA = new Date(postA.date);
+          const dateB = new Date(postB.date);
           return dateB.getTime() - dateA.getTime();
         });
         setDiaries(data);

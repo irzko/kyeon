@@ -5,11 +5,11 @@ import { findAll, findById, update } from "@/libs/query";
 
 export async function POST(req: Request) {
   const id = uuidv4();
-  const { datetime, content, felling, author } = await req.json();
-  await kv.lpush("diaries", { id, datetime, content, felling, author });
-  console.log({ id, datetime, content, author, felling });
+  const { date, content, felling, author } = await req.json();
+  await kv.lpush("diaries", { id, date, content, felling, author });
+  console.log({ id, date, content, author, felling });
 
-  return NextResponse.json({ id, datetime, content, author, felling });
+  return NextResponse.json({ id, date, content, author, felling });
 }
 
 export async function GET(req: NextRequest) {

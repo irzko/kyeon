@@ -15,10 +15,9 @@ const Page = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        datetime: e.currentTarget.datetime.value,
+        date: e.currentTarget.date.value,
         content: e.currentTarget.content.value,
         author: e.currentTarget.author.value,
-        felling: e.currentTarget.felling.value,
       }),
     }).then(async (res) => {
       setLoading(false);

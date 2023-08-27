@@ -28,9 +28,8 @@ const Page = ({ params }: { params: { slug: string } }) => {
       },
       body: JSON.stringify({
         id: diary?.id,
-        datetime: e.currentTarget.datetime.value,
+        date: e.currentTarget.date.value,
         content: e.currentTarget.content.value,
-        felling: e.currentTarget.felling.value,
         author: e.currentTarget.author.value,
       }),
     }).then(async (res) => {
