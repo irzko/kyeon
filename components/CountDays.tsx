@@ -56,9 +56,10 @@ const CountDays = () => {
               </h2>
 
               <div
-                className={`flex items-end text-5xl font-bold text-[#FCBAAD] uppercase ${chloeBold.className}`}
+                className={`flex items-end font-bold text-[#FCBAAD] uppercase box-border ${chloeBold.className}`}
               >
-                <span className="text-7xl">{days}</span> Days
+                <span className="text-7xl">{days}</span>
+                <span className="text-5xl">Days</span>
               </div>
             </div>
           </div>
