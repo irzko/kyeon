@@ -7,7 +7,7 @@ const Diary = ({ diary }: { diary: DiaryType }) => {
       <div className="absolute w-3 h-3 bg-[#6750A4] rounded-full mt-4 -left-1.5 border border-white"></div>
       <div className="relative px-2 py-2 bg-[#F7F2FA] rounded-2xl">
         <div className="flex justify-between">
-            <time className="text-sm leading-none h-full font-bold text-[#1D192B] bg-[#E8DEF8] rounded-full px-2 flex items-center">
+            <time className="text-sm leading-none h-full py-2 font-bold text-[#1D192B] bg-[#E8DEF8] rounded-full px-2 flex items-center">
               {new Date(diary.date).toLocaleString()}
             </time>
           {/* <Dropdown diary={diary} /> */}
