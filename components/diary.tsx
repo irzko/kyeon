@@ -24,7 +24,7 @@ const Diary = ({ diary }: { diary: DiaryType }) => {
               {diary.felling}
             </p>
           </div>
-          <Dropdown diary={diary} />
+          {/* <Dropdown diary={diary} /> */}
         </div>
         <div className="p-4">
           <h3 className="text-lg font-semibold text-gray-900">
