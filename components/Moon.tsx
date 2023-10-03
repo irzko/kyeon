@@ -4,7 +4,7 @@ import "./moon.css";
 export default function Moon() {
   return (
     <>
-      <svg xmlns="http://www.w3.org/2000/svg" className="glow" width={280} height={280} viewBox="0 0 172 172">
+      <svg xmlns="http://www.w3.org/2000/svg" className="glow" width={250} height={250} viewBox="0 0 172 172">
         <g id="Layer_2" data-name="Layer 2">
           <g id="Artboard_1" data-name="Artboard 1">
             <circle

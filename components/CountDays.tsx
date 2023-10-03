@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import Heart from "./Heart";
+// import Heart from "./Heart";
 import Moon from "./Moon";
 import LoadingDots from "./loading-dots";
 import { useRouter } from "next/navigation";
@@ -58,10 +58,9 @@ const CountDays = () => {
               </h2>
 
               <div
-                className={`flex items-end font-bold text-[#FCBAAD] uppercase box-border ${chloeBold.className}`}
+                className={`flex items-end font-bold text-[#FCBAAD] box-border ${chloeBold.className}`}
               >
-                <span className="text-7xl">{days}</span>
-                <span className="text-5xl">Days</span>
+                <span className="text-7xl">{days}days</span>
               </div>
             </div>
           </div>
