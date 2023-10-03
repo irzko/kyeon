@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Heart from "./Heart";
+import Moon from "./Moon";
 import LoadingDots from "./loading-dots";
 import { useRouter } from "next/navigation";
 import localFont from "next/font/local";
@@ -46,8 +47,9 @@ const CountDays = () => {
             className="flex flex-col justify-center items-center"
             onClick={handleClick}
           >
-            <Heart />
-            <div className="z-10 absolute mb-10 flex flex-col items-center">
+            {/* <Heart /> */}
+            <Moon />
+            <div className="z-10 absolute flex flex-col items-center">
               <h2
                 className={`font-medium flex items-center text[#9A3B3B] text-5xl z-10  ${bohemeFloral.className}`}
               >

@@ -13,3 +13,8 @@
   -webkit-user-select: none;
   user-select: none;
 }
+
+.glow {
+  filter: drop-shadow(0 0 5px #fff) drop-shadow(0 0 15px #fff)
+    drop-shadow(0 0 20px #fff);
+}
