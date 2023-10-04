@@ -1,34 +1,27 @@
-import { kv } from "@vercel/kv";
 import { NextRequest, NextResponse } from "next/server";
-import { v4 as uuidv4 } from "uuid";
-import { findAll, findById, update } from "@/libs/query";
+import prisma from "@/libs/prisma";
 
 export async function POST(req: Request) {
-  const id = uuidv4();
-  const { date, content, felling, author } = await req.json();
-  await kv.lpush("diaries", { id, date, content, felling, author });
-  console.log({ id, date, content, author, felling });
-
-  return NextResponse.json({ id, date, content, author, felling });
+  const diary = await req.json();
+  await prisma.diary.create({ data: diary });
+  return NextResponse.json({ diary }, { status: 201 });
 }
 
 export async function GET(req: NextRequest) {
-  const id = req.nextUrl.searchParams.get("id");
-  if (id) {
-    return NextResponse.json(await findById(id));
-  } else {
-    return NextResponse.json(await findAll());
-  }
+  const diaries = await prisma.diary.findMany({ orderBy: { date: "desc" } });
+  return NextResponse.json(diaries, { status: 200 });
 }
 
 export async function DELETE(req: Request) {
-  const { diary } = await req.json();
-  await kv.lrem("diaries", 0, diary);
-  return NextResponse.json({ diary });
+  const { id } = await req.json();
+  console.log(id);
+
+  await prisma.diary.delete({ where: { id } });
+  return NextResponse.json({ id }, { status: 200 });
 }
 
 export async function PUT(req: Request) {
   const diary = await req.json();
-  await update(diary);
-  return NextResponse.json({ diary });
+  await prisma.diary.update({ where: { id: diary.id }, data: diary });
+  return NextResponse.json({ diary }, { status: 200 });
 }
