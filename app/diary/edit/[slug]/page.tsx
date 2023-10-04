@@ -75,7 +75,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
         </div>
       </nav>
       {diary ? (
-        <Form diary={diary} onSubmit={handleSubmit} loading={loading} />
+        <Form diary={diary} onSubmit={handleSubmit} />
       ) : (
         <LoadingScreen />
       )}
