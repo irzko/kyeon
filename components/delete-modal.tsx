@@ -63,7 +63,7 @@ export default function DeleteModal({
           <h3 className="text-lg text-center font-semibold text-gray-900 dark:text-white">
             Xác nhận xoá nhật ký
           </h3>
-          <p className="mb-4 text-center text-gray-500 dark:text-gray-300">
+          <p className="my-4 text-center text-gray-500 dark:text-gray-300">
             Bạn có chắc chắn muốn xóa nhật ký này?
           </p>
           <div className="flex justify-center items-center space-x-4">
