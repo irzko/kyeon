@@ -3,9 +3,10 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import Form from "@/components/form";
 import LoadingScreen from "@/components/loading-screen";
-import useSWR, { Fetcher, mutate } from "swr";
+import { Fetcher, mutate } from "swr";
 import Link from "next/link";
 import Button from "@/components/button";
+import useSWRImmutable from "swr/immutable";
 
 const fetcher: Fetcher<IDiary, string> = (url) =>
   fetch(url).then((res) => res.json());
@@ -13,11 +14,7 @@ const fetcher: Fetcher<IDiary, string> = (url) =>
 const Page = ({ params }: { params: { slug: string } }) => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-  const { data: diary } = useSWR(`/api/diary/${params.slug}`, fetcher, {
-    revalidateIfStale: false,
-    revalidateOnFocus: false,
-    revalidateOnReconnect: false,
-  });
+  const { data: diary } = useSWRImmutable(`/api/diary/${params.slug}`, fetcher);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -36,8 +33,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
     }).then(async (res) => {
       setLoading(false);
       if (res.status === 200) {
-        mutate("/api/diary");
-        router.back();
+        router.push("/diary");
       }
     });
   };

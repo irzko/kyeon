@@ -20,7 +20,7 @@ export default function ActionModal({
       <div
         tabIndex={-1}
         aria-hidden="true"
-        className={`overflow-y-auto bg-gray-900/80 overflow-x-hidden fixed left-0 z-50 justify-center items-end md:items-center inset-0 ${
+        className={`overflow-y-auto bg-gray-900/80 overflow-x-hidden fixed z-50 justify-center items-end md:items-center inset-0 ${
           showModal ? "flex" : "hidden"
         }`}
       >

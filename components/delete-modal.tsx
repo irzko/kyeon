@@ -23,7 +23,7 @@ export default function DeleteModal({
     })
       .then(async (res) => {
         mutate("/api/diary");
-+       setShowModal(false);
+        setShowModal(false);
       })
       .catch((err) => {
         console.log(err);
@@ -34,11 +34,11 @@ export default function DeleteModal({
     <div
       tabIndex={-1}
       aria-hidden="true"
-      className={`overflow-y-auto bg-gray-900/80 overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal h-full ${
+      className={`overflow-y-auto bg-gray-900/80 overflow-x-hidden fixed z-50 justify-center items-center inset-0 ${
         showModal ? "flex" : "hidden"
       }`}
     >
-      <div className="relative p-4 w-full max-w-md h-full md:h-auto">
+      <div className="relative p-2 w-full max-w-md">
         <div className="relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
           <button
             type="button"

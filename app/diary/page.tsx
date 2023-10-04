@@ -2,16 +2,15 @@
 import DiaryCard from "@/components/diary-card";
 import LoadingScreen from "@/components/loading-screen";
 import Link from "next/link";
-import useSWR, { Fetcher } from "swr";
+import { Fetcher } from "swr";
+import useSWRImmutable from "swr/immutable";
 
 const fetcher: Fetcher<IDiary[], string> = (url) =>
   fetch(url).then((res) => res.json());
 
 export default function Page() {
-  const { data: diaries } = useSWR(`/api/diary`, fetcher, {
-    revalidateIfStale: false,
-    revalidateOnFocus: false,
-    revalidateOnReconnect: false,
+  const { data: diaries } = useSWRImmutable(`/api/diary`, fetcher, {
+    revalidateOnMount: true,
   });
   return (
     <div>
