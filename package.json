@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@prisma/client": "latest",
-    "next": "^13.5.4",
+    "next": "latest",
     "react": "latest",
     "react-dom": "latest",
     "swr": "^2.2.4"
