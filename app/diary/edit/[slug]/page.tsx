@@ -1,21 +1,22 @@
 "use client";
 import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Form from "@/components/form";
-import DiaryType from "@/types";
 import LoadingScreen from "@/components/loading-screen";
+import useSWR, { Fetcher, mutate } from "swr";
+import Link from "next/link";
+import Button from "@/components/button";
+
+const fetcher: Fetcher<IDiary, string> = (url) =>
+  fetch(url).then((res) => res.json());
 
 const Page = ({ params }: { params: { slug: string } }) => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-  const [diary, setDiary] = useState<DiaryType>();
-
-  useEffect(() => {
-    fetch(`/api/diary?id=${params.slug}`)
-      .then(async (res) => res.json())
-      .then((data: DiaryType) => {
-        setDiary(data);
-      });
+  const { data: diary } = useSWR(`/api/diary/${params.slug}`, fetcher, {
+    revalidateIfStale: false,
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false,
   });
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -28,13 +29,14 @@ const Page = ({ params }: { params: { slug: string } }) => {
       },
       body: JSON.stringify({
         id: diary?.id,
-        date: e.currentTarget.date.value,
+        date: new Date(e.currentTarget.date.value).toISOString(),
         content: e.currentTarget.content.value,
         author: e.currentTarget.author.value,
       }),
     }).then(async (res) => {
       setLoading(false);
       if (res.status === 200) {
+        mutate("/api/diary");
         router.back();
       }
     });
@@ -42,23 +44,34 @@ const Page = ({ params }: { params: { slug: string } }) => {
 
   return (
     <>
-      <nav className="border-gray-200 bg-[#F3EDF7] grid grid-cols-3">
-        <div className="flex ml-4 items-center">
-          <button onClick={() => router.back()}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="24"
-              viewBox="0 -960 960 960"
-              width="24"
-            >
-              <path d="m142-480 294 294q15 15 14.5 35T435-116q-15 15-35 15t-35-15L57-423q-12-12-18-27t-6-30q0-15 6-30t18-27l308-308q15-15 35.5-14.5T436-844q15 15 15 35t-15 35L142-480Z" />
-            </svg>
-          </button>
-        </div>
-        <div className="px-3 py-3 lg:px-5 flex justify-center">
-          <span className="font-medium text-[#1D1B20] whitespace-nowrap leading-7">
-            Chỉnh sửa nhật ký
-          </span>
+      <nav className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
+        <div className="flex flex-wrap justify-between items-center p-2">
+          <div className="flex items-center">
+            <Link href="/diary">
+              <svg
+                className="w-4 h-4 text-gray-800 dark:text-white mr-2"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 8 14"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M7 1 1.3 6.326a.91.91 0 0 0 0 1.348L7 13"
+                />
+              </svg>
+            </Link>
+
+            <span className="font-medium dark:text-white whitespace-nowrap">
+              Chỉnh sửa nhật ký
+            </span>
+          </div>
+          <Button form="diary-form" disabled={loading}>
+            Lưu
+          </Button>
         </div>
       </nav>
       {diary ? (
