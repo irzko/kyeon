@@ -2,9 +2,9 @@ import DiaryContainer from "@/components/diary-container";
 import Link from "next/link";
 
 const getData = async () => {
-  return await fetch(`${process.env.BASE_URL}/api/diary`, {
-    cache: "no-store",
-  }).then((res) => res.json());
+  return await fetch(`${process.env.BASE_URL}/api/diary`).then((res) =>
+    res.json()
+  );
 };
 
 export default async function Page() {
