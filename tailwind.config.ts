@@ -54,19 +54,19 @@ const config: Config = {
         },
         astrogirl: {
           from: {
-            transform: "translateX(100px) translateY(-100px) rotate(-20deg)",
+            transform: "translateX(100px) translateY(-100px) rotate(-20deg) scale(1.25)",
           },
           to: {
-            transform: "translateX(0px) translateY(0px) rotate(0deg)",
+            transform: "translateX(0px) translateY(0px) rotate(0deg) scale(1)",
           },
         }
         ,
         astroboy: {
           from: {
-            transform: "translateX(-100px) translateY(100px) rotate(20deg)",
+            transform: "translateX(-100px) translateY(100px) rotate(20deg) scale(.5)",
           },
           to: {
-            transform: "translateX(0px) translateY(0px) rotate(0deg)",
+            transform: "translateX(0px) translateY(0px) rotate(0deg) scale(1)",
           },
         }
         ,
