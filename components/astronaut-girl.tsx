@@ -9,7 +9,7 @@ const AstronautGirl = () => (
     <defs>
       <style>
         {
-          ".cls-1{fill:#fff}.cls-2{fill:#030712}.cls-3{opacity:.25}.cls-5{fill:#22a7f0}.cls-6{fill:#1c7aea}.cls-9{opacity:.5}"
+          ".cls-1{fill:#fff}.cls-2{fill:#374151}.cls-3{opacity:.25}.cls-5{fill:#22a7f0}.cls-6{fill:#1c7aea}.cls-9{opacity:.5}"
         }
       </style>
     </defs>
