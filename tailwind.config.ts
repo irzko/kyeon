@@ -28,7 +28,6 @@ const config: Config = {
         glow: "glow 1.5s ease-in-out infinite alternate",
         astrogirl: "astrogirl 4s ease-in-out",
         astroboy: "astroboy 4s ease-in-out",
-
       },
       keyframes: {
         zoomout: {
@@ -55,21 +54,24 @@ const config: Config = {
         astrogirl: {
           from: {
             transform: "translateX(100px) translateY(-100px) rotate(-20deg)",
+            opacity: "0.75",
           },
           to: {
             transform: "translateX(0px) translateY(0px) rotate(0deg)",
+            opacity: "1",
           },
-        }
-        ,
+        },
         astroboy: {
           from: {
-            transform: "translateX(-100px) translateY(100px) rotate(20deg) scale(.5)",
+            transform:
+              "translateX(-100px) translateY(100px) rotate(20deg) scale(.5)",
+            opacity: "0.75",
           },
           to: {
             transform: "translateX(0px) translateY(0px) rotate(0deg) scale(1)",
+            opacity: "1",
           },
-        }
-        ,
+        },
         textdelay: {
           "0%": {
             opacity: "0",
