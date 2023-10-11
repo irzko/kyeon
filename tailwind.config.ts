@@ -23,28 +23,19 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       animation: {
-        heartbeat: "heartbeat 1s infinite",
+        zoomOut: "zoomout 2s ease-in-out",
+        textdelay: "textdelay 3s",
         glow: "glow 1.5s ease-in-out infinite alternate",
       },
       keyframes: {
-        heartbeat: {
+        zoomout: {
           "0%": {
-            transform: "scale(.75)",
-          },
-          "20%": {
-            transform: "scale( 1 )",
-          },
-          "40%": {
-            transform: "scale( .75 )",
-          },
-          "60%": {
-            transform: "scale( 1 )",
-          },
-          "80%": {
-            transform: "scale( .75 )",
+            transform: "scale( .5 )",
+            opacity: "0.5",
           },
           "100%": {
-            transform: "scale( .75 )",
+            transform: "scale( 1 )",
+            opacity: "1",
           },
         },
         glow: {
@@ -56,6 +47,21 @@ const config: Config = {
           to: {
             filter:
               "drop-shadow(0 0 20px #fff) drop-shadow(0 0 25px #fff) drop-shadow(0 0 40px #fff)",
+          },
+        },
+        textdelay: {
+          "0%": {
+            opacity: "0",
+          },
+          "50%": {
+            opacity: "0",
+          },
+          "80%": {
+            opacity: "0.75",
+          },
+
+          "100%": {
+            opacity: "1",
           },
         },
       },

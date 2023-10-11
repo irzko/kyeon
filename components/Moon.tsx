@@ -1,7 +1,6 @@
 export default function Moon() {
-
   return (
-    <>
+    <div className="animate-zoomOut">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="glow"
@@ -157,6 +156,6 @@ export default function Moon() {
           </g>
         </g>
       </svg>
-    </>
+    </div>
   );
 }
