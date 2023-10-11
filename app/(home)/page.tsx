@@ -11,7 +11,7 @@ const getTime = () => {
 export default function Page() {
   return (
     <>
-      <div className="flex place-items-center min-h-screen m-0 justify-center items-center flex-col">
+      <div className="flex overflow-hidden place-items-center min-h-screen m-0 justify-center items-center flex-col">
         <Background />
         <CountDays day={getTime()} />
       </div>
