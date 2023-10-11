@@ -42,7 +42,7 @@ const CountDays = ({ day }: { day: number }) => {
           className="flex flex-col justify-center items-center"
         >
           <Moon />
-          <div className="z-10 absolute flex flex-col animate-textdelay items-center">
+          <div className="z-10 absolute pointer-events-none flex flex-col animate-textdelay items-center">
             <h2
               className={`font-medium flex items-center text[#9A3B3B] text-5xl z-10 ${bohemeFloral.className}`}
             >
