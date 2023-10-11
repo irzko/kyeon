@@ -1,5 +1,4 @@
 import React from "react";
-import "./moon.css";
 
 export default function Moon() {
   return (
