@@ -1,17 +1,14 @@
-"use client";
-import DiaryCard from "@/components/diary-card";
-import LoadingScreen from "@/components/loading-screen";
+import DiaryContainer from "@/components/diary-container";
 import Link from "next/link";
-import { Fetcher } from "swr";
-import useSWRImmutable from "swr/immutable";
 
-const fetcher: Fetcher<IDiary[], string> = (url) =>
-  fetch(url).then((res) => res.json());
+const getData = async () => {
+  return await fetch(`${process.env.BASE_URL}/api/diary`, {
+    cache: "no-store",
+  }).then((res) => res.json());
+};
 
-export default function Page() {
-  const { data: diaries } = useSWRImmutable(`/api/diary`, fetcher, {
-    revalidateOnMount: true,
-  });
+export default async function Page() {
+  const diaries = await getData();
   return (
     <div>
       <nav className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
@@ -22,7 +19,7 @@ export default function Page() {
           >
             Nhật ký
           </Link>
-          <Link href="/diary/create" scroll={false}>
+          <Link href="/diary/create">
             <button
               type="button"
               className="relative text-gray-900 w-8 h-8 flex justify-center bg-white border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 font-medium rounded-full text-sm text-center items-center dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600 dark:hover:border-gray-600"
@@ -48,15 +45,7 @@ export default function Page() {
         </div>
       </nav>
       <main className="max-w-screen-md mx-auto p-4">
-        {diaries ? (
-          <ol className="relative mt-20 border-l border-gray-200 dark:border-gray-700">
-            {diaries?.map((diary) => (
-              <DiaryCard key={diary.id} diary={diary} />
-            ))}
-          </ol>
-        ) : (
-          <LoadingScreen />
-        )}
+        <DiaryContainer data={diaries} />
       </main>
     </div>
   );

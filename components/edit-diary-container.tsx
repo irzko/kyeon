@@ -1,20 +1,15 @@
 "use client";
+
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import Form from "@/components/form";
 import LoadingScreen from "@/components/loading-screen";
-import { Fetcher, mutate } from "swr";
 import Link from "next/link";
 import Button from "@/components/button";
-import useSWRImmutable from "swr/immutable";
 
-const fetcher: Fetcher<IDiary, string> = (url) =>
-  fetch(url).then((res) => res.json());
-
-const Page = ({ params }: { params: { slug: string } }) => {
+export default function EditDiaryContainer({ diary}: { diary: IDiary }) {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-  const { data: diary } = useSWRImmutable(`/api/diary/${params.slug}`, fetcher);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -25,7 +20,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        id: diary?.id,
+        id: diary.id,
         date: new Date(e.currentTarget.date.value).toISOString(),
         content: e.currentTarget.content.value,
         author: e.currentTarget.author.value,
@@ -37,13 +32,15 @@ const Page = ({ params }: { params: { slug: string } }) => {
       }
     });
   };
-
   return (
     <>
       <nav className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
         <div className="flex flex-wrap justify-between items-center p-2">
           <div className="flex items-center">
-            <Link href="/diary" className="inline-flex items-center p-2 mr-2 text-sm font-medium text-center text-gray-900 bg-white rounded-full hover:bg-gray-100 focus:ring-4 focus:outline-none dark:text-white focus:ring-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+            <Link
+              href="/diary"
+              className="inline-flex items-center p-2 mr-2 text-sm font-medium text-center text-gray-900 bg-white rounded-full hover:bg-gray-100 focus:ring-4 focus:outline-none dark:text-white focus:ring-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            >
               <svg
                 className="w-4 h-4 text-gray-800 dark:text-white"
                 aria-hidden="true"
@@ -77,6 +74,4 @@ const Page = ({ params }: { params: { slug: string } }) => {
       )}
     </>
   );
-};
-
-export default Page;
+}

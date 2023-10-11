@@ -2,7 +2,6 @@
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import Form from "@/components/form";
-import { mutate } from "swr";
 import Link from "next/link";
 import Button from "@/components/button";
 
@@ -24,7 +23,6 @@ const Page = () => {
       }),
     }).then(async (res) => {
       setLoading(false);
-      mutate("/api/diary");
       router.push("/diary");
     });
   };

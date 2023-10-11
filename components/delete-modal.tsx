@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useContext } from "react";
 import Button from "./button";
-import { mutate } from "swr";
+import DiaryContext from "@/context/DiaryContext";
 
 export default function DeleteModal({
   showModal,
@@ -11,6 +11,7 @@ export default function DeleteModal({
   setShowModal: Dispatch<SetStateAction<boolean>>;
   diary: IDiary;
 }) {
+  const { mutate } = useContext(DiaryContext);
   const handleDelete = () => {
     fetch("/api/diary", {
       method: "DELETE",
@@ -22,7 +23,7 @@ export default function DeleteModal({
       }),
     })
       .then(async (res) => {
-        mutate("/api/diary");
+        mutate();
         setShowModal(false);
       })
       .catch((err) => {
