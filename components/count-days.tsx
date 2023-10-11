@@ -3,6 +3,8 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Moon from "./Moon";
 import localFont from "next/font/local";
+import AstronautBoy from "./astronaut-boy";
+import AstronautGirl from "./astronaut-girl";
 
 const bohemeFloral = localFont({
   src: "./fonts/DFVN Boheme Floral.otf",
@@ -26,7 +28,15 @@ const CountDays = ({ day }: { day: number }) => {
   };
   return (
     <>
-      <div>
+      <div className="flex justify-center">
+          <div className="relative ">
+            <div className="absolute -top-[185px] left-[100px] animate-astrogirl">
+              <AstronautGirl />
+            </div>
+            <div className="absolute -top-[120px] left-[20px] animate-astroboy">
+              <AstronautBoy />
+            </div>
+          </div>
         <button
           onClick={handleClick}
           className="flex flex-col justify-center items-center"
