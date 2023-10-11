@@ -11,9 +11,7 @@ export async function generateStaticParams() {
 }
 
 const getData = async (id: string) => {
-  const res = await fetch(`${process.env.BASE_URL}/api/diary/${id}`, {
-    cache: "no-store",
-  });
+  const res = await fetch(`${process.env.BASE_URL}/api/diary/${id}`);
   const data = await res.json();
   return data;
 };

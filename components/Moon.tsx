@@ -1,9 +1,14 @@
-import React from "react";
-
 export default function Moon() {
+
   return (
     <>
-      <svg xmlns="http://www.w3.org/2000/svg" className="glow" width={250} height={250} viewBox="0 0 172 172">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="glow"
+        width={250}
+        height={250}
+        viewBox="0 0 172 172"
+      >
         <g id="Layer_2" data-name="Layer 2">
           <g id="Artboard_1" data-name="Artboard 1">
             <circle
@@ -13,7 +18,12 @@ export default function Moon() {
               transform="rotate(-45 86.001 85.997)"
               fill="#fff"
             />
-            <circle className="fill-[#ebebeb]" cx={90.52} cy={132.71} r={15.89} />
+            <circle
+              className="fill-[#ebebeb]"
+              cx={90.52}
+              cy={132.71}
+              r={15.89}
+            />
             <path
               className="fill-[#dfdfdf]"
               d="M75.84 134.19a15.88 15.88 0 0127.54-10.8 15.88 15.88 0 10-24.5 20.11 15.81 15.81 0 01-3.04-9.31z"
@@ -29,7 +39,12 @@ export default function Moon() {
               className="fill-[#dfdfdf]"
               d="M15.42 72.72a21.9 21.9 0 0138-14.88 21.9 21.9 0 10-33.81 27.73 21.8 21.8 0 01-4.19-12.85z"
             />
-            <circle className="fill-[#ebebeb]" cx={130.78} cy={40.22} r={9.32} />
+            <circle
+              className="fill-[#ebebeb]"
+              cx={130.78}
+              cy={40.22}
+              r={9.32}
+            />
             <path
               className="fill-[#dfdfdf]"
               d="M122.17 41.08a9.31 9.31 0 0116.15-6.33A9.31 9.31 0 10124 46.55a9.25 9.25 0 01-1.83-5.47z"
@@ -93,7 +108,12 @@ export default function Moon() {
               className="fill-[#dfdfdf]"
               d="M127.38 53.64a2.71 2.71 0 014.7-1.84 2.71 2.71 0 10-4.18 3.43 2.75 2.75 0 01-.52-1.59z"
             />
-            <circle className="fill-[#ebebeb]" cx={156.21} cy={72.78} r={5.42} />
+            <circle
+              className="fill-[#ebebeb]"
+              cx={156.21}
+              cy={72.78}
+              r={5.42}
+            />
             <path
               className="fill-[#dfdfdf]"
               d="M151.2 73.28a5.42 5.42 0 019.39-3.68 5.41 5.41 0 10-8.35 6.86 5.4 5.4 0 01-1.04-3.18z"
@@ -106,12 +126,22 @@ export default function Moon() {
               className="fill-[#dfdfdf]"
               d="M116.45 151.08a5.41 5.41 0 019.39-3.68 5.41 5.41 0 10-8.35 6.85 5.35 5.35 0 01-1.04-3.17z"
             />
-            <circle className="fill-[#ebebeb]" cx={112.71} cy={113.1} r={8.75} />
+            <circle
+              className="fill-[#ebebeb]"
+              cx={112.71}
+              cy={113.1}
+              r={8.75}
+            />
             <path
               className="fill-[#dfdfdf]"
               d="M104.62 113.91a8.74 8.74 0 0115.16-5.91 8.74 8.74 0 10-13.48 11 8.68 8.68 0 01-1.68-5.09z"
             />
-            <circle className="fill-[#ebebeb]" cx={58.75} cy={136.41} r={8.75} />
+            <circle
+              className="fill-[#ebebeb]"
+              cx={58.75}
+              cy={136.41}
+              r={8.75}
+            />
             <path
               className="fill-[#dfdfdf]"
               d="M50.67 137.22a8.74 8.74 0 0115.16-5.94 8.74 8.74 0 10-13.49 11.07 8.67 8.67 0 01-1.67-5.13z"
