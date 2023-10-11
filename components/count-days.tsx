@@ -50,10 +50,10 @@ const CountDays = ({ day }: { day: number }) => {
           </div>
         </button>
         <div className="relative ">
-          <div className="absolute -bottom-[120px] left-[100px] animate-astrogirl">
+          <div className="absolute -bottom-[58px] left-[120px] animate-astrogirl">
             <AstronautGirl />
           </div>
-          <div className="absolute -bottom-[200px] left-[20px] animate-astroboy">
+          <div className="absolute -bottom-[140px] left-[40px] animate-astroboy">
             <AstronautBoy />
           </div>
         </div>
