@@ -8,10 +8,14 @@ const getData = async () => {
 };
 
 export default async function Page() {
-  const diaries = await getData();
+  const data: IDiary[] = await getData();
+  const diaries = data.map((diary) => ({
+    ...diary,
+    date: new Date(diary.date).toLocaleString("vi-VN"),
+  }));
   return (
     <div>
-      <nav className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
+      <nav className="bg-white/80 backdrop-blur-sm dark:bg-gray-900/80 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
         <div className="flex flex-wrap items-center justify-between p-4">
           <Link
             href="/diary"

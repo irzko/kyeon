@@ -7,7 +7,7 @@ const DiaryCard = ({ diary }: { diary: IDiary }) => {
       <div className="flex flex-col bg-white rounded-2xl border border-gray-100 hover:border-white dark:border-gray-800 dark:hover:border-gray-700 hover:shadow-lg dark:hover:shadow-lg-light dark:bg-gray-900">
         <div className="flex justify-between pt-2 px-2">
           <time className="bg-blue-100 flex items-center font-bold text-blue-800 text-sm mr-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
-            {new Date(diary.date).toLocaleString("vi-VN")}
+            {diary.date}
           </time>
           <Dropdown diary={diary} />
         </div>
