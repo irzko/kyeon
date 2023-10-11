@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import Moon from "./moon";
+import Moon from "./Moon";
 import localFont from "next/font/local";
 
 const bohemeFloral = localFont({

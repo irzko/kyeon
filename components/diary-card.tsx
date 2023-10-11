@@ -1,4 +1,4 @@
-import Dropdown from "@/components/dropdown";
+import Dropdown from "@/components/Dropdown";
 
 const DiaryCard = ({ diary }: { diary: IDiary }) => {
   return (
