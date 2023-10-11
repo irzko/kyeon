@@ -54,10 +54,10 @@ const config: Config = {
         },
         astrogirl: {
           from: {
-            transform: "translateX(100px) translateY(-100px) rotate(-20deg) scale(1.25)",
+            transform: "translateX(100px) translateY(-100px) rotate(-20deg)",
           },
           to: {
-            transform: "translateX(0px) translateY(0px) rotate(0deg) scale(1)",
+            transform: "translateX(0px) translateY(0px) rotate(0deg)",
           },
         }
         ,
