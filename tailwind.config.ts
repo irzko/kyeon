@@ -24,10 +24,10 @@ const config: Config = {
       },
       animation: {
         zoomOut: "zoomout 2s ease-in-out",
-        textdelay: "textdelay 3s",
+        textdelay: "textdelay 4s",
         glow: "glow 1.5s ease-in-out infinite alternate",
-        astrogirl: "astrogirl 3s ease-in-out",
-        astroboy: "astroboy 3s ease-in-out",
+        astrogirl: "astrogirl 4s ease-in-out",
+        astroboy: "astroboy 4s ease-in-out",
 
       },
       keyframes: {
@@ -54,19 +54,19 @@ const config: Config = {
         },
         astrogirl: {
           from: {
-            transform: "translateX(100px) translateY(-100px)",
+            transform: "translateX(100px) translateY(-100px) rotate(-20deg)",
           },
           to: {
-            transform: "translateX(0px) translateY(0px)",
+            transform: "translateX(0px) translateY(0px) rotate(0deg)",
           },
         }
         ,
         astroboy: {
           from: {
-            transform: "translateX(-100px) translateY(100px)",
+            transform: "translateX(-100px) translateY(100px) rotate(20deg)",
           },
           to: {
-            transform: "translateX(0px) translateY(0px)",
+            transform: "translateX(0px) translateY(0px) rotate(0deg)",
           },
         }
         ,
