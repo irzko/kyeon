@@ -8,11 +8,7 @@ const getData = async () => {
 };
 
 export default async function Page() {
-  const data: IDiary[] = await getData();
-  const diaries = data.map((diary) => ({
-    ...diary,
-    date: new Date(diary.date).toLocaleString("vi-VN"),
-  }));
+  const diaries: IDiary[] = await getData();
   return (
     <div>
       <nav className="bg-white/80 backdrop-blur-sm dark:bg-gray-900/80 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
