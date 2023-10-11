@@ -14,7 +14,6 @@ export async function GET(req: NextRequest) {
 
 export async function DELETE(req: Request) {
   const { id } = await req.json();
-  console.log(id);
 
   await prisma.diary.delete({ where: { id } });
   return NextResponse.json({ id }, { status: 200 });
