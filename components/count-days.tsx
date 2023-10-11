@@ -31,7 +31,7 @@ const CountDays = ({ day }: { day: number }) => {
       <div className="flex flex-col justify-center">
         <button
           onClick={handleClick}
-          className="flex flex-col justify-center items-center"
+          className="flex flex-col justify-center mb-20 items-center"
         >
           <Moon />
           <div className="z-10 absolute pointer-events-none flex flex-col animate-textdelay items-center">
@@ -50,10 +50,10 @@ const CountDays = ({ day }: { day: number }) => {
           </div>
         </button>
         <div className="relative ">
-          <div className="absolute -bottom-[58px] left-[120px] animate-astrogirl">
+          <div className="absolute -bottom-[28px] left-[120px] animate-astrogirl">
             <AstronautGirl />
           </div>
-          <div className="absolute -bottom-[140px] left-[40px] animate-astroboy">
+          <div className="absolute -bottom-[110px] left-[40px] animate-astroboy">
             <AstronautBoy />
           </div>
         </div>
