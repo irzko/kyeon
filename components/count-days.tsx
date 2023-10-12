@@ -49,7 +49,7 @@ const CountDays = () => {
           className="flex flex-col justify-center mb-14 items-center"
         >
           <Moon />
-          <div className="z-10 absolute pointer-events-none flex flex-col animate-textdelay items-center">
+          <div className="z-10 absolute pointer-events-none mt-6 flex flex-col animate-textdelay items-center">
             <h2
               className={`font-medium flex items-center text-gray-600 uppercase text-xl z-10 ${fontName.className}`}
             >
@@ -59,7 +59,7 @@ const CountDays = () => {
             <p className={`text-gray-600 text-lg ${fontTitle.className}`}>đã ở trên vũ trụ</p>
 
             <div
-              className={`flex text-3xl items-end font-bold text-rose-400 box-border uppercase ${fontDay.className}`}
+              className={`flex text-3xl items-end font-bold text-blue-300 box-border uppercase ${fontDay.className}`}
             >
               {days}
               <span className="ml-2">days</span>
