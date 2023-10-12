@@ -24,7 +24,7 @@ const config: Config = {
       },
       animation: {
         zoomOut: "zoomout 2s ease-in-out",
-        textdelay: "textdelay 4s",
+        textdelay: "textdelay 3.5s",
         glow: "glow 1.5s ease-in-out infinite alternate",
         astrogirl: "astrogirl 4s ease-in-out",
         astroboy: "astroboy 4s ease-in-out",
@@ -54,11 +54,9 @@ const config: Config = {
         astrogirl: {
           from: {
             transform: "translateX(100px) translateY(-100px) rotate(-20deg)",
-            opacity: "0.75",
           },
           to: {
             transform: "translateX(0px) translateY(0px) rotate(0deg)",
-            opacity: "1",
           },
         },
         astroboy: {
