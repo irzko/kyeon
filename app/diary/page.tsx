@@ -17,7 +17,7 @@ export default async function Page() {
             href="/diary"
             className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
           >
-            Nhật ký
+            Nhật ký vũ trụ
           </Link>
           <Link href="/diary/create">
             <button
@@ -44,7 +44,7 @@ export default async function Page() {
           </Link>
         </div>
       </nav>
-      <main className="max-w-screen-md mx-auto p-4">
+      <main className="max-w-screen-sm mx-auto p-4">
         <DiaryContainer data={diaries} />
       </main>
     </div>
