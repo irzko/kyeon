@@ -1,18 +1,23 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Moon from "./Moon";
 import localFont from "next/font/local";
 import AstronautBoy from "./astronaut-boy";
 import AstronautGirl from "./astronaut-girl";
 
-const bohemeFloral = localFont({
-  src: "./fonts/DFVN Boheme Floral.otf",
+const fontName = localFont({
+  src: "./fonts/DFVN LazyFox.otf",
 });
 
-const chloeBold = localFont({
-  src: "./fonts/KagePro-Normal.otf",
+const fontDay = localFont({
+  src: "./fonts/SweetBelly-Sans.otf",
 });
+
+const fontTitle = localFont({
+  src: "./fonts/Pecita.otf",
+});
+
 
 const CountDays = () => {
   const loveDate = "July, 27, 2023";
@@ -46,16 +51,18 @@ const CountDays = () => {
           <Moon />
           <div className="z-10 absolute pointer-events-none flex flex-col animate-textdelay items-center">
             <h2
-              className={`font-medium flex items-center text[#9A3B3B] text-5xl z-10 ${bohemeFloral.className}`}
+              className={`font-medium flex items-center text-gray-600 uppercase text-xl z-10 ${fontName.className}`}
             >
               Nguyệt
-              <p className="mx-2">x</p> Kha
+              <p className={`mx-2 lowercase`}>&</p> Kha
             </h2>
+            <p className={`text-gray-600 text-lg ${fontTitle.className}`}>đã ở trên vũ trụ</p>
 
             <div
-              className={`flex items-end font-bold text-[#FFD6A5] box-border ${chloeBold.className}`}
+              className={`flex text-3xl items-end font-bold text-rose-400 box-border uppercase ${fontDay.className}`}
             >
-              <span className="text-7xl">{days}days</span>
+              {days}
+              <span className="ml-2">days</span>
             </div>
           </div>
         </button>
