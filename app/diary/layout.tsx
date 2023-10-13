@@ -1,4 +1,3 @@
-import "../globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
@@ -15,10 +14,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="vi">
-      <body className={`${inter.className} bg-[#f9fafb] dark:bg-gray-900`}>
-        {children}
-      </body>
-    </html>
+    <body className={`${inter.className} bg-[#f9fafb] dark:bg-gray-900`}>
+      {children}
+    </body>
   );
 }

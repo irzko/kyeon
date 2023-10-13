@@ -2,6 +2,7 @@ import DiaryContainer from "@/components/diary-container";
 import Link from "next/link";
 
 import { Style_Script } from "next/font/google";
+import ToggleTheme from "@/components/toggle-theme";
 
 const stylescript = Style_Script({ subsets: ["vietnamese"], weight: ["400"] });
 
@@ -24,6 +25,7 @@ export default async function Page() {
             Nhật ký vũ trụ
           </Link>
           <div className="flex space-x-2">
+            <ToggleTheme />
             <Link
               href="/"
               className="relative text-gray-900 flex justify-center bg-white hover:bg-gray-100 focus:outline-none font-medium rounded-full text-sm text-center items-center dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white"

@@ -8,7 +8,7 @@ const DiaryCard = ({ diary }: { diary: IDiary }) => {
   return (
     <li className="ml-4 mb-3">
       <div className="absolute w-3 h-3 bg-gray-400 dark:bg-white rounded-full mt-5 -left-1.5 ring-1 ring-white dark:ring-gray-900"></div>
-      <div className="flex flex-col bg-white transition duration-300 hover:ease-in-out rounded-lg border border-gray-100 dark:border-gray-800 dark:bg-gray-900">
+      <div className="flex flex-col bg-white rounded-lg border border-gray-100 dark:border-gray-800 dark:bg-gray-900">
         <div className="flex justify-between pt-2 px-2">
           <time
             className={`flex w-full items-center font-bold text-gray-500 text-sm mr-2 px-2.5 py-0.5 rounded-full dark:text-gray-400 ${yomogi.className}`}
