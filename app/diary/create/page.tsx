@@ -36,19 +36,12 @@ const Page = () => {
               className="inline-flex items-center p-2 mr-2 text-sm font-medium text-center text-gray-900 bg-white rounded-full hover:bg-gray-100 focus:ring-4 focus:outline-none dark:text-white focus:ring-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
             >
               <svg
-                className="w-4 h-4 text-gray-800 dark:text-white"
-                aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 8 14"
+                height="24"
+                viewBox="0 -960 960 960"
+                width="24"
               >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M7 1 1.3 6.326a.91.91 0 0 0 0 1.348L7 13"
-                />
+                <path d="m367.384-480 301.308 301.308q11.923 11.923 11.615 28.077-.308 16.153-12.231 28.076-11.922 11.923-28.076 11.923t-28.076-11.923L305.078-428.77q-10.847-10.846-16.077-24.307-5.231-13.462-5.231-26.923 0-13.461 5.231-26.923 5.23-13.461 16.077-24.307l306.846-306.846q11.922-11.923 28.384-11.616 16.461.308 28.384 12.231 11.923 11.923 11.923 28.076 0 16.154-11.923 28.077L367.384-480Z" />
               </svg>
             </Link>
 

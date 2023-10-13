@@ -1,9 +1,6 @@
 import CountDays from "@/components/count-days";
 import Background from "@/components/background";
 
-
-
-
 export default function Page() {
   return (
     <>

@@ -5,6 +5,7 @@ import Moon from "./Moon";
 import localFont from "next/font/local";
 import AstronautBoy from "./astronaut-boy";
 import AstronautGirl from "./astronaut-girl";
+import meteor from "./meteor.module.css";
 
 const fontName = localFont({
   src: "./fonts/DFVN LazyFox.otf",
@@ -17,7 +18,6 @@ const fontDay = localFont({
 const fontTitle = localFont({
   src: "./fonts/Pecita.otf",
 });
-
 
 const CountDays = () => {
   const loveDate = "July, 27, 2023";
@@ -56,7 +56,9 @@ const CountDays = () => {
               Nguyệt
               <p className={`mx-2 lowercase`}>&</p> Kha
             </h2>
-            <p className={`text-gray-600 text-lg ${fontTitle.className}`}>đã ở trên vũ trụ</p>
+            <p className={`text-gray-600 text-lg ${fontTitle.className}`}>
+              đã ở trên vũ trụ
+            </p>
 
             <div
               className={`flex text-3xl items-end font-bold text-blue-300 box-border uppercase ${fontDay.className}`}

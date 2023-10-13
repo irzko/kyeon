@@ -1,10 +1,8 @@
 import "../globals.css";
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
-
-const playfair = Playfair_Display({ subsets: ["vietnamese"] });
 
 export const metadata: Metadata = {
   title: "Mãi bên nhau bạn nhó",
@@ -18,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="vi">
-      <body className={`${playfair.className} bg-[#f9fafb] dark:bg-gray-900`}>
+      <body className={`${inter.className} bg-[#f9fafb] dark:bg-gray-900`}>
         {children}
       </body>
     </html>
