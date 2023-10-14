@@ -30,9 +30,24 @@ const config: Config = {
         astrogirl: "astrogirl 4s ease-in-out",
         astroboy: "astroboy 4s ease-in-out",
         flo: "flo 15s infinite ease-in-out",
-        heart: "heart 5s ease-in-out",
+        heart: "heart 4.5s ease-in-out",
+        heartbeats: "heartbeats 1s ease-in-out infinite",
       },
       keyframes: {
+        heartbeats: {
+          "0%": {
+            transform: "scale(0.75)",
+          },
+
+          "50%": {
+            transform: "scale(1)",
+          },
+
+          "100%": {
+            transform: "scale(0.75)",
+          },
+        }
+        ,
         heart: {
           "0%": {
             transform: "translateY(50px) rotate(-25deg)",
@@ -45,7 +60,7 @@ const config: Config = {
           },
 
           "100%": {
-            transform: "translateY(0px) rotate(-25deg)",
+            transform: "translateY(0px) rotate(-30deg)",
           },
         },
         flo: {

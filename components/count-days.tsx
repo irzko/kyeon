@@ -10,7 +10,7 @@ const Heart = () => {
   return (
     <>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 324.02 297.6"
-      className="h-4 w-4"
+      className="h-4 w-4 animate-heartbeats"
       >
         <title>Asset 1</title>
         <g id="Layer_2" data-name="Layer 2">
@@ -104,7 +104,7 @@ const CountDays = () => {
           </div>
         </button>
         <div className="relative animate-flo -translate-y-10">
-          <div className="absolute left-[109px] animate-heart opacity-100 -top-12 -rotate-[25deg]">
+          <div className="absolute left-[109px] animate-heart opacity-100 -top-12 -rotate-[30deg]">
             <Heart />
           </div>
           <div className="absolute -bottom-[0px] left-[120px] animate-astrogirl">
