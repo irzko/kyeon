@@ -17,10 +17,10 @@ export default async function Page() {
   return (
     <div>
       <nav className="bg-white/80 backdrop-blur-sm dark:bg-gray-900/80 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
-        <div className="flex flex-wrap items-center justify-between p-2 px-4">
+        <div className="flex flex-wrap items-center justify-between p-4">
           <Link
             href="/diary"
-            className={` ${stylescript.className} self-center text-2xl font-black whitespace-nowrap dark:text-white`}
+            className={` ${stylescript.className} self-center text-3xl font-black whitespace-nowrap dark:text-white`}
           >
             Nhật ký vũ trụ
           </Link>

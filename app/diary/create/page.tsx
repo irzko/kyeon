@@ -33,13 +33,13 @@ const Page = () => {
           <div className="flex items-center">
             <Link
               href="/diary"
-              className="inline-flex items-center p-2 mr-2 text-sm font-medium text-center text-gray-900 bg-white rounded-full hover:bg-gray-100 focus:ring-4 focus:outline-none dark:text-white focus:ring-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+              className="relative text-gray-900 flex justify-center bg-white hover:bg-gray-100 focus:outline-none font-medium rounded-full text-sm text-center items-center dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                height="24"
                 viewBox="0 -960 960 960"
-                width="24"
+                className="w-7 h-7 m-1"
+                fill="currentColor"
               >
                 <path d="m367.384-480 301.308 301.308q11.923 11.923 11.615 28.077-.308 16.153-12.231 28.076-11.922 11.923-28.076 11.923t-28.076-11.923L305.078-428.77q-10.847-10.846-16.077-24.307-5.231-13.462-5.231-26.923 0-13.461 5.231-26.923 5.23-13.461 16.077-24.307l306.846-306.846q11.922-11.923 28.384-11.616 16.461.308 28.384 12.231 11.923 11.923 11.923 28.076 0 16.154-11.923 28.077L367.384-480Z" />
               </svg>
