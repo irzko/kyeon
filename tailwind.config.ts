@@ -29,8 +29,34 @@ const config: Config = {
         glow: "glow 1.5s ease-in-out infinite alternate",
         astrogirl: "astrogirl 4s ease-in-out",
         astroboy: "astroboy 4s ease-in-out",
+        flo: "flo 15s infinite ease-in-out",
+        heart: "heart 5s ease-in-out",
       },
       keyframes: {
+        heart: {
+          "0%": {
+            transform: "translateY(50px) rotate(-25deg)",
+            opacity: "0",
+          },
+
+          "75%": {
+            transform: "scale(0.5) translateY(50px) rotate(-25deg) translateX(10px)",
+            opacity: "0",
+          },
+
+          "100%": {
+            transform: "translateY(0px) rotate(-25deg)",
+          },
+        },
+        flo: {
+          "50%": {
+            transform: "translateY(-45px) translateX(40px) rotate(5deg)",
+          },
+
+          "75%": {
+            transform: "translateY(-50px) translateX(20px) rotate(5deg)",
+          },
+        },
         zoomout: {
           "0%": {
             transform: "scale( .5 )",
