@@ -30,7 +30,7 @@ const config: Config = {
         astrogirl: "astrogirl 4s ease-in-out",
         astroboy: "astroboy 4s ease-in-out",
         flo: "flo 15s infinite ease-in-out",
-        heart: "heart 4.5s ease-in-out",
+        heart: "heart 4s ease-in-out",
         heartbeats: "heartbeats 1s ease-in-out infinite",
       },
       keyframes: {
@@ -46,30 +46,27 @@ const config: Config = {
           "100%": {
             transform: "scale(0.75)",
           },
-        }
-        ,
+        },
         heart: {
           "0%": {
-            transform: "translateY(50px) rotate(-25deg)",
+            transform: "translateY(100px)",
             opacity: "0",
           },
 
-          "75%": {
-            transform: "scale(0.5) translateY(50px) rotate(-25deg) translateX(10px)",
+          "85%": {
+            transform:
+              "scale(0.5) translateY(100px) rotate(-30deg) translateX(30px)",
             opacity: "0",
           },
+
 
           "100%": {
-            transform: "translateY(0px) rotate(-30deg)",
+            transform: "translateY(0px) rotate(-35deg)",
           },
         },
         flo: {
           "50%": {
-            transform: "translateY(-45px) translateX(40px) rotate(5deg)",
-          },
-
-          "75%": {
-            transform: "translateY(-50px) translateX(20px) rotate(5deg)",
+            transform: `translateY(-10px) rotate(5deg)`,
           },
         },
         zoomout: {
@@ -95,7 +92,7 @@ const config: Config = {
         },
         astrogirl: {
           from: {
-            transform: "translateX(100px) translateY(-100px) rotate(-20deg)",
+            transform: "translateX(200px) translateY(-100px) rotate(-20deg)",
           },
           to: {
             transform: "translateX(0px) translateY(0px) rotate(0deg)",

@@ -9,8 +9,10 @@ import AstronautGirl from "./astronaut-girl";
 const Heart = () => {
   return (
     <>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 324.02 297.6"
-      className="h-4 w-4 animate-heartbeats"
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 324.02 297.6"
+        className="h-4 w-4 animate-heartbeats"
       >
         <title>Asset 1</title>
         <g id="Layer_2" data-name="Layer 2">
@@ -103,14 +105,14 @@ const CountDays = () => {
             </div>
           </div>
         </button>
-        <div className="relative animate-flo -translate-y-10">
-          <div className="absolute left-[109px] animate-heart opacity-100 -top-12 -rotate-[30deg]">
+        <div className="relative animate-flo">
+          <div className="absolute left-[113px] -top-[100px] animate-heart opacity-100 -rotate-[35deg]">
             <Heart />
           </div>
-          <div className="absolute -bottom-[0px] left-[120px] animate-astrogirl">
+          <div className="absolute bottom-[40px] left-[130px] animate-astrogirl">
             <AstronautGirl />
           </div>
-          <div className="absolute -bottom-[82px] left-[40px] animate-astroboy">
+          <div className="absolute -bottom-[42px] left-[50px] animate-astroboy">
             <AstronautBoy />
           </div>
         </div>
