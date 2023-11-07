@@ -1,6 +1,5 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import DeleteModal from "./delete-modal";
-// import RenameModal from "./rename-modal";
 import Button from "./button";
 import Link from "next/link";
 
