@@ -113,11 +113,6 @@ export default function ActionModal({
         setShowModal={setShowDeleteModal}
         diary={diary}
       />
-      {/* <RenameModal
-        showModal={showRenameModal}
-        setShowModal={setShowRenameModal}
-        category={diary}
-      /> */}
     </>
   );
 }

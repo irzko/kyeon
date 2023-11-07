@@ -1,4 +1,4 @@
-import Spinner from "@/components/Spinner";
+import Spinner from "@/components/spinner";
 
 const LoadingScreen = () => {
   return (

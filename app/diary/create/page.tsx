@@ -1,30 +1,23 @@
-"use client";
-import { useRouter } from "next/navigation";
-import React, { useState } from "react";
-import Form from "@/components/form";
+import toISOTimeZoneOffset from "@/libs/toISOTimeZoneOffset";
 import Link from "next/link";
 import Button from "@/components/button";
+import prisma from "@/libs/prisma";
+import { revalidateTag } from "next/cache";
+import { redirect } from "next/navigation";
+import SubmitButton from "@/components/submit-button";
 
 const Page = () => {
-  const [loading, setLoading] = useState(false);
-  const router = useRouter();
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setLoading(true);
-    fetch("/api/diary", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+  const createAction = async (formData: FormData) => {
+    "use server";
+    await prisma.diary.create({
+      data: {
+        date: new Date(formData.get("date") as string),
+        content: formData.get("content") as string,
+        author: formData.get("author") as string,
       },
-      body: JSON.stringify({
-        date: new Date(e.currentTarget.date.value).toISOString(),
-        content: e.currentTarget.content.value,
-        author: e.currentTarget.author.value,
-      }),
-    }).then(async (res) => {
-      setLoading(false);
-      router.push("/diary");
     });
+    revalidateTag("diary");
+    redirect("/diary");
   };
   return (
     <>
@@ -49,12 +42,63 @@ const Page = () => {
               Tạo nhật ký mới
             </span>
           </div>
-          <Button form="diary-form" disabled={loading}>
-            Lưu
-          </Button>
         </div>
       </nav>
-      <Form onSubmit={handleSubmit} />
+      <form
+        id="diary-form"
+        className="p-4 mt-14 max-w-screen-md mx-auto flex flex-col"
+        action={createAction}
+      >
+        <div className="mb-6">
+          <label
+            htmlFor="date"
+            className="block mb-2 font-medium text-sm text-gray-900 dark:text-white"
+          >
+            Ngày diễn ra
+          </label>
+          <input
+            type="datetime-local"
+            id="date"
+            name="date"
+            defaultValue={toISOTimeZoneOffset(new Date())}
+            className="bg-gray-50 border-2 text-sm outline-none border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            required
+          ></input>
+        </div>
+        <div className="mb-6">
+          <label
+            htmlFor="content"
+            className="block mb-2 font-medium text-sm text-gray-900 dark:text-white"
+          >
+            Nội dung
+          </label>
+          <textarea
+            id="content"
+            name="content"
+            rows={10}
+            className="bg-gray-50 border-2 text-sm outline-none border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Hãy viết gì đó..."
+            required
+          ></textarea>
+        </div>
+        <div className="mb-6">
+          <label
+            htmlFor="author"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
+            Người viết
+          </label>
+          <input
+            type="text"
+            id="author"
+            name="author"
+            className="bg-gray-50 border-2 text-sm outline-none border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Họ tên hoặc nickname"
+            required
+          ></input>
+        </div>
+        <SubmitButton />
+      </form>
     </>
   );
 };

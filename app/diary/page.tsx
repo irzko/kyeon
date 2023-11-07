@@ -7,9 +7,11 @@ import ToggleTheme from "@/components/toggle-theme";
 const stylescript = Style_Script({ subsets: ["vietnamese"], weight: ["400"] });
 
 const getData = async () => {
-  return await fetch(`${process.env.BASE_URL}/api/diary`).then((res) =>
-    res.json()
-  );
+  return await fetch(`${process.env.BASE_URL}/api/diary`, {
+    next: {
+      tags: ["diary"],
+    },
+  }).then((res) => res.json());
 };
 
 export default async function Page() {
