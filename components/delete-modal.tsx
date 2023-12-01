@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useContext } from "react";
-import Button from "./button";
 import DiaryContext from "@/context/DiaryContext";
+import { Button } from "@nextui-org/button";
 
 export default function DeleteModal({
   showModal,

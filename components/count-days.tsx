@@ -80,7 +80,7 @@ const CountDays = () => {
   };
   return (
     <>
-      <div className="flex flex-col justify-center">
+      <div className="flex flex-col justify-center z-20">
         <button
           onClick={handleClick}
           className="flex flex-col justify-center mb-14 items-center"

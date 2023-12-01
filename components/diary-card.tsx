@@ -1,20 +1,26 @@
 import Dropdown from "@/components/Dropdown";
+import { Tooltip } from "@nextui-org/tooltip";
+import moment from "moment";
 import { Yomogi } from "next/font/google";
 
 const yomogi = Yomogi({ subsets: ["vietnamese"], weight: ["400"] });
 
 const DiaryCard = ({ diary }: { diary: IDiary }) => {
-  const date = new Date(diary.date).toLocaleDateString("vi-VN");
+  // const date = new Date(diary.date).toLocaleDateString("vi-VN");
   return (
     <li className="ml-4 mb-3">
       <div className="absolute w-3 h-3 bg-gray-100 dark:bg-white rounded-full mt-5 -left-1.5 ring-1 ring-white dark:ring-gray-900"></div>
       <div className="flex flex-col bg-gray-50 rounded-lg border border-gray-100 dark:border-gray-800 dark:bg-gray-900">
         <div className="flex justify-between pt-2 px-2">
-          <time
-            className={`flex w-full items-center font-bold text-gray-500 text-sm mr-2 px-2.5 py-0.5 rounded-full dark:text-gray-400 ${yomogi.className}`}
-          >
-            {date}
-          </time>
+          <div>
+            <Tooltip content={moment(diary.date).format("LLLL")}>
+              <time
+                className={`flex w-full items-center font-bold text-gray-500 text-sm mr-2 px-2.5 py-0.5 rounded-full dark:text-gray-400 ${yomogi.className}`}
+              >
+                {moment(diary.date).fromNow()}
+              </time>
+            </Tooltip>
+          </div>
           <Dropdown diary={diary} />
         </div>
         <div className="py-10 px-4">

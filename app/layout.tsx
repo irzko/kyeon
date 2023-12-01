@@ -1,6 +1,6 @@
 import "./globals.css";
 import { Metadata } from "next";
-import { ThemeProvider } from "@/prisma/providers/ThemeProvider";
+import { ThemeProvider } from "@/providers/ThemeProvider";
 
 export const metadata: Metadata = {
   title: "Mãi bên nhau bạn nhó",

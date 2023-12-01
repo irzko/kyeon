@@ -10,7 +10,16 @@
     "postinstall": "prisma generate"
   },
   "dependencies": {
+    "@nextui-org/button": "^2.0.26",
+    "@nextui-org/navbar": "^2.0.27",
+    "@nextui-org/spinner": "^2.0.24",
+    "@nextui-org/switch": "^2.0.25",
+    "@nextui-org/system": "^2.0.15",
+    "@nextui-org/theme": "^2.1.17",
+    "@nextui-org/tooltip": "^2.0.29",
     "@prisma/client": "latest",
+    "framer-motion": "^10.6.8",
+    "moment": "^2.29.4",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest"

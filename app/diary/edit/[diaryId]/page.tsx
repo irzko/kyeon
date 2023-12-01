@@ -1,9 +1,11 @@
-import toISOTimeZoneOffset from "@/libs/toISOTimeZoneOffset";
 import Link from "next/link";
 import prisma from "@/libs/prisma";
 import { revalidateTag } from "next/cache";
 import { redirect } from "next/navigation";
 import SubmitButton from "@/components/submit-button";
+import { Navbar, NavbarContent, NavbarItem } from "@nextui-org/navbar";
+import { Button } from "@nextui-org/button";
+import moment from "moment";
 
 export async function generateStaticParams() {
   const diaries: IDiary[] = await fetch(`${process.env.BASE_URL}/api/diary`, {
@@ -44,39 +46,38 @@ const Page = async ({ params }: { params: { diaryId: string } }) => {
 
   return (
     <>
-      <nav className="bg-white h-14 items-center flex dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
-        <div className="flex flex-wrap justify-between items-center p-2">
-          <div className="flex items-center">
-            <Link
+      <Navbar isBordered isBlurred>
+        <NavbarContent>
+          <NavbarItem></NavbarItem>
+          <NavbarItem>
+            <Button
+              as={Link}
               href="/diary"
-              className="relative text-gray-900 flex justify-center focus:outline-none font-medium rounded-full text-sm text-center items-center transition-opacity hover:opacity-80 dark:text-white"
+              variant="light"
+              startContent={
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  className="w-5 h-5"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M15 10a.75.75 0 01-.75.75H7.612l2.158 1.96a.75.75 0 11-1.04 1.08l-3.5-3.25a.75.75 0 010-1.08l3.5-3.25a.75.75 0 111.04 1.08L7.612 9.25h6.638A.75.75 0 0115 10z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              }
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6 mr-2"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
-                />
-              </svg>
-            </Link>
-
-            <span className="font-medium dark:text-white whitespace-nowrap">
               Chỉnh sửa nhật ký
-            </span>
-          </div>
-        </div>
-      </nav>
+            </Button>
+          </NavbarItem>
+        </NavbarContent>
+      </Navbar>
       <form
         id="diary-form"
         action={updateAction}
-        className="p-4 mt-14 max-w-screen-md mx-auto flex flex-col"
+        className="p-4 max-w-screen-md mx-auto flex flex-col"
       >
         <div className="mb-6">
           <label
@@ -88,7 +89,9 @@ const Page = async ({ params }: { params: { diaryId: string } }) => {
           <input
             type="datetime-local"
             id="date"
-            defaultValue={diary && toISOTimeZoneOffset(new Date(diary.date))}
+            defaultValue={
+              diary && moment(diary.date).format("YYYY-MM-DDTHH:mm")
+            }
             name="date"
             className="bg-gray-50 border-2 text-sm outline-none border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             required

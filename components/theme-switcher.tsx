@@ -1,37 +1,41 @@
 "use client";
 import ThemeContext from "@/context/ThemeContext";
-import { useContext } from "react";
+import { SVGProps, useContext } from "react";
+import { Switch } from "@nextui-org/switch";
 
-const DarkIcon = () => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
+export const MoonIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    aria-hidden="true"
+    focusable="false"
+    height="1em"
+    role="presentation"
+    viewBox="0 0 24 24"
+    width="1em"
+    {...props}
+  >
+    <path
+      d="M21.53 15.93c-.16-.27-.61-.69-1.73-.49a8.46 8.46 0 01-1.88.13 8.409 8.409 0 01-5.91-2.82 8.068 8.068 0 01-1.44-8.66c.44-1.01.13-1.54-.09-1.76s-.77-.55-1.83-.11a10.318 10.318 0 00-6.32 10.21 10.475 10.475 0 007.04 8.99 10 10 0 002.89.55c.16.01.32.02.48.02a10.5 10.5 0 008.47-4.27c.67-.93.49-1.519.32-1.79z"
       fill="currentColor"
-      className="w-6 h-6"
-    >
-      <path
-        fillRule="evenodd"
-        d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z"
-        clipRule="evenodd"
-      />
-    </svg>
-  );
-};
+    />
+  </svg>
+);
 
-const LightIcon = () => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className="w-6 h-6"
-    >
-      <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z" />
-    </svg>
-  );
-};
-
+export const SunIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    aria-hidden="true"
+    focusable="false"
+    height="1em"
+    role="presentation"
+    viewBox="0 0 24 24"
+    width="1em"
+    {...props}
+  >
+    <g fill="currentColor">
+      <path d="M19 12a7 7 0 11-7-7 7 7 0 017 7z" />
+      <path d="M12 22.96a.969.969 0 01-1-.96v-.08a1 1 0 012 0 1.038 1.038 0 01-1 1.04zm7.14-2.82a1.024 1.024 0 01-.71-.29l-.13-.13a1 1 0 011.41-1.41l.13.13a1 1 0 010 1.41.984.984 0 01-.7.29zm-14.28 0a1.024 1.024 0 01-.71-.29 1 1 0 010-1.41l.13-.13a1 1 0 011.41 1.41l-.13.13a1 1 0 01-.7.29zM22 13h-.08a1 1 0 010-2 1.038 1.038 0 011.04 1 .969.969 0 01-.96 1zM2.08 13H2a1 1 0 010-2 1.038 1.038 0 011.04 1 .969.969 0 01-.96 1zm16.93-7.01a1.024 1.024 0 01-.71-.29 1 1 0 010-1.41l.13-.13a1 1 0 011.41 1.41l-.13.13a.984.984 0 01-.7.29zm-14.02 0a1.024 1.024 0 01-.71-.29l-.13-.14a1 1 0 011.41-1.41l.13.13a1 1 0 010 1.41.97.97 0 01-.7.3zM12 3.04a.969.969 0 01-1-.96V2a1 1 0 012 0 1.038 1.038 0 01-1 1.04z" />
+    </g>
+  </svg>
+);
 export default function ThemeSwitcher() {
   const { theme, setTheme } = useContext(ThemeContext);
 
@@ -45,11 +49,21 @@ export default function ThemeSwitcher() {
     }
   };
   return (
-    <button
-      className="relative text-gray-900 transition-opacity hover:opacity-80 flex justify-center focus:outline-none font-medium rounded-full text-sm text-center items-center dark:text-white"
-      onClick={handlelick}
-    >
-      {theme === "light" ? <DarkIcon /> : <LightIcon />}
-    </button>
+    <Switch
+      classNames={{
+        wrapper: "m-0"
+      }}
+      isSelected={theme === "dark"}
+      onValueChange={() => handlelick()}
+      size="lg"
+      color="secondary"
+      thumbIcon={({ isSelected, className }) =>
+        isSelected ? (
+          <SunIcon className={className} />
+        ) : (
+          <MoonIcon className={className} />
+        )
+      }
+    ></Switch>
   );
 }

@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import DeleteModal from "./delete-modal";
-import Button from "./button";
 import Link from "next/link";
+import { Button } from "@nextui-org/button";
 
 export default function ActionModal({
   showModal,
@@ -100,9 +100,7 @@ export default function ActionModal({
               </button>
             </div>
             <div className="mt-6 flex flex-col">
-              <Button color="secondary" onClick={() => setShowModal(false)}>
-                Huỷ
-              </Button>
+              <Button onPress={() => setShowModal(false)}>Huỷ</Button>
             </div>
           </div>
         </div>
