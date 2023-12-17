@@ -5,6 +5,8 @@ import SnowmanGirl from "./xmas/snowman-girl";
 import Snow from "./snow/snow";
 import Background from "./xmas/background";
 import localFont from "next/font/local";
+import Sun from "./xmas/sun";
+import { useRouter } from "next/navigation";
 
 const fontDay = localFont({
   src: "./fonts/Christmas.otf",
@@ -12,7 +14,18 @@ const fontDay = localFont({
 
 export default function XmasTheme() {
   const loveDate = "July, 27, 2023";
+  const [touch, setTouch] = useState(0);
   const [days, setDays] = useState(0);
+  const router = useRouter();
+
+  const handleClick = () => {
+    const count = touch + 1;
+    if (count === 3) {
+      router.push("/diary");
+    } else {
+      setTouch(touch + 1);
+    }
+  };
 
   useEffect(() => {
     const getTime = () => {
@@ -28,7 +41,11 @@ export default function XmasTheme() {
         <div className="fixed flex justify-center items-center inset-0">
           <div className="relative">
             <Background />
+            <div className="absolute -top-32 -left-40">
+              <Sun />
+            </div>
             <div
+              onClick={handleClick}
               className={`flex absolute top-12 left-24 text-6xl items-end -rotate-12 font-bold text-white box-border ${fontDay.className}`}
             >
               {days}
