@@ -18,11 +18,14 @@
   filter: drop-shadow(0 0 5px #fff) drop-shadow(0 0 15px #fff);
 }
 
-
 /* .glow:hover {
   filter: drop-shadow(0 0 15px #fff) drop-shadow(0 0 20px #fff);
 } */
 
 .glow:active {
   filter: drop-shadow(0 0 15px #fff) drop-shadow(0 0 20px #fff);
+}
+
+.count-day-bg {
+  background: linear-gradient(0deg, rgba(255,255,255,1) 15%, rgba(192,228,244,1) 100%);
 }
