@@ -11,12 +11,12 @@ const Page = () => {
     <>
       <Navbar isBordered isBlurred>
         <NavbarContent>
-          <NavbarItem></NavbarItem>
           <NavbarItem>
             <Button
+              isIconOnly
               as={Link}
               href="/diary"
-              variant="light"
+              variant="flat"
               startContent={
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -26,15 +26,14 @@ const Page = () => {
                 >
                   <path
                     fillRule="evenodd"
-                    d="M15 10a.75.75 0 01-.75.75H7.612l2.158 1.96a.75.75 0 11-1.04 1.08l-3.5-3.25a.75.75 0 010-1.08l3.5-3.25a.75.75 0 111.04 1.08L7.612 9.25h6.638A.75.75 0 0115 10z"
+                    d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z"
                     clipRule="evenodd"
                   />
                 </svg>
               }
-            >
-              Tạo nhật ký mới
-            </Button>
+            ></Button>
           </NavbarItem>
+          <NavbarItem>Tạo nhật ký mới</NavbarItem>
         </NavbarContent>
       </Navbar>
 

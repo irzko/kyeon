@@ -22,7 +22,8 @@
     "moment": "^2.29.4",
     "next": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "sass": "^1.69.5"
   },
   "devDependencies": {
     "@types/node": "latest",
