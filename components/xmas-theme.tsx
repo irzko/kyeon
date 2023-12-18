@@ -46,7 +46,7 @@ export default function XmasTheme() {
             </div>
             <div
               onClick={handleClick}
-              className={`flex absolute top-12 left-24 text-6xl items-end -rotate-12 font-bold text-white box-border ${fontDay.className}`}
+              className={`flex absolute top-12 left-24 text-6xl shadow2 items-end -rotate-12 font-bold text-white box-border ${fontDay.className}`}
             >
               {days}
               <span className="ml-2">days</span>
@@ -56,6 +56,7 @@ export default function XmasTheme() {
               <SnowmanBoy />
               <SnowmanGirl />
             </div>
+
           </div>
         </div>
         <Snow />

@@ -29,7 +29,18 @@
 .count-day-bg {
   background: linear-gradient(
     0deg,
-    rgba(255, 255, 255, 1) 15%,
+    rgba(255, 255, 255, 1) 20%,
+    rgba(254, 224, 202, 1) 51%,
     rgba(192, 228, 244, 1) 100%
   );
+}
+
+.shadow2 {
+  color: white;
+  -webkit-text-stroke: 1px #f8f8f8;
+  text-shadow: 3px 3px #5caab7;
+}
+
+.bottom-text {
+  transform: rotateX(60deg);
 }
