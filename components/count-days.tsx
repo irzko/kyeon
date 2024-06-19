@@ -2,6 +2,7 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Moon from "./Moon";
+import moment from "moment";
 import localFont from "next/font/local";
 import AstronautBoy from "./astronaut-boy";
 import AstronautGirl from "./astronaut-girl";
@@ -57,17 +58,13 @@ const fontTitle = localFont({
 });
 
 const CountDays = () => {
-  const loveDate = "July, 27, 2023";
+  const loveDate = "2023-07-27";
   const [touch, setTouch] = useState(0);
   const router = useRouter();
   const [days, setDays] = useState(0);
 
   useEffect(() => {
-    const getTime = () => {
-      const time = Date.now() - Date.parse(loveDate);
-      return Math.floor(time / (1000 * 60 * 60 * 24));
-    };
-    setDays(getTime());
+    setDays(moment().diff(moment(loveDate), "days"));
   }, []);
 
   const handleClick = () => {
@@ -86,9 +83,9 @@ const CountDays = () => {
           className="flex flex-col justify-center mb-14 items-center"
         >
           <Moon />
-          <div className="z-10 absolute pointer-events-none mt-6 flex flex-col animate-textdelay items-center">
+          <div className="absolute pointer-events-none mt-6 flex flex-col animate-textdelay items-center">
             <h2
-              className={`font-medium flex items-center text-gray-600 uppercase text-xl z-10 ${fontName.className}`}
+              className={`font-medium flex items-center text-gray-600 uppercase text-xl ${fontName.className}`}
             >
               Nguyệt
               <p className={`mx-2 lowercase`}>&</p> Kha

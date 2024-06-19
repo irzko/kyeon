@@ -2,38 +2,37 @@
 import Link from "next/link";
 import SubmitButton from "@/components/submit-button";
 import { createDiary } from "@/app/action";
-import { Navbar, NavbarContent, NavbarItem } from "@nextui-org/navbar";
-import { Button } from "@nextui-org/button";
+// import { Navbar, NavbarContent, NavbarItem } from "@nextui-org/navbar";
+// import { Button } from "@nextui-org/button";
 import moment from "moment";
+import { Navbar, NavbarContent, NavbarItem } from "@/components/ui/navbar";
+import Input from "@/components/ui/Input";
+import ButtonLink from "@/components/ui/ButtonLink";
 
 const Page = () => {
   return (
     <>
-      <Navbar isBordered isBlurred>
+      <Navbar>
         <NavbarContent>
           <NavbarItem>
-            <Button
-              isIconOnly
-              as={Link}
-              href="/diary"
-              variant="flat"
-              startContent={
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  className="w-5 h-5"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              }
-            ></Button>
+            <ButtonLink color="light" isIconOnly href="/diary">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                className="w-5 h-5"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </ButtonLink>
           </NavbarItem>
-          <NavbarItem>Tạo nhật ký mới</NavbarItem>
+          <NavbarItem>
+            <span className="font-semibold">Viết nhật ký</span>
+          </NavbarItem>
         </NavbarContent>
       </Navbar>
 
@@ -49,14 +48,13 @@ const Page = () => {
           >
             Ngày diễn ra
           </label>
-          <input
+          <Input
             type="datetime-local"
             id="date"
             name="date"
             defaultValue={moment().format("YYYY-MM-DDTHH:mm")}
-            className="bg-gray-50 border-2 text-sm outline-none border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             required
-          ></input>
+          ></Input>
         </div>
         <div className="mb-6">
           <label
@@ -69,7 +67,7 @@ const Page = () => {
             id="content"
             name="content"
             rows={10}
-            className="bg-gray-50 border-2 text-sm outline-none border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Hãy viết gì đó..."
             required
           ></textarea>
@@ -81,14 +79,13 @@ const Page = () => {
           >
             Người viết
           </label>
-          <input
+          <Input
             type="text"
             id="author"
             name="author"
-            className="bg-gray-50 border-2 text-sm outline-none border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Họ tên hoặc nickname"
             required
-          ></input>
+          ></Input>
         </div>
         <SubmitButton />
       </form>

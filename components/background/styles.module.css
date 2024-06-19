@@ -1,25 +1,3 @@
-.bg {
-  /* background: url(https://i.ibb.co/87GbbFP/2799006.jpg) no-repeat; */
-  /* background-size: cover; */
-  background-color: #111827;
-  height: 100%;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -3;
-}
-.bg:before {
-  content: "";
-  width: 100%;
-  height: 100%;
-  /* background: #000; */
-  position: fixed;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  opacity: 0.3;
-}
 @keyframes sf-fly-by-1 {
   from {
     transform: translateZ(-600px);
@@ -65,7 +43,7 @@
     -91px -235px #d4d4d4, 491px -460px #f7f7f7, 892px -128px #f7f7f7,
     758px -277px #ededed, 596px 378px #cccccc, 647px 423px whitesmoke,
     183px 389px #c7c7c7, 524px -237px #f0f0f0, 679px -535px #e3e3e3,
-    158px 399px #ededed, 157px 249px #ededed, 81px -450px #ebebeb,
+    158px 399px #ededed, 157px 249px #221919, 81px -450px #ebebeb,
     719px -360px #c2c2c2, -499px 473px #e8e8e8, -158px -349px #d4d4d4,
     870px -134px #cfcfcf, 446px 404px #c2c2c2, 440px 490px #d4d4d4,
     414px 507px #e6e6e6, -12px 246px #fcfcfc, -384px 369px #e3e3e3,

@@ -10,31 +10,25 @@
     "postinstall": "prisma generate"
   },
   "dependencies": {
-    "@nextui-org/button": "^2.0.26",
-    "@nextui-org/navbar": "^2.0.27",
-    "@nextui-org/spinner": "^2.0.24",
-    "@nextui-org/switch": "^2.0.25",
-    "@nextui-org/system": "^2.0.15",
-    "@nextui-org/theme": "^2.1.17",
-    "@nextui-org/tooltip": "^2.0.29",
-    "@prisma/client": "latest",
-    "framer-motion": "^10.6.8",
-    "moment": "^2.29.4",
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest",
-    "sass": "^1.69.5"
+    "@prisma/client": "^5.15.0",
+    "framer-motion": "^11.1.9",
+    "moment": "^2.30.1",
+    "next": "^14.2.4",
+    "react": "^18",
+    "react-dom": "^18",
+    "sass": "^1.75.0",
+    "tailwind-variants": "^0.2.1"
   },
   "devDependencies": {
-    "@types/node": "latest",
-    "@types/react": "latest",
-    "@types/react-dom": "latest",
-    "autoprefixer": "latest",
-    "eslint": "latest",
-    "eslint-config-next": "latest",
-    "postcss": "latest",
-    "prisma": "latest",
-    "tailwindcss": "latest",
-    "typescript": "latest"
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.4.19",
+    "eslint": "^9",
+    "eslint-config-next": "^14.2.2",
+    "postcss": "^8",
+    "prisma": "^5.15.0",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5"
   }
 }

@@ -1,45 +1,107 @@
-import Dropdown from "@/components/Dropdown";
-import { Tooltip } from "@nextui-org/tooltip";
+"use client";
+import useModal from "@/hooks/useModal";
 import moment from "moment";
 import { Yomogi } from "next/font/google";
+import Button from "./ui/Button";
+import ButtonLink from "./ui/ButtonLink";
+import { deleteDiary } from "@/app/action";
 
 const yomogi = Yomogi({ subsets: ["vietnamese"], weight: ["400"] });
 
-const DiaryCard = ({ diary }: { diary: IDiary }) => {
-  // const date = new Date(diary.date).toLocaleDateString("vi-VN");
+const ActionMenu = ({ diary }: { diary: IDiary }) => {
+  const [modal, showModal] = useModal();
   return (
-    <li className="ml-4 mb-3">
-      <div className="absolute w-3 h-3 bg-gray-100 dark:bg-white rounded-full mt-5 -left-1.5 ring-1 ring-white dark:ring-gray-900"></div>
-      <div className="flex flex-col bg-gray-50 rounded-lg border border-gray-100 dark:border-gray-800 dark:bg-gray-900">
-        <div className="flex justify-between pt-2 px-2">
-          <div>
-            <Tooltip content={moment(diary.date).format("LLLL")}>
-              <time
-                className={`flex w-full items-center font-bold text-gray-500 text-sm mr-2 px-2.5 py-0.5 rounded-full dark:text-gray-400 ${yomogi.className}`}
-              >
-                {moment(diary.date).fromNow()}
-              </time>
-            </Tooltip>
-          </div>
-          <Dropdown diary={diary} />
-        </div>
-        <div className="py-10 px-4">
-          <p
-            className={`text-lg dark:text-white pb-6 text-center text-gray-900 ${yomogi.className}`}
-          >
-            &quot;
-            {diary.content}
-            &quot;
-          </p>
+    <>
+      <Button
+        isIconOnly
+        color="light"
+        onClick={() => {
+          showModal("Tuỳ chọn", () => {
+            return (
+              <ul className="flex flex-col p-4 space-y-2">
+                <li>
+                  <ButtonLink
+                    color="light"
+                    className="justify-start"
+                    href={`diary/edit/${diary.id}`}
+                  >
+                    Chỉnh sửa nhật ký
+                  </ButtonLink>
+                </li>
+                <li>
+                  <Button
+                    color="light"
+                    className="justify-start w-full"
+                    onClick={() => {
+                      showModal("Xoá nhật ký", () => {
+                        return (
+                          <div className="p-4 space-y-2">
+                            <p>Bạn có chắc chắn muốn xoá nhật ký này?</p>
+                            <div className="flex justify-end gap-2">
+                              <form
+                                action={(formData) => {
+                                  formData.append("id", diary.id);
+                                  deleteDiary(formData);
+                                }}
+                              >
+                                <Button color="danger">Xoá</Button>
+                              </form>
+                              <Button color="light">Huỷ</Button>
+                            </div>
+                          </div>
+                        );
+                      });
+                    }}
+                  >
+                    Xoá nhật ký
+                  </Button>
+                </li>
+              </ul>
+            );
+          });
+        }}
+      >
+        ···
+      </Button>
+      {modal}
+    </>
+  );
+};
 
-          <p
-            className={`text-base font-normal text-gray-700 dark:text-gray-400 text-center  ${yomogi.className}`}
-          >
-            - {diary.author}
-          </p>
+const DiaryCard = ({ diary }: { diary: IDiary }) => {
+  return (
+    <>
+      <li className="ml-4 mb-3">
+        <div className="flex flex-col bg-white rounded-lg border border-gray-100">
+          <div className="flex justify-between items-center pt-2 px-2">
+            <div className="flex items-center mr-2 px-2.5 py-0.5">
+              <div className="absolute w-3 h-3 bg-gray-300 rounded-full -left-1.5 ring-1 ring-white"></div>
+              <time
+                className={`w-full text-gray-500 text-sm rounded-full ${yomogi.className}`}
+              >
+                Ngày thứ {moment(diary.date).diff(moment("2023-07-27"), "days")}
+              </time>
+            </div>
+            <ActionMenu diary={diary} />
+          </div>
+          <div className="py-10 px-4">
+            <p
+              className={`text-lg pb-6 text-center text-gray-900 ${yomogi.className}`}
+            >
+              &quot;
+              {diary.content}
+              &quot;
+            </p>
+
+            <p
+              className={`text-base font-normal text-gray-700 text-center ${yomogi.className}`}
+            >
+              - {diary.author}
+            </p>
+          </div>
         </div>
-      </div>
-    </li>
+      </li>
+    </>
   );
 };
 

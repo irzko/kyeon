@@ -3,7 +3,11 @@
 import ThemeContext from "@/context/ThemeContext";
 import { ReactNode, useEffect, useState } from "react";
 
-export const ThemeProvider = ({ children }: { children: ReactNode }) => {
+export const Providers = ({
+  children,
+}: Readonly<{
+  children: ReactNode;
+}>) => {
   const [theme, setTheme] = useState("light");
 
   useEffect(() => {

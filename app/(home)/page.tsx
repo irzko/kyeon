@@ -6,7 +6,7 @@ import CountDays from "@/components/count-days";
 export default function Page() {
   return (
     <>
-      <div className="z-50 flex overflow-hidden place-items-center min-h-screen m-0 justify-center items-center flex-col">
+      <div className="flex fixed overflow-hidden place-items-center inset-0 m-0 justify-center items-center flex-col">
         {/* <XmasTheme /> */}
         <Background />
         <CountDays />
