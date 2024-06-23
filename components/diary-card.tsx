@@ -16,7 +16,7 @@ const ActionMenu = ({ diary }: { diary: IDiary }) => {
         isIconOnly
         color="light"
         onClick={() => {
-          showModal("Tuỳ chọn", () => {
+          showModal("Tuỳ chọn", (onClose) => {
             return (
               <ul className="flex flex-col p-4 space-y-2">
                 <li>
@@ -46,7 +46,9 @@ const ActionMenu = ({ diary }: { diary: IDiary }) => {
                               >
                                 <Button color="danger">Xoá</Button>
                               </form>
-                              <Button color="light">Huỷ</Button>
+                              <Button onClick={() => onClose()} color="light">
+                                Huỷ
+                              </Button>
                             </div>
                           </div>
                         );
