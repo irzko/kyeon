@@ -1,15 +1,25 @@
-"use client";
-import Link from "next/link";
 import SubmitButton from "@/components/submit-button";
-import { createDiary } from "@/app/action";
-// import { Navbar, NavbarContent, NavbarItem } from "@nextui-org/navbar";
-// import { Button } from "@nextui-org/button";
 import moment from "moment";
 import { Navbar, NavbarContent, NavbarItem } from "@/components/ui/navbar";
 import Input from "@/components/ui/Input";
 import ButtonLink from "@/components/ui/ButtonLink";
+import { revalidateTag } from "next/cache";
+import { redirect } from "next/navigation";
+import prisma from "@/libs/prisma";
 
 const Page = () => {
+  const createDiaryAction = async (formData: FormData) => {
+    "use server";
+    await prisma.diary.create({
+      data: {
+        date: new Date(formData.get("date") as string),
+        content: formData.get("content") as string,
+        author: formData.get("author") as string,
+      },
+    });
+    revalidateTag("diary");
+    redirect("/diary");
+  };
   return (
     <>
       <Navbar>
@@ -39,7 +49,7 @@ const Page = () => {
       <form
         id="diary-form"
         className="p-4 max-w-screen-md mx-auto flex flex-col"
-        action={createDiary}
+        action={createDiaryAction}
       >
         <div className="mb-6">
           <label
