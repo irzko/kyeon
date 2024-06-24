@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Moon from "./Moon";
 import moment from "moment";
 import localFont from "next/font/local";
@@ -57,14 +57,13 @@ const fontTitle = localFont({
   src: "./fonts/Pecita.otf",
 });
 
-const CountDays = () => {
-  const loveDate = "2023-07-27";
+const DaysCounterButton = () => {
   const [touch, setTouch] = useState(0);
   const router = useRouter();
   const [days, setDays] = useState(0);
 
   useEffect(() => {
-    setDays(moment().diff(moment(loveDate), "days"));
+    setDays(moment().diff(moment("2023-07-27"), "days"));
   }, []);
 
   const handleClick = () => {
@@ -76,32 +75,38 @@ const CountDays = () => {
     }
   };
   return (
+    <button
+      onClick={handleClick}
+      className="flex flex-col justify-center mb-14 items-center"
+    >
+      <Moon />
+      <div className="absolute pointer-events-none mt-6 flex flex-col animate-textdelay items-center">
+        <h2
+          className={`font-medium flex items-center text-gray-600 uppercase text-xl ${fontName.className}`}
+        >
+          Nguyệt
+          <p className={`mx-2 lowercase`}>&</p> Kha
+        </h2>
+        <p className={`text-gray-600 text-lg ${fontTitle.className}`}>
+          đã ở trên vũ trụ
+        </p>
+
+        <div
+          className={`flex text-3xl items-end font-bold text-blue-300 box-border uppercase ${fontDay.className}`}
+        >
+          {days}
+          <span className="ml-2">days</span>
+        </div>
+      </div>
+    </button>
+  );
+};
+
+const CountDaysPage = () => {
+  return (
     <>
       <div className="flex flex-col justify-center">
-        <button
-          onClick={handleClick}
-          className="flex flex-col justify-center mb-14 items-center"
-        >
-          <Moon />
-          <div className="absolute pointer-events-none mt-6 flex flex-col animate-textdelay items-center">
-            <h2
-              className={`font-medium flex items-center text-gray-600 uppercase text-xl ${fontName.className}`}
-            >
-              Nguyệt
-              <p className={`mx-2 lowercase`}>&</p> Kha
-            </h2>
-            <p className={`text-gray-600 text-lg ${fontTitle.className}`}>
-              đã ở trên vũ trụ
-            </p>
-
-            <div
-              className={`flex text-3xl items-end font-bold text-blue-300 box-border uppercase ${fontDay.className}`}
-            >
-              {days}
-              <span className="ml-2">days</span>
-            </div>
-          </div>
-        </button>
+        <DaysCounterButton />
         <div className="relative animate-flo">
           <div className="absolute left-[113px] -top-[100px] animate-heart opacity-100 -rotate-[35deg]">
             <Heart />
@@ -118,4 +123,4 @@ const CountDays = () => {
   );
 };
 
-export default CountDays;
+export default CountDaysPage;
