@@ -7,7 +7,7 @@ export default function SubmitButton() {
 
   return (
     <>
-      <Button type="submit">Lưu</Button>
+      <Button type="submit" disabled={pending}>Lưu</Button>
     </>
   );
 }

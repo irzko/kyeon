@@ -1,25 +1,12 @@
+"use client";
 import SubmitButton from "@/components/submit-button";
 import moment from "moment";
 import { Navbar, NavbarContent, NavbarItem } from "@/components/ui/navbar";
 import Input from "@/components/ui/Input";
 import ButtonLink from "@/components/ui/ButtonLink";
-import { revalidateTag } from "next/cache";
-import { redirect } from "next/navigation";
-import prisma from "@/libs/prisma";
+import { createDiaryAction } from "@/app/action";
 
 const Page = () => {
-  const createDiaryAction = async (formData: FormData) => {
-    "use server";
-    await prisma.diary.create({
-      data: {
-        date: new Date(formData.get("date") as string),
-        content: formData.get("content") as string,
-        author: formData.get("author") as string,
-      },
-    });
-    revalidateTag("diary");
-    redirect("/diary");
-  };
   return (
     <>
       <Navbar>
