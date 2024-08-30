@@ -122,7 +122,7 @@ const DiaryCard = ({ diary }: { diary: IDiary }) => {
           </div>
           <div className="py-10 px-4">
             <p
-              className={`text-lg pb-6 text-center text-gray-900 ${yesevaOne.className}`}
+              className={`text-2xl pb-6 text-center text-gray-900 ${yesevaOne.className}`}
             >
               &quot;
               {diary.content}
