@@ -1,12 +1,12 @@
 "use client";
 import useModal from "@/hooks/useModal";
 import moment from "moment";
-import { Yomogi } from "next/font/google";
+import { Yeseva_One } from "next/font/google";
 import Button from "./ui/Button";
 import ButtonLink from "./ui/ButtonLink";
 import { deleteDiary } from "@/app/action";
 
-const yomogi = Yomogi({ subsets: ["vietnamese"], weight: ["400"] });
+const yesevaOne = Yeseva_One({ subsets: ["vietnamese"], weight: ["400"] });
 
 const ActionMenu = ({ diary }: { diary: IDiary }) => {
   const [modal, showModal] = useModal();
@@ -113,7 +113,7 @@ const DiaryCard = ({ diary }: { diary: IDiary }) => {
             <div className="flex items-center mr-2 px-2.5 py-0.5">
               <div className="absolute w-3 h-3 bg-gray-300 rounded-full -left-1.5 ring-1 ring-white"></div>
               <time
-                className={`w-full text-gray-500 text-sm rounded-full ${yomogi.className}`}
+                className={`w-full text-gray-500 text-sm rounded-full ${yesevaOne.className}`}
               >
                 Ngày thứ {moment(diary.date).diff(moment("2023-07-27"), "days")}
               </time>
@@ -122,7 +122,7 @@ const DiaryCard = ({ diary }: { diary: IDiary }) => {
           </div>
           <div className="py-10 px-4">
             <p
-              className={`text-lg pb-6 text-center text-gray-900 ${yomogi.className}`}
+              className={`text-lg pb-6 text-center text-gray-900 ${yesevaOne.className}`}
             >
               &quot;
               {diary.content}
@@ -130,7 +130,7 @@ const DiaryCard = ({ diary }: { diary: IDiary }) => {
             </p>
 
             <p
-              className={`text-base font-normal text-gray-700 text-center ${yomogi.className}`}
+              className={`text-base font-normal text-gray-700 text-center ${yesevaOne.className}`}
             >
               - {diary.author}
             </p>
