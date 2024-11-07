@@ -1,6 +1,6 @@
 import prisma from "@/libs/prisma";
 import { revalidateTag } from "next/cache";
-import { cache } from 'react'
+import { unstable_cache } from 'next/cache';
 import { redirect } from "next/navigation";
 import SubmitButton from "@/components/submit-button";
 import moment from "moment";
@@ -8,14 +8,22 @@ import { Navbar, NavbarContent, NavbarItem } from "@/components/ui/navbar";
 import ButtonLink from "@/components/ui/ButtonLink";
 import Input from "@/components/ui/Input";
 
+const getAllPosts = unstable_cache(
+  async () => {
+    return await prisma.diary.findMany({ orderBy: { date: "desc" } })
+  },
+  ['diary'],
+  { tags: ['diary'] }
+)
+
 export async function generateStaticParams() {
-  const diaries: IDiary[] = await prisma.diary.findMany({ orderBy: { date: "desc" } });
+  const diaries: IDiary[] = await getAllPosts();
   return diaries.map((diary) => ({
     diaryId: diary.id,
   }));
 }
 
-const getPost = cache(
+const getPost = unstable_cache(
   async (diaryId: string) => {
     return await prisma.diary.findUnique({
       where: {
