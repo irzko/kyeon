@@ -13,7 +13,7 @@ import Input from "@/components/ui/Input";
 
 const Page = async ({ params }: { params: Promise<{ diaryId: string }> }) => {
   const diaryId = (await params).diaryId
-  const diary: IDiary = unstable_cache(
+  const diary: IDiary = await unstable_cache(
   async (diaryId: string) => {
     return await prisma.diary.findUnique({
       where: {
