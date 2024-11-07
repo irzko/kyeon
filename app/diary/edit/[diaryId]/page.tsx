@@ -23,7 +23,7 @@ const getPost = unstable_cache(
 
 const Page = async ({ params }: { params: Promise<{ diaryId: string }> }) => {
   const diaryId = (await params).diaryId
-  const diary: IDiary = await getPost(diaryId)
+  const diary: IDiary = await getPost(diaryId)!;
   const updateAction = async (formData: FormData) => {
     "use server";
     await prisma.diary.update({
