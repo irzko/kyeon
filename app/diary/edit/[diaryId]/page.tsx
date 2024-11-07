@@ -1,6 +1,6 @@
 import prisma from "@/libs/prisma";
 import { revalidateTag } from "next/cache";
-import { unstable_cache } from 'next/cache';
+import { cache } from 'react'
 import { redirect } from "next/navigation";
 import SubmitButton from "@/components/submit-button";
 import moment from "moment";
@@ -15,7 +15,7 @@ export async function generateStaticParams() {
   }));
 }
 
-const getPost = unstable_cache(
+const getPost = cache(
   async (diaryId: string) => {
     return await prisma.diary.findUnique({
       where: {
