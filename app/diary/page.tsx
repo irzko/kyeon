@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { unstable_cache } from 'next/cache'
+import {cache} from 'react'
 import prisma from "@/libs/prisma";
 import { Style_Script } from "next/font/google";
 import { Navbar, NavbarContent, NavbarItem } from "@/components/ui/navbar";
@@ -9,7 +9,7 @@ import ButtonLink from "@/components/ui/ButtonLink";
 
 const styleScript = Style_Script({ subsets: ["vietnamese"], weight: ["400"] });
 
-const getPosts = unstable_cache(
+const getPosts = cache(
   async () => {
     return await prisma.diary.findMany({ orderBy: { date: "desc" } })
   },
