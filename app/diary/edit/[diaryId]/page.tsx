@@ -9,7 +9,7 @@ import ButtonLink from "@/components/ui/ButtonLink";
 import Input from "@/components/ui/Input";
 
 
-const getPosts = unstable_cache(
+const getPosts: IDiary = unstable_cache(
   async (diaryId: string) => {
     return await prisma.diary.findUnique({
     where: {
@@ -23,7 +23,7 @@ const getPosts = unstable_cache(
 
 const Page = async ({ params }: { params: Promise<{ diaryId: string }> }) => {
   const diaryId = (await params).diaryId
-  const diary: IDiary = await getPosts(diaryId)!;
+  const diary: IDiary = await getPosts(diaryId);
   const updateAction = async (formData: FormData) => {
     "use server";
     await prisma.diary.update({
