@@ -9,12 +9,8 @@ import ButtonLink from "@/components/ui/ButtonLink";
 import Input from "@/components/ui/Input";
 
 
-
-
-const Page = async ({ params }: { params: Promise<{ diaryId: string }> }) => {
-  const diaryId = (await params).diaryId
-  const diary: IDiary = await unstable_cache(
-  async () => {
+const getPost = unstable_cache(
+  async (diaryId: string) => {
     return await prisma.diary.findUnique({
       where: {
         id: diaryId,
@@ -24,6 +20,10 @@ const Page = async ({ params }: { params: Promise<{ diaryId: string }> }) => {
   ['diary'],
   { tags: ['diary'] }
 )
+
+const Page = async ({ params }: { params: Promise<{ diaryId: string }> }) => {
+  const diaryId = (await params).diaryId
+  const diary: IDiary = await getPost(diaryId)
   const updateAction = async (formData: FormData) => {
     "use server";
     await prisma.diary.update({
