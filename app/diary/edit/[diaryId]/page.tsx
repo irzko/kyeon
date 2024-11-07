@@ -8,6 +8,12 @@ import { Navbar, NavbarContent, NavbarItem } from "@/components/ui/navbar";
 import ButtonLink from "@/components/ui/ButtonLink";
 import Input from "@/components/ui/Input";
 
+export async function generateStaticParams() {
+  const diaries: IDiary[] = await prisma.diary.findMany({ orderBy: { date: "desc" } });
+  return diaries.map((diary) => ({
+    diaryId: diary.id,
+  }));
+}
 
 const getPost = unstable_cache(
   async (diaryId: string) => {
