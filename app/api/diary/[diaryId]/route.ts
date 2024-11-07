@@ -3,9 +3,9 @@ import { NextResponse } from "next/server";
 
 export async function GET(
   request: Request,
-  { params }: { params: { diaryId: string } }
+  { params }: { params: Promise<{ diaryId: string }> }
 ) {
-  const { diaryId } = params;
+  const diaryId = (await params).diaryId;
   const cart = await prisma.diary.findUnique({
     where: {
       id: diaryId,
