@@ -7,31 +7,22 @@ import { Navbar, NavbarContent, NavbarItem } from "@/components/ui/navbar";
 import ButtonLink from "@/components/ui/ButtonLink";
 import Input from "@/components/ui/Input";
 
-export async function generateStaticParams() {
-  const diaries: IDiary[] = await fetch(`${process.env.BASE_URL}/api/diary`, {
-    next: {
-      tags: ["diary"],
+
+const getPosts = unstable_cache(
+  async (diaryId) => {
+    return await prisma.diary.findUnique({
+    where: {
+      id: diaryId,
     },
-  }).then((res) => res.json());
+  })
+  },
+  ['diary'],
+  { tags: ['diary'] }
+)
 
-  return diaries.map((diary) => ({
-    diaryId: diary.id,
-  }));
-}
-
-const getData = async (id: string) => {
-  const res = await fetch(`${process.env.BASE_URL}/api/diary/${id}`, {
-    next: {
-      tags: ["diary"],
-    },
-  });
-  const data = await res.json();
-  return data;
-};
-
-const Page = async ({ params }: { params: { diaryId: string } }) => {
-  const { diaryId } = params;
-  const diary: IDiary = await getData(diaryId);
+const Page = async ({ params }: { params: Promise<{ diaryId: string }> }) => {
+  const diaryId = (await params).diaryId
+  const diary: IDiary = await getPosts(diaryId);
   const updateAction = async (formData: FormData) => {
     "use server";
     await prisma.diary.update({
