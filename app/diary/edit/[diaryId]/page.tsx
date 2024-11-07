@@ -9,7 +9,7 @@ import ButtonLink from "@/components/ui/ButtonLink";
 import Input from "@/components/ui/Input";
 
 
-const getPosts: IDiary = unstable_cache(
+const getPosts: Promise<IDiary> = unstable_cache(
   async (diaryId: string) => {
     return await prisma.diary.findUnique({
     where: {
