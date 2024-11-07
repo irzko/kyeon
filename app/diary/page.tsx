@@ -1,5 +1,6 @@
 import Link from "next/link";
-
+import { unstable_cache } from 'next/cache'
+import prisma from "@/libs/prisma";
 import { Style_Script } from "next/font/google";
 import { Navbar, NavbarContent, NavbarItem } from "@/components/ui/navbar";
 import NavbarBrand from "@/components/ui/navbar/NavbarBrand";
@@ -8,16 +9,16 @@ import ButtonLink from "@/components/ui/ButtonLink";
 
 const styleScript = Style_Script({ subsets: ["vietnamese"], weight: ["400"] });
 
-const getData = async () => {
-  return await fetch(`${process.env.BASE_URL}/api/diary`, {
-    next: {
-      tags: ["diary"],
-    },
-  }).then((res) => res.json());
-};
+const getPosts = unstable_cache(
+  async () => {
+    return await prisma.diary.findMany({ orderBy: { date: "desc" } })
+  },
+  ['diary'],
+  { tags: ['diary'] }
+)
 
 export default async function Page() {
-  const diaries: IDiary[] = await getData();
+  const posts: IDiary[] = await getPosts();
   return (
     <div>
       <Navbar>
@@ -64,10 +65,9 @@ export default async function Page() {
       </Navbar>
 
       <main className="max-w-screen-sm mx-auto p-4">
-        {/* <DiaryContainer data={diaries} /> */}
         <ul className="relative border-l border-gray-200 dark:border-gray-700">
-          {diaries?.map((diary) => (
-            <DiaryCard key={diary.id} diary={diary} />
+          {posts?.map((post) => (
+            <DiaryCard key={post.id} diary={post} />
           ))}
         </ul>
       </main>
