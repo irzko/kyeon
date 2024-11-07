@@ -10,7 +10,7 @@ import Input from "@/components/ui/Input";
 
 
 const getPosts = unstable_cache(
-  async (diaryId) => {
+  async (diaryId: string) => {
     return await prisma.diary.findUnique({
     where: {
       id: diaryId,
