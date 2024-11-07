@@ -6,10 +6,10 @@ export async function GET(
   { params }: { params: Promise<{ diaryId: string }> }
 ) {
   const diaryId = (await params).diaryId;
-  const cart = await prisma.diary.findUnique({
+  const diary = await prisma.diary.findUnique({
     where: {
       id: diaryId,
     },
   });
-  return NextResponse.json(cart);
+  return NextResponse.json(diary);
 }
