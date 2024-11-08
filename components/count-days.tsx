@@ -76,7 +76,9 @@ const DaysCounterButton = () => {
     }
   };
   return (
-    <button
+    <motion.button
+      whileHover={{ scale: 1.1 }}
+    whileTap={{ scale: 0.9 }}
       onClick={handleClick}
       className="flex flex-col justify-center mb-14 items-center"
     >
@@ -99,7 +101,7 @@ const DaysCounterButton = () => {
           <span className="ml-2">days</span>
         </div>
       </div>
-    </button>
+    </motion.button>
   );
 };
 
