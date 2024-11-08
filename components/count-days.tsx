@@ -6,6 +6,7 @@ import moment from "moment";
 import localFont from "next/font/local";
 import AstronautBoy from "./astronaut-boy";
 import AstronautGirl from "./astronaut-girl";
+import { motion } from "framer-motion";
 
 const Heart = () => {
   return (
@@ -107,7 +108,13 @@ const CountDaysPage = () => {
     <>
       <div className="flex flex-col justify-center">
         <DaysCounterButton />
-        <div className="relative animate-flo">
+        <motion.div className="relative animate-flo" drag
+    dragConstraints={{
+      top: -50,
+      left: -50,
+      right: 50,
+      bottom: 50,
+    }}>
           <div className="absolute left-[113px] -top-[100px] animate-heart opacity-100 -rotate-[35deg]">
             <Heart />
           </div>
@@ -117,7 +124,7 @@ const CountDaysPage = () => {
           <div className="absolute -bottom-[42px] left-[50px] animate-astroboy">
             <AstronautBoy />
           </div>
-        </div>
+        </motion.div>
       </div>
     </>
   );
