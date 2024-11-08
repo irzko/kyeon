@@ -125,15 +125,11 @@ const DiaryCard = ({ diary }: { diary: IDiary }) => {
       whileInView="onscreen"
       viewport={{ once: true, amount: 0.8 }} className="ml-4 mb-3">
         <motion.div variants={cardVariants} className="flex flex-col bg-white rounded-lg border border-gray-100">
+          <div className="absolute w-3 h-3 bg-gray-300 rounded-full -left-2.5 ring-1 ring-white"></div>
           <div className="flex justify-between items-center pt-2 px-2">
-            <div className="flex items-center mr-2 px-2.5 py-0.5">
-              <div className="absolute w-3 h-3 bg-gray-300 rounded-full -left-3.5 ring-1 ring-white"></div>
-              <time
-                className={`w-full text-gray-500 text-sm rounded-full ${yesevaOne.className}`}
-              >
-                Ngày thứ {moment(diary.date).diff(moment("2023-07-27"), "days")}
-              </time>
-            </div>
+            <time className={`w-full text-gray-500 text-sm rounded-full ${yesevaOne.className}`}>
+              Ngày thứ {moment(diary.date).diff(moment("2023-07-27"), "days")}
+            </time>
             <ActionMenu diary={diary} />
           </div>
           <div className="py-10 px-4">
