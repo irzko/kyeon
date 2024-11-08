@@ -6,7 +6,7 @@ import Button from "./ui/Button";
 import ButtonLink from "./ui/ButtonLink";
 import { deleteDiary } from "@/app/action";
 const yesevaOne = Yeseva_One({ subsets: ["vietnamese"], weight: ["400"] });
-import { motion } from "framer-motion"
+import { motion, useTransform, useViewportScroll } from "framer-motion"
 
 const ActionMenu = ({ diary }: { diary: IDiary }) => {
   const [modal, showModal] = useModal();
