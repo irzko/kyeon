@@ -1,11 +1,11 @@
 "use client";
 import useModal from "@/hooks/useModal";
 import moment from "moment";
-import { Yeseva_One } from "next/font/google";
+import { Roboto } from "next/font/google";
 import Button from "./ui/Button";
 import ButtonLink from "./ui/ButtonLink";
 import { deleteDiary } from "@/app/action";
-const yesevaOne = Yeseva_One({ subsets: ["vietnamese"], weight: ["400"] });
+const roboto = Roboto({ subsets: ["vietnamese"], weight: ["700"] });
 import { motion, Variants } from "framer-motion"
 
 const ActionMenu = ({ diary }: { diary: IDiary }) => {
@@ -123,18 +123,17 @@ const DiaryCard = ({ diary }: { diary: IDiary }) => {
     <>
       <motion.li initial="offscreen"
       whileInView="onscreen"
-      viewport={{ once: true, amount: 0.8 }} className="ml-4 mb-3 relative">
-        <div className="absolute w-3 h-3 bg-gray-300 rounded-full -left-2.5 top-2 ring-1 ring-white"></div>
+      viewport={{ once: true, amount: 0.8 }} className="mb-3 relative">
         <motion.div variants={cardVariants} className="flex flex-col bg-white rounded-lg border border-gray-100">
           <div className="flex justify-between items-center pt-2 px-2">
-            <time className={`w-full text-gray-500 text-sm rounded-full ${yesevaOne.className}`}>
+            <time className={`w-full text-gray-500 text-sm rounded-full ${roboto.className}`}>
               Ngày thứ {moment(diary.date).diff(moment("2023-07-27"), "days")}
             </time>
             <ActionMenu diary={diary} />
           </div>
           <div className="py-10 px-4">
             <p
-              className={`text-xl pb-6 text-center text-gray-900 ${yesevaOne.className}`}
+              className={`text-xl pb-6 text-center text-gray-900 ${roboto.className}`}
             >
               &quot;
               {diary.content}
@@ -142,7 +141,7 @@ const DiaryCard = ({ diary }: { diary: IDiary }) => {
             </p>
 
             <p
-              className={`text-base font-normal text-gray-700 text-center ${yesevaOne.className}`}
+              className={`text-base font-normal text-gray-700 text-center ${roboto.className}`}
             >
               - {diary.author}
             </p>
