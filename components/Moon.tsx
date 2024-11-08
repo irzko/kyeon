@@ -2,7 +2,7 @@ import { motion } from "framer-motion"
 
 export default function Moon() {
   return (
-    <motion.div whileHover={{ scale: 1.1 }}
+    <motion.div className="animate-zoomOut" whileHover={{ scale: 1.1 }}
     whileTap={{ scale: 0.9 }}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
