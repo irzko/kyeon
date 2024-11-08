@@ -110,8 +110,8 @@ const DiaryCard = ({ diary }: { diary: IDiary }) => {
   
   return (
     <>
-      <li className="ml-4 mb-3">
-        <motion.div style={{ scale }} className="flex flex-col bg-white rounded-lg border border-gray-100">
+      <motion.li style={{ scale }} className="ml-4 mb-3">
+        <div className="flex flex-col bg-white rounded-lg border border-gray-100">
           <div className="flex justify-between items-center pt-2 px-2">
             <div className="flex items-center mr-2 px-2.5 py-0.5">
               <div className="absolute w-3 h-3 bg-gray-300 rounded-full -left-1.5 ring-1 ring-white"></div>
@@ -138,8 +138,8 @@ const DiaryCard = ({ diary }: { diary: IDiary }) => {
               - {diary.author}
             </p>
           </div>
-        </motion.div>
-      </li>
+        </div>
+      </motion.li>
     </>
   );
 };
