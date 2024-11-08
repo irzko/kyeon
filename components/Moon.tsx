@@ -1,6 +1,9 @@
+import { motion } from "framer-motion"
+
 export default function Moon() {
   return (
-    <div className="animate-zoomOut">
+    <motion.div whileHover={{ scale: 1.1 }}
+    whileTap={{ scale: 0.9 }}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="glow transition ease-in-out duration-500"
@@ -156,6 +159,6 @@ export default function Moon() {
           </g>
         </g>
       </svg>
-    </div>
+    </motion.div>
   );
 }
