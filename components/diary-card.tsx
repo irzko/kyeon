@@ -5,7 +5,6 @@ import { Yeseva_One } from "next/font/google";
 import Button from "./ui/Button";
 import ButtonLink from "./ui/ButtonLink";
 import { deleteDiary } from "@/app/action";
-
 const yesevaOne = Yeseva_One({ subsets: ["vietnamese"], weight: ["400"] });
 
 const ActionMenu = ({ diary }: { diary: IDiary }) => {
@@ -105,10 +104,13 @@ const ActionMenu = ({ diary }: { diary: IDiary }) => {
 };
 
 const DiaryCard = ({ diary }: { diary: IDiary }) => {
+  const { scrollYProgress } = useViewportScroll()
+  const scale = useTransform(scrollYProgress, [0, 1], [0.2, 2]);
+  
   return (
     <>
       <li className="ml-4 mb-3">
-        <div className="flex flex-col bg-white rounded-lg border border-gray-100">
+        <motion.div style={{ scale }} className="flex flex-col bg-white rounded-lg border border-gray-100">
           <div className="flex justify-between items-center pt-2 px-2">
             <div className="flex items-center mr-2 px-2.5 py-0.5">
               <div className="absolute w-3 h-3 bg-gray-300 rounded-full -left-1.5 ring-1 ring-white"></div>
@@ -135,7 +137,7 @@ const DiaryCard = ({ diary }: { diary: IDiary }) => {
               - {diary.author}
             </p>
           </div>
-        </div>
+        </motion.div>
       </li>
     </>
   );
