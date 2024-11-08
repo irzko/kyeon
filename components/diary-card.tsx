@@ -109,7 +109,7 @@ const cardVariants: Variants = {
     y: 300
   },
   onscreen: {
-    y: 0
+    y: 0,
     transition: {
       type: "spring",
       bounce: 0.4,
