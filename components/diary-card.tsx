@@ -109,7 +109,7 @@ const cardVariants: Variants = {
     y: 300
   },
   onscreen: {
-    y: 50,
+    y: 0
     transition: {
       type: "spring",
       bounce: 0.4,
@@ -127,7 +127,7 @@ const DiaryCard = ({ diary }: { diary: IDiary }) => {
         <motion.div variants={cardVariants} className="flex flex-col bg-white rounded-lg border border-gray-100">
           <div className="flex justify-between items-center pt-2 px-2">
             <div className="flex items-center mr-2 px-2.5 py-0.5">
-              <div className="absolute w-3 h-3 bg-gray-300 rounded-full -left-1.5 ring-1 ring-white"></div>
+              <div className="absolute w-3 h-3 bg-gray-300 rounded-full -left-3.5 ring-1 ring-white"></div>
               <time
                 className={`w-full text-gray-500 text-sm rounded-full ${yesevaOne.className}`}
               >
