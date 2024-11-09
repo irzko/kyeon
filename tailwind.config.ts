@@ -10,9 +10,9 @@ const config: Config = {
     extend: {
       dropShadow: {
         "moonGlow": [
+          "0 0 5px #fff",
+          "0 0 15px #fff",
           "0 0 20px #fff",
-          "0 0 25px #fff",
-          "0 0 40px #fff",
         ]
       },
       boxShadow: {
@@ -32,7 +32,6 @@ const config: Config = {
       animation: {
         zoomOut: "zoomout 2s ease-in-out",
         textdelay: "textdelay 3.5s",
-        glow: "glow 1.5s ease-in-out infinite alternate",
         astrogirl: "astrogirl 4s ease-in-out",
         astroboy: "astroboy 4s ease-in-out",
         flo: "flo 15s infinite ease-in-out",
@@ -82,17 +81,6 @@ const config: Config = {
           "100%": {
             transform: "scale( 1 )",
             opacity: "1",
-          },
-        },
-        glow: {
-          from: {
-            filter:
-              "drop-shadow(0 0 5px #fff) drop-shadow(0 0 15px #fff) drop-shadow(0 0 20px #fff)",
-          },
-
-          to: {
-            filter:
-              "drop-shadow(0 0 20px #fff) drop-shadow(0 0 25px #fff) drop-shadow(0 0 40px #fff)",
           },
         },
         astrogirl: {
