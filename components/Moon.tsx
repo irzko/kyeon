@@ -3,7 +3,7 @@ export default function Moon() {
     <div className="animate-zoomOut">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="glow transition ease-in-out duration-500"
+        className="glow"
         width={250}
         height={250}
         viewBox="0 0 172 172"
