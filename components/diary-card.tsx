@@ -124,7 +124,7 @@ const DiaryCard = ({ diary }: { diary: IDiary }) => {
       <motion.li initial="offscreen"
       whileInView="onscreen"
       viewport={{ once: true, amount: 0.8 }} className="mb-3 relative">
-        <motion.div variants={cardVariants} className="flex flex-col bg-white rounded-lg border border-gray-100">
+        <motion.div variants={cardVariants} className="flex flex-col backdrop-blur-lg backdrop-saturate-150 bg-gray-800 rounded-2xl border border-gray-200">
           <div className="flex justify-between items-center pt-2 px-2">
             <time className={`w-full text-gray-500 text-sm rounded-full ${roboto.className}`}>
               Ngày thứ {moment(diary.date).diff(moment("2023-07-27"), "days")}
