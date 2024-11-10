@@ -123,7 +123,7 @@ const DiaryCard = ({ diary }: { diary: IDiary }) => {
     <>
       <motion.li initial="offscreen"
       whileInView="onscreen"
-      viewport={{ once: true, amount: 0.8 }} className="mb-4 relative -mb-32">
+      viewport={{ once: true, amount: 0.8 }} className="relative -mb-32">
         <motion.div variants={cardVariants} className="flex flex-col bg-gray-800 rounded-2xl border shadow border-gray-700">
           <div className="flex justify-between items-center pt-2 px-2">
             <time className={`w-full text-white text-sm rounded-full ${roboto.className}`}>
