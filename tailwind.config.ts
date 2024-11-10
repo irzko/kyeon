@@ -12,7 +12,6 @@ const config: Config = {
         "moonGlow": [
           "0 0 5px #fff",
           "0 0 15px #fff",
-          "0 0 20px #fff",
         ]
       },
       boxShadow: {
