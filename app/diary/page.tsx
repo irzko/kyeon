@@ -26,7 +26,7 @@ export default async function Page() {
           <NavbarBrand>
             <Link
               href="/"
-              className={` ${styleScript.className} self-center text-3xl font-black whitespace-nowrap dark:text-white`}
+              className={` ${styleScript.className} self-center text-3xl font-black whitespace-nowrap text-white`}
             >
               Nhật ký vũ trụ
             </Link>
@@ -38,7 +38,7 @@ export default async function Page() {
             <ButtonLink
               radius="full"
               className="border gap-2 border-gray-300"
-              color="light"
+              color="default"
               href="/diary/create"
             >
               <svg
