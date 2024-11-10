@@ -1,7 +1,7 @@
-// import XmasTheme from "@/components/xmas-theme";
+import XmasTheme from "@/components/xmas-theme";
 
-import Background from "@/components/background";
-import CountDaysPage from "@/components/count-days";
+// import Background from "@/components/background";
+// import CountDaysPage from "@/components/count-days";
 
 export default function Page() {
   return (
