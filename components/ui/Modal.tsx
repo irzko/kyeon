@@ -2,6 +2,7 @@ import * as React from "react";
 import { ReactNode, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import Button from "./Button";
+import { motion } from "framer-motion";
 
 function PortalImpl({
   onClose,
@@ -58,9 +59,12 @@ function PortalImpl({
   }, [closeOnClickOutside, onClose]);
 
   return (
-    <div
+    <motion.div
       className="flex justify-center items-center fixed flex-col bg-[rgba(40,40,40,0.6)] grow-[0px] shrink-[1px] z-[100] inset-0"
       role="dialog"
+      initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
     >
       <div className="relative p-4 w-full max-w-screen-sm max-h-full">
         <div
@@ -98,7 +102,7 @@ function PortalImpl({
           <div>{children}</div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
