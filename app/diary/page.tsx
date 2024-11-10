@@ -37,7 +37,7 @@ export default async function Page() {
           <NavbarItem>
             <ButtonLink
               radius="full"
-              className="gap-2"
+              className="gap-2 font-bold"
               color="default"
               href="/diary/create"
             >
@@ -58,7 +58,7 @@ export default async function Page() {
                   d="M5 12h14m-7 7V5"
                 />
               </svg>
-              Viết nhật ký
+              Tạo
             </ButtonLink>
           </NavbarItem>
         </NavbarContent>
