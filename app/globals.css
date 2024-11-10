@@ -46,8 +46,8 @@
 }
 
 .graph-paper {
-  --s: 52px; /* control the size*/
-  --c1: rgb(31 41 55);
+  --s: 65px; /* control the size*/
+  --c1: rgb(75 85 99);
   --c2: rgb(17 24 39);
   
   --_g: #0000 90deg,var(--c1) 0;
