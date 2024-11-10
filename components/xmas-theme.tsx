@@ -37,7 +37,7 @@ export default function XmasTheme() {
 
   return (
     <div>
-      <div className="h-screen relative w-screen overflow-hidden count-day-bg">
+      <div className="h-screen relative w-screen overflow-hidden bg-gray-200">
         <div className="fixed flex justify-center items-center inset-0">
           <div className="relative">
             <Background />
