@@ -46,14 +46,14 @@
 }
 
 .graph-paper {
-  --s: 65px; /* control the size*/
+  --s: 48px; /* control the size*/
   --c1: rgb(75 85 99);
   --c2: rgb(17 24 39);
   
   --_g: #0000 90deg,var(--c1) 0;
   background: 
-    conic-gradient(from 90deg at 2px 2px,var(--_g)),
     conic-gradient(from 90deg at 1px 1px,var(--_g)),
+    conic-gradient(from 90deg at 0.5px 0.5px,var(--_g)),
     var(--c2);
   background-size: var(--s) var(--s), calc(var(--s)/5) calc(var(--s)/5);
 }
