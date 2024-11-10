@@ -20,7 +20,7 @@ const getPosts = unstable_cache(
 export default async function Page() {
   const posts: IDiary[] = await getPosts();
   return (
-    <div>
+    <div className="graph-paper">
       <Navbar>
         <NavbarContent>
           <NavbarBrand>
