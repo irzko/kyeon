@@ -62,7 +62,7 @@ export default function Button({
   children: ReactNode;
   radius?: "none" | "sm" | "md" | "lg" | "full";
   size?: "sm" | "md" | "lg";
-  color?: "default" | "light" | "danger";
+  color?: "default" | "light" | "danger" | "dark";
   isIconOnly?: boolean;
 } & React.DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
