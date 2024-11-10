@@ -37,7 +37,7 @@ export default async function Page() {
           <NavbarItem>
             <ButtonLink
               radius="full"
-              className="border gap-2 border-gray-300"
+              className="gap-2"
               color="default"
               href="/diary/create"
             >
