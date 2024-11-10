@@ -59,18 +59,18 @@ function PortalImpl({
   }, [closeOnClickOutside, onClose]);
 
   return (
-    <motion.div
+    <div
       className="flex justify-center items-center fixed flex-col bg-[rgba(40,40,40,0.6)] grow-[0px] shrink-[1px] z-[100] inset-0"
       role="dialog"
-      initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
     >
       <div className="relative p-4 w-full max-w-screen-sm max-h-full">
-        <div
+        <motion.div
           className="relative bg-white rounded-lg shadow"
           tabIndex={-1}
           ref={modalRef}
+          initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
         >
           <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
             <h2 className="text-xl font-semibold text-gray-900">{title}</h2>
@@ -100,9 +100,9 @@ function PortalImpl({
           </div>
 
           <div>{children}</div>
-        </div>
+        </motion.div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
