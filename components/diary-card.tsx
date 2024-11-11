@@ -6,7 +6,7 @@ import ButtonLink from "./ui/ButtonLink";
 import { deleteDiary } from "@/app/action";
 import { motion, Variants } from "framer-motion"
 import Markdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
+// import remarkGfm from 'remark-gfm'
 
 const ActionMenu = ({ diary }: { diary: IDiary }) => {
   const [modal, showModal] = useModal();
@@ -116,7 +116,7 @@ const DiaryCard = ({ diary }: { diary: IDiary }) => {
             <ActionMenu diary={diary} />
           </div>
           <div className="py-10 px-4 space-y-6">
-            <Markdown remarkPlugins={[[remarkGfm, {singleTilde: false}]]}>{diary.content}</Markdown>
+            <Markdown>{diary.content}</Markdown>
             <p
               className="text-base font-normal text-gray-400 text-center"
             >
