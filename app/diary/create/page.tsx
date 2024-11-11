@@ -57,8 +57,8 @@ const Page = () => {
           <textarea
             id="content"
             name="content"
-            rows={10}
-            className="border-none rounded-lg outline-none block w-full p-2.5 bg-gray-900 placeholder-gray-400 text-white"
+            rows={20}
+            className="border-none rounded-lg outline-none block w-full p-2.5 bg-gray-700 placeholder-gray-400 text-white"
             placeholder="Hãy viết gì đó..."
             required
           ></textarea>
@@ -67,9 +67,9 @@ const Page = () => {
           <Input
             type="text"
             id="author"
-            className="bg-gray-900 text-base border-none ring-none focus:ring-none focus:border-none hover:outline-none"
+            className="bg-gray-900 text-base border-none ring-none focus:ring-none focus:border-none focus:outline-none"
             name="author"
-            placeholder="Họ tên hoặc nickname"
+            placeholder="Người viết"
             required
           ></Input>
         </div>
