@@ -65,7 +65,7 @@ function PortalImpl({
     >
       <div className="relative p-4 w-full max-w-screen-sm max-h-full">
         <motion.div
-          className="relative bg-gray-900 border border-gray-200 rounded-lg shadow"
+          className="relative bg-gray-700 rounded-2xl shadow"
           tabIndex={-1}
           ref={modalRef}
           initial={{ opacity: 0, scale: 0.95 }}
