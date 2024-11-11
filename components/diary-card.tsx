@@ -109,15 +109,15 @@ const DiaryCard = ({ diary }: { diary: IDiary }) => {
       <li className="mb-4">
         <div className="flex flex-col bg-gray-800 rounded-2xl border border-gray-700 shadow">
           <div className="flex justify-between items-center pt-2 px-2">
-            <h4 className="w-full text-gray-400 text-sm rounded-full">
+            <h4 className="w-full">
               Ngày thứ {moment(diary.date).diff(moment("2023-07-27"), "days")}
             </h4>
             <ActionMenu diary={diary} />
           </div>
-          <div className="py-10 px-4">
+          <div className="py-10 px-4 space-y-6">
             <Markdown>{diary.content}</Markdown>
             <p
-              className="text-base font-normal pt-6 text-gray-400 text-center"
+              className="text-base font-normal text-gray-400 text-center"
             >
               - {diary.author}
             </p>
