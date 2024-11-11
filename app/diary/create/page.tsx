@@ -48,7 +48,7 @@ const Page = () => {
             type="datetime-local"
             id="date"
             name="date"
-            className="bg-gray-900 text-base border-none ring-none focus:ring-none focus:border-none hover:border-none"
+            className="bg-gray-900 text-base border-none ring-none focus:ring-none focus:border-none hover:outline-none"
             defaultValue={moment().format("YYYY-MM-DDTHH:mm")}
             required
           ></Input>
@@ -67,7 +67,7 @@ const Page = () => {
           <Input
             type="text"
             id="author"
-            className="bg-gray-900 text-base border-none ring-none focus:ring-none focus:border-none hover:ring-none"
+            className="bg-gray-900 text-base border-none ring-none focus:ring-none focus:border-none hover:outline-none"
             name="author"
             placeholder="Họ tên hoặc nickname"
             required
