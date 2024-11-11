@@ -107,7 +107,7 @@ const DiaryCard = ({ diary }: { diary: IDiary }) => {
   return (
     <>
       <li className="relative mb-4">
-        <div className="flex flex-col bg-gray-800/70 rounded-2xl border border-gray-700 shadow">
+        <div className="flex flex-col bg-gray-800 rounded-2xl border border-gray-700 shadow">
           <div className="flex justify-between items-center pt-2 px-2">
             <h4 className="w-full text-gray-400 text-sm rounded-full">
               Ngày thứ {moment(diary.date).diff(moment("2023-07-27"), "days")}
