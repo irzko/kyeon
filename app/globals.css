@@ -42,7 +42,7 @@
     @apply underline;
   }
   em {
-    @apply font-italic;
+    @apply italic;
   }
   p {
     @apply text-gray-400;
