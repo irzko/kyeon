@@ -21,7 +21,7 @@ const ActionMenu = ({ diary }: { diary: IDiary }) => {
               <ul className="flex flex-col p-2 space-y-2 list-none">
                 <li>
                   <ButtonLink
-                    color="dark"
+                    color="light"
                     className="justify-start gap-2"
                     href={`diary/edit/${diary.id}`}
                   >
@@ -47,7 +47,7 @@ const ActionMenu = ({ diary }: { diary: IDiary }) => {
                 </li>
                 <li>
                   <Button
-                    color="dark"
+                    color="light"
                     className="justify-start gap-2 w-full"
                     onClick={() => {
                       showModal("Xoá nhật ký", () => {
@@ -108,7 +108,7 @@ const DiaryCard = ({ diary }: { diary: IDiary }) => {
   return (
     <>
       <li>
-        <div className="flex flex-col bg-gray-800 rounded-2xl border border-gray-700 shadow">
+        <div className="flex flex-col bg-gray-700 rounded-2xl border border-gray-700 shadow">
           <div className="flex justify-between items-center pt-2 px-2">
             <h3 className="w-full text-gray-400 text-base">
               Ngày thứ {moment(diary.date).diff(moment("2023-07-27"), "days")}
