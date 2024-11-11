@@ -65,7 +65,7 @@ export default async function Page() {
       </Navbar>
 
       <main className="max-w-screen-sm mx-auto p-4">
-        <ul className="list-none">
+        <ul className="list-none space-y-4">
           {posts?.map((post) => (
             <DiaryCard key={post.id} diary={post} />
           ))}
