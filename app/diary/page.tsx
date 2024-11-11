@@ -28,7 +28,7 @@ export default async function Page() {
               href="/"
               className={` ${styleScript.className} self-center text-3xl font-black whitespace-nowrap text-white`}
             >
-              Nhật ký vũ trụ
+              #nhatkyvutru
             </Link>
           </NavbarBrand>
         </NavbarContent>
