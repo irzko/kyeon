@@ -14,6 +14,20 @@
   user-select: none;
 }
 
+
+
+@layer base {
+  h1 {
+    @apply text-5xl font-extrabold text-white;
+  }
+  h2 {
+    @apply text-4xl font-bold text-white;
+  }
+  p {
+    @apply text-white;
+  }
+}
+
 .glow {
   filter: drop-shadow(0 0 5px #fff) drop-shadow(0 0 15px #fff);
 }
@@ -57,3 +71,4 @@
     var(--c2);
   background-size: var(--s) var(--s), calc(var(--s)/5) calc(var(--s)/5);
 }
+
