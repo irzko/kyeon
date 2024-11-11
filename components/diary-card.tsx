@@ -7,10 +7,6 @@ import { deleteDiary } from "@/app/action";
 import { motion, Variants } from "framer-motion"
 import Markdown from 'react-markdown'
 import dynamic from 'next/dynamic'
-const MarkdownRenderer = dynamic(
-  () => import('@/components/markdown-renderer'),
-  { ssr: false }
-)
 
 const ActionMenu = ({ diary }: { diary: IDiary }) => {
   const [modal, showModal] = useModal();
@@ -120,7 +116,7 @@ const DiaryCard = ({ diary }: { diary: IDiary }) => {
             <ActionMenu diary={diary} />
           </div>
           <div className="py-10 px-4 space-y-6">
-            <MarkdownRenderer content={diary.content} />
+            <Markdown>{diary.content}<Markdown>
             <p
               className="text-base font-normal text-gray-400 text-center"
             >
