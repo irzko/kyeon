@@ -43,31 +43,29 @@ const Page = () => {
         className="p-4 max-w-screen-md mx-auto flex flex-col"
         action={createDiaryAction}
       >
-        <div className="mb-6">
+        <div className="mb-4">
           <Input
             type="datetime-local"
             id="date"
             name="date"
-            className="bg-gray-900 text-base border-none ring-none focus:ring-none focus:border-none hover:outline-none"
             defaultValue={moment().format("YYYY-MM-DDTHH:mm")}
             required
           ></Input>
         </div>
-        <div className="mb-6">
+        <div className="mb-4">
           <textarea
             id="content"
             name="content"
-            rows={20}
-            className="border-none rounded-lg outline-none block w-full p-2.5 bg-gray-700 placeholder-gray-400 text-white"
+            rows={15}
+            className="border text-sm rounded-lg outline-none focus:ring-1 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
             placeholder="Hãy viết gì đó..."
             required
           ></textarea>
         </div>
-        <div className="mb-6">
+        <div className="mb-4">
           <Input
             type="text"
             id="author"
-            className="bg-gray-900 text-base border-none ring-none focus:ring-none focus:border-none focus:outline-none"
             name="author"
             placeholder="Người viết"
             required
