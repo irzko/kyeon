@@ -7,6 +7,7 @@ import ButtonLink from "./ui/ButtonLink";
 import { deleteDiary } from "@/app/action";
 const roboto = Roboto({ subsets: ["vietnamese"], weight: ["700"] });
 import { motion, Variants } from "framer-motion"
+import Markdown from 'react-markdown'
 
 const ActionMenu = ({ diary }: { diary: IDiary }) => {
   const [modal, showModal] = useModal();
@@ -116,14 +117,7 @@ const DiaryCard = ({ diary }: { diary: IDiary }) => {
             <ActionMenu diary={diary} />
           </div>
           <div className="py-10 px-4">
-            <p
-              className={`text-xl pb-6 text-center text-white ${roboto.className}`}
-            >
-              &quot;
-              {diary.content}
-              &quot;
-            </p>
-
+            <Markdown>{diary.content}</Markdown>
             <p
               className={`text-base font-normal text-white text-center ${roboto.className}`}
             >
