@@ -12,7 +12,7 @@ const Page = () => {
       <Navbar>
         <NavbarContent>
           <NavbarItem className="flex items-center gap-2">
-            <ButtonLink color="light" isIconOnly href="/diary">
+            <ButtonLink color="dark" isIconOnly href="/diary">
               <svg
                 className="w-5 h-5"
                 aria-hidden="true"
@@ -48,7 +48,7 @@ const Page = () => {
             type="datetime-local"
             id="date"
             name="date"
-            className="bg-gray-900 text-base border-none focus:ring-none"
+            className="bg-gray-900 text-base border-none ring-none focus:ring-none focus:border-none"
             defaultValue={moment().format("YYYY-MM-DDTHH:mm")}
             required
           ></Input>
@@ -64,16 +64,10 @@ const Page = () => {
           ></textarea>
         </div>
         <div className="mb-6">
-          <label
-            htmlFor="author"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
-            Người viết
-          </label>
           <Input
             type="text"
             id="author"
-            className="bg-gray-900 text-base border-none focus:ring-none"
+            className="bg-gray-900 text-base border-none ring-none focus:ring-none focus:border-none"
             name="author"
             placeholder="Họ tên hoặc nickname"
             required
