@@ -12,7 +12,7 @@ const Page = () => {
       <Navbar>
         <NavbarContent>
           <NavbarItem className="flex items-center gap-2">
-            <ButtonLink color="dark" isIconOnly href="/diary">
+            <ButtonLink color="dark" className="bg-transparent" isIconOnly href="/diary">
               <svg
                 className="w-5 h-5"
                 aria-hidden="true"
