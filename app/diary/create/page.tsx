@@ -40,7 +40,7 @@ const Page = () => {
 
       <form
         id="diary-form"
-        className="p-4 max-w-screen-md mx-auto flex flex-col"
+        className="p-4 max-w-screen-md mx-auto flex flex-col graph-paper"
         action={createDiaryAction}
       >
         <div className="mb-6">
@@ -69,7 +69,7 @@ const Page = () => {
             id="content"
             name="content"
             rows={10}
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="border text-sm rounded-lg outline-none focus:ring-1 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
             placeholder="Hãy viết gì đó..."
             required
           ></textarea>
