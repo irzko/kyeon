@@ -109,9 +109,9 @@ const DiaryCard = ({ diary }: { diary: IDiary }) => {
   return (
     <>
       <li className="relative mb-4">
-        <div className="flex flex-col bg-gray-800/70 rounded-2xl border border-gray-700 shadow">
+        <div className={`flex flex-col bg-gray-800/70 rounded-2xl border border-gray-700 shadow ${roboto.className}`}>
           <div className="flex justify-between items-center pt-2 px-2">
-            <time className={`w-full text-white text-sm rounded-full ${roboto.className}`}>
+            <time className="w-full text-gray-400 text-sm rounded-full">
               Ngày thứ {moment(diary.date).diff(moment("2023-07-27"), "days")}
             </time>
             <ActionMenu diary={diary} />
@@ -119,7 +119,7 @@ const DiaryCard = ({ diary }: { diary: IDiary }) => {
           <div className="py-10 px-4">
             <Markdown>{diary.content}</Markdown>
             <p
-              className={`text-base font-normal text-white text-center ${roboto.className}`}
+              className="text-base font-normal mt-6 text-gray-400 text-center"
             >
               - {diary.author}
             </p>
