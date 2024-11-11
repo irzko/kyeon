@@ -117,7 +117,7 @@ const DiaryCard = ({ diary }: { diary: IDiary }) => {
           <div className="py-10 px-4">
             <Markdown>{diary.content}</Markdown>
             <p
-              className="text-base font-normal mt-6 text-gray-400 text-center"
+              className="text-base font-normal pt-6 text-gray-400 text-center"
             >
               - {diary.author}
             </p>
