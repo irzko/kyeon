@@ -23,8 +23,32 @@
   h2 {
     @apply text-4xl font-bold text-white;
   }
+  h3 {
+    @apply text-3xl font-bold text-white;
+  }
+  h4 {
+    @apply text-2xl font-bold text-white;
+  }
+  h5 {
+    @apply text-xl font-bold text-white;
+  }
+  h6 {
+    @apply text-lg font-bold text-white;
+  }
+  strong {
+    @apply font-semibold text-white;
+  }
+  u {
+    @apply underline;
+  }
+  em {
+    @apply font-italic;
+  }
   p {
-    @apply text-white;
+    @apply text-gray-400;
+  }
+  blockquote {
+    @apply p-4 my-4 border-s-4 border-gray-500 bg-gray-800;
   }
 }
 
