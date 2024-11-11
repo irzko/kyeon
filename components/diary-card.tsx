@@ -14,7 +14,8 @@ const ActionMenu = ({ diary }: { diary: IDiary }) => {
     <>
       <Button
         isIconOnly
-        color="dark"
+        radius="full"
+        className="bg-transparent"
         onClick={() => {
           showModal("Tuỳ chọn", (onClose) => {
             return (
