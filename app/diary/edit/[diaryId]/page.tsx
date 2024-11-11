@@ -57,7 +57,7 @@ const Page = async ({ params }: { params: Promise<{ diaryId: string }> }) => {
       <Navbar>
         <NavbarContent>
           <NavbarItem className="flex items-center gap-2">
-            <ButtonLink color="light" isIconOnly href="/diary">
+            <ButtonLink color="light" className="bg-transparent" isIconOnly href="/diary">
               <svg
                 className="w-5 h-5"
                 aria-hidden="true"
@@ -88,12 +88,6 @@ const Page = async ({ params }: { params: Promise<{ diaryId: string }> }) => {
         className="p-4 max-w-screen-md mx-auto flex flex-col"
       >
         <div className="mb-6">
-          <label
-            htmlFor="date"
-            className="block mb-2 font-medium text-sm text-gray-900 dark:text-white"
-          >
-            Ngày diễn ra
-          </label>
           <Input
             type="datetime-local"
             id="date"
@@ -105,15 +99,9 @@ const Page = async ({ params }: { params: Promise<{ diaryId: string }> }) => {
           />
         </div>
         <div className="mb-6">
-          <label
-            htmlFor="content"
-            className="block mb-2 font-medium text-sm text-gray-900 dark:text-white"
-          >
-            Nội dung
-          </label>
           <textarea
             id="content"
-            rows={10}
+            rows={15}
             name="content"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Hãy viết gì đó..."
@@ -122,12 +110,6 @@ const Page = async ({ params }: { params: Promise<{ diaryId: string }> }) => {
           ></textarea>
         </div>
         <div className="mb-6">
-          <label
-            htmlFor="author"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
-            Người viết
-          </label>
           <Input
             type="text"
             id="author"
