@@ -43,7 +43,7 @@ const Page = () => {
         className="p-4 max-w-screen-md mx-auto flex flex-col"
         action={createDiaryAction}
       >
-        <div className="mb-4">
+        <div className="mb-6">
           <Input
             type="datetime-local"
             id="date"
@@ -52,7 +52,7 @@ const Page = () => {
             required
           ></Input>
         </div>
-        <div className="mb-4">
+        <div className="mb-6">
           <textarea
             id="content"
             name="content"
@@ -62,7 +62,7 @@ const Page = () => {
             required
           ></textarea>
         </div>
-        <div className="mb-4">
+        <div className="mb-6">
           <Input
             type="text"
             id="author"
