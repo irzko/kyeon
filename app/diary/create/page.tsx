@@ -40,36 +40,25 @@ const Page = () => {
 
       <form
         id="diary-form"
-        className="p-4 max-w-screen-md mx-auto flex flex-col graph-paper"
+        className="p-4 max-w-screen-md mx-auto flex flex-col"
         action={createDiaryAction}
       >
         <div className="mb-6">
-          <label
-            htmlFor="date"
-            className="block mb-2 font-medium text-sm text-gray-900 dark:text-white"
-          >
-            Ngày diễn ra
-          </label>
           <Input
             type="datetime-local"
             id="date"
             name="date"
+            className="bg-gray-900 text-base border-none focus:ring-none"
             defaultValue={moment().format("YYYY-MM-DDTHH:mm")}
             required
           ></Input>
         </div>
         <div className="mb-6">
-          <label
-            htmlFor="content"
-            className="block mb-2 font-medium text-sm text-gray-900 dark:text-white"
-          >
-            Nội dung
-          </label>
           <textarea
             id="content"
             name="content"
             rows={10}
-            className="border text-sm rounded-lg outline-none focus:ring-1 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+            className="border-none rounded-lg outline-none block w-full p-2.5 bg-gray-900 placeholder-gray-400 text-white"
             placeholder="Hãy viết gì đó..."
             required
           ></textarea>
@@ -84,6 +73,7 @@ const Page = () => {
           <Input
             type="text"
             id="author"
+            className="bg-gray-900 text-base border-none focus:ring-none"
             name="author"
             placeholder="Họ tên hoặc nickname"
             required
