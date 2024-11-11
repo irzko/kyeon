@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 import { tv } from "tailwind-variants";
 
 const buttonStyles = tv({
-  base: "flex justify-center items-center font-medium tap-highlight-transparent",
+  base: "flex justify-center items-center font-medium tap-highlight-transparent no-underline",
   variants: {
     color: {
       default:
