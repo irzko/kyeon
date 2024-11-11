@@ -65,7 +65,7 @@ function PortalImpl({
     >
       <div className="relative p-4 w-full max-w-screen-sm max-h-full">
         <motion.div
-          className="relative bg-white rounded-lg shadow"
+          className="relative bg-gray-900 border border-gray-200 rounded-lg shadow"
           tabIndex={-1}
           ref={modalRef}
           initial={{ opacity: 0, scale: 0.95 }}
@@ -73,10 +73,10 @@ function PortalImpl({
                 exit={{ opacity: 0, scale: 0.95 }}
         >
           <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
-            <h2 className="text-xl font-semibold text-gray-900">{title}</h2>
+            <h4>{title}</h4>
             <Button
               isIconOnly
-              color="light"
+              color="dark"
               radius="full"
               aria-label="Close modal"
               onClick={onClose}
