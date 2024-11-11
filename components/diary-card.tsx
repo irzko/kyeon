@@ -1,11 +1,9 @@
 "use client";
 import useModal from "@/hooks/useModal";
 import moment from "moment";
-import { Roboto } from "next/font/google";
 import Button from "./ui/Button";
 import ButtonLink from "./ui/ButtonLink";
 import { deleteDiary } from "@/app/action";
-const roboto = Roboto({ subsets: ["vietnamese"], weight: ["700"] });
 import { motion, Variants } from "framer-motion"
 import Markdown from 'react-markdown'
 
@@ -109,7 +107,7 @@ const DiaryCard = ({ diary }: { diary: IDiary }) => {
   return (
     <>
       <li className="relative mb-4">
-        <div className={`flex flex-col bg-gray-800/70 rounded-2xl border border-gray-700 shadow ${roboto.className}`}>
+        <div className="flex flex-col bg-gray-800/70 rounded-2xl border border-gray-700 shadow">
           <div className="flex justify-between items-center pt-2 px-2">
             <time className="w-full text-gray-400 text-sm rounded-full">
               Ngày thứ {moment(diary.date).diff(moment("2023-07-27"), "days")}
