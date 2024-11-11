@@ -7,8 +7,8 @@ import { deleteDiary } from "@/app/action";
 import { motion, Variants } from "framer-motion"
 import Markdown from 'react-markdown'
 import dynamic from 'next/dynamic'
-const remarkGfm = dynamic(
-  () => import('remark-gfm'),
+const MarkdownRenderer = dynamic(
+  () => import('@/components/markdown-renderer'),
   { ssr: false }
 )
 
@@ -120,7 +120,7 @@ const DiaryCard = ({ diary }: { diary: IDiary }) => {
             <ActionMenu diary={diary} />
           </div>
           <div className="py-10 px-4 space-y-6">
-            <Markdown remarkPlugins={[remarkGfm]}>{diary.content}</Markdown>
+            <MarkdownRenderer>{diary.content}</MarkdownRenderer>
             <p
               className="text-base font-normal text-gray-400 text-center"
             >
