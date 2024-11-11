@@ -111,7 +111,7 @@ const DiaryCard = ({ diary }: { diary: IDiary }) => {
           <div className="flex justify-between items-center pt-2 px-2">
             <h4 className="w-full text-gray-400 text-sm rounded-full">
               Ngày thứ {moment(diary.date).diff(moment("2023-07-27"), "days")}
-            </time>
+            </h4>
             <ActionMenu diary={diary} />
           </div>
           <div className="py-10 px-4">
