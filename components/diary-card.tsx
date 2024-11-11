@@ -112,7 +112,7 @@ const DiaryCard = ({ diary }: { diary: IDiary }) => {
       <li>
         <div className="flex flex-col bg-gray-700/70 rounded-2xl border border-gray-700 shadow">
           <div className="flex justify-between items-center pt-2 px-2">
-            <h3 className="w-full text-gray-300 bg-gray-700 rounded-full text-base">
+            <h3 className="w-full text-gray-400 text-base">
               Ngày thứ {moment(diary.date).diff(moment("2023-07-27"), "days")}
             </h3>
             <ActionMenu diary={diary} />
