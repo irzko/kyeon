@@ -65,7 +65,7 @@ export default function ButtonLink({
   radius?: "none" | "sm" | "md" | "lg" | "full";
   size?: "sm" | "md" | "lg";
   href: string;
-  color?: "default" | "light";
+  color?: "default" | "light" | "dark" | "danger";
   isIconOnly?: boolean;
 }>): JSX.Element {
   return (
