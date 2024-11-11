@@ -116,7 +116,7 @@ const DiaryCard = ({ diary }: { diary: IDiary }) => {
             <ActionMenu diary={diary} />
           </div>
           <div className="py-10 px-4 space-y-6">
-            <Markdown>{diary.content}<Markdown>
+            <Markdown>{diary.content}</Markdown>
             <p
               className="text-base font-normal text-gray-400 text-center"
             >
