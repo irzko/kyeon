@@ -72,7 +72,7 @@ function PortalImpl({
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
         >
-          <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+          <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t border-gray-600">
             <h4>{title}</h4>
             <Button
               isIconOnly
