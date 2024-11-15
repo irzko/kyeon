@@ -5,7 +5,7 @@ import Button from "./ui/Button";
 import ButtonLink from "./ui/ButtonLink";
 import { deleteDiary } from "@/app/action";
 import { motion, Variants } from "framer-motion";
-import { MDXRemote } from "next-mdx-remote-client/rsc";
+import { MDXRemote } from "next-mdx-remote/rsc";
 
 const ActionMenu = ({ diary }: { diary: IDiary }) => {
   const [modal, showModal] = useModal();
