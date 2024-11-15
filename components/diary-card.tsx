@@ -5,7 +5,7 @@ import Button from "./ui/Button";
 import ButtonLink from "./ui/ButtonLink";
 import { deleteDiary } from "@/app/action";
 import { motion, Variants } from "framer-motion";
-import ReactMdx from "./ReactMdx";
+import ReactMdx from "./react-mdx";
 import dynamic from "next/dynamic";
 
 const ActionMenu = ({ diary }: { diary: IDiary }) => {
