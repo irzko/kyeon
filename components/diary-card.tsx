@@ -5,7 +5,8 @@ import Button from "./ui/Button";
 import ButtonLink from "./ui/ButtonLink";
 import { deleteDiary } from "@/app/action";
 import { motion, Variants } from "framer-motion";
-import ReactMdx from "./react-mdx";
+import { MDXRemote } from 'next-mdx-remote/rsc'
+
 
 const ActionMenu = ({ diary }: { diary: IDiary }) => {
   const [modal, showModal] = useModal();
@@ -120,7 +121,7 @@ const DiaryCard = ({ diary }: { diary: IDiary }) => {
             <ActionMenu diary={diary} />
           </div>
           <div className="py-6 px-4 space-y-6">
-            <ReactMdx markdown={diary.content} />
+            <MDXRemote source={diary.content} />
             <p className="text-base font-normal text-gray-400 text-center">
               by <strong>{diary.author}</strong>
             </p>
