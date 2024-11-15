@@ -1,4 +1,3 @@
-"use client";
 import { unified } from "unified";
 import { Fragment, createElement, useEffect, useState } from "react";
 import rehypeReact from "rehype-react";
