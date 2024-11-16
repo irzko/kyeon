@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import "moment/locale/vi";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Đếm ngày chúng ta bên nhau",
@@ -17,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi">
-      <body className={`bg-gray-900 ${inter.className}`}>{children}</body>
+      <body className={`bg-gray-900 font-sans`}>{children}</body>
     </html>
   );
 }
