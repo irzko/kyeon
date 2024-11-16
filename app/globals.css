@@ -102,7 +102,7 @@
   }
 
   code {
-    @apply px-2 py-1.5 text-sm font-semibold border rounded-lg bg-gray-600 text-gray-100 border-gray-500;
+    @apply px-1 text-sm font-normal font-mono text-[#76a9fa];
   }
 
   pre {
@@ -112,6 +112,15 @@
   pre>code {
     @apply bg-inherit text-inherit border-none rounded-none;
   }
+}
+
+
+[data-footnote-ref]::before {
+  content: '[';
+}
+
+[data-footnote-ref]::after {
+  content: ']';
 }
 
 .glow {
