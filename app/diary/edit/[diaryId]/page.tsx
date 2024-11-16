@@ -64,7 +64,7 @@ const Page = async ({ params }: { params: Promise<{ diaryId: string }> }) => {
             </ButtonLink>
           </NavbarItem>
           <NavbarItem>
-            <span className="font-semibold">Chỉnh sửa nhật ký</span>
+            <h6 className="font-semibold">Chỉnh sửa nhật ký</h6>
           </NavbarItem>
         </NavbarContent>
       </Navbar>

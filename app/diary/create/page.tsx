@@ -19,7 +19,7 @@ const Page = () => {
             </ButtonLink>
           </NavbarItem>
           <NavbarItem>
-            <span className="font-semibold">Viết nhật ký</span>
+            <h6 className="font-semibold">Nhật ký mới</h6>
           </NavbarItem>
         </NavbarContent>
       </Navbar>
