@@ -42,7 +42,7 @@
     @apply underline;
   }
   em {
-    @apply italic;
+    @apply font-italic;
   }
   p {
     @apply text-gray-400;
@@ -58,6 +58,25 @@
   }
   a {
     @apply font-medium text-blue-500 hover:underline;
+  }
+  table {
+    @apply w-full text-sm text-left rtl:text-right text-gray-400;
+  }
+
+  thead {
+    @apply text-xs uppercase bg-gray-700 text-gray-400;
+  }
+  thead > tr > th {
+    @apply px-6 py-3;
+  }
+  tbody > tr {
+    @apply border-b bg-gray-800 border-gray-700
+  }
+  tbody > tr > th {
+    @apply px-6 py-4 font-medium whitespace-nowrap text-white;
+  }
+  td {
+    @apply px-6 py-4;
   }
 }
 
