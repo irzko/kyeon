@@ -57,23 +57,9 @@ const Page = async ({ params }: { params: Promise<{ diaryId: string }> }) => {
       <Navbar>
         <NavbarContent>
           <NavbarItem className="flex items-center gap-2">
-            <ButtonLink color="light" className="bg-transparent" isIconOnly href="/diary">
-              <svg
-                className="w-5 h-5"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M5 12h14M5 12l4-4m-4 4 4 4"
-                />
+            <ButtonLink color="dark" className="bg-transparent" isIconOnly href="/diary">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={28} height={28} color={"#ffffff"} fill={"none"}>
+                <path d="M19.0005 4.99988L5.00049 18.9999M5.00049 4.99988L19.0005 18.9999" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </ButtonLink>
           </NavbarItem>
