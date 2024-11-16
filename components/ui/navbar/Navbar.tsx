@@ -10,6 +10,16 @@ const navbar = tv({
   }
 });
 
+const header = tv({
+  base: "z-40 flex px-6 gap-4 w-full flex-row relative flex-nowrap items-center justify-between max-w-screen-lg",
+  variants: {
+    position: {
+      top: "h-16",
+      bottom: "h-12",
+    }
+  }
+})
+
 export default function Navbar({
   children,
   position = "top",
@@ -21,7 +31,9 @@ export default function Navbar({
     <nav className={navbar({
 position
     })}>
-      <header className="z-40 flex px-6 gap-4 w-full flex-row relative flex-nowrap items-center justify-between h-16 max-w-screen-lg">
+      <header className={header({
+position
+    })}>
         {children}
       </header>
     </nav>
