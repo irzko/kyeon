@@ -4,7 +4,7 @@ import prisma from "@/libs/prisma";
 import { Style_Script } from "next/font/google";
 import { Navbar, NavbarContent, NavbarItem } from "@/components/ui/navbar";
 import NavbarBrand from "@/components/ui/navbar/NavbarBrand";
-import DiaryCard from "@/components/diary-card";
+import Post from "@/components/diary/post";
 import ButtonLink from "@/components/ui/ButtonLink";
 
 const styleScript = Style_Script({ subsets: ["vietnamese"], weight: ["400"] });
@@ -67,7 +67,7 @@ export default async function Page() {
       <main className="max-w-screen-sm mx-auto p-4">
         <ul className="list-none space-y-4">
           {posts?.map((post) => (
-            <DiaryCard key={post.id} diary={post} />
+            <Post key={post.id} diary={post} />
           ))}
         </ul>
       </main>
