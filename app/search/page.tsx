@@ -1,5 +1,5 @@
 "use client";
-
+import { Navbar } from "@/components/ui/navbar";
 import { useRouter } from "next/navigation";
 
 
@@ -16,27 +16,8 @@ export default function SearchPage() {
 
   return (
     <main className="flex flex-col items-center">
-      <div className="border-b h-16 flex justify-center items-center border-gray-200 w-full">
+      <Navbar>
         <div className="flex justify-center items-center max-w-sm w-full p-2">
-          <button className="mr-2" onClick={() => router.back()}>
-            <svg
-              className="w-6 h-6"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              width={24}
-              height={24}
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M5 12h14M5 12l4-4m-4 4 4 4"
-              />
-            </svg>
-          </button>
           <div className="relative w-full">
             <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
               <svg
@@ -57,7 +38,7 @@ export default function SearchPage() {
             </div>
             <input
               type="text"
-              className="block w-full p-2 ps-10 text-sm border rounded-lg bg-white border-gray-600 placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500"
+              className="block w-full border text-sm rounded-lg outline-none focus:ring-1 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
               placeholder="Tìm kiếm"
               // value={keyword}
               onChange={handleChange}
@@ -65,7 +46,7 @@ export default function SearchPage() {
             ></input>
           </div>
         </div>
-      </div>
+      </Navbar>
       <div className="max-w-sm w-full p-2">
         {/* <h2 className="font-semibold">Kết quả tìm kiếm</h2> */}
 

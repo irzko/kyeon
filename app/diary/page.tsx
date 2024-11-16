@@ -74,7 +74,7 @@ export default async function Page() {
         >
           #nhatkyvutru
         </Link>
-        <ul className="mb-20 list-none space-y-4">
+        <ul className="mb-14 list-none space-y-4">
           {posts?.map((post) => (
             <Post key={post.id} diary={post} />
           ))}
