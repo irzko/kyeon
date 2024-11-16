@@ -25,7 +25,7 @@ export default async function Page() {
         <NavbarContent className="w-full">
           <NavbarItem>
             <ButtonLink
-              radius="lg"
+              radius="full"
               isIconOnly
               size="lg"
               className="px-2"
@@ -43,7 +43,7 @@ export default async function Page() {
       <main className="max-w-screen-sm mx-auto p-4">
         <Link
               href="/"
-              className={` ${styleScript.className} my-4 block text-center text-3xl font-black whitespace-nowrap text-white`}
+              className={` ${styleScript.className} mb-4 block text-center text-3xl font-black whitespace-nowrap text-white`}
             >
               #nhatkyvutru
             </Link>
