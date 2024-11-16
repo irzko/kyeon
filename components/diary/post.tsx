@@ -19,7 +19,7 @@ const Post = ({ diary }: { diary: IDiary }) => {
             <ActionMenu diary={diary} />
           </div>
           <div className="py-6 px-4 space-y-6">
-            <Markdown remarkPlugins={[remarkGfm, emoji]}>{diary.content}</Markdown>
+            <Markdown remarkPlugins={[[remarkGfm],[emoji]]}>{diary.content}</Markdown>
             <p className="text-base font-normal text-gray-400 text-center">
               by <strong>{diary.author}</strong>
             </p>
