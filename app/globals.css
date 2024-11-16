@@ -100,6 +100,12 @@
   code {
     @apply px-2 py-1.5 text-xs font-semibold border rounded-lg bg-gray-600 text-gray-100 border-gray-500;
   }
+  pre {
+    @apply border text-sm rounded-lg p-2.5 bg-gray-700 border-gray-600 text-gray-400;
+  }
+  pre > code {
+    @apply text-xs font-semibold;
+  }
 }
 
 .glow {
