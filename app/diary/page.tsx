@@ -22,7 +22,7 @@ export default async function Page() {
     <div className="graph-paper">
       <Navbar position="bottom">
 
-        <NavbarContent className="w-full">
+        <NavbarContent className="w-full justify-evenly">
           <NavbarItem>
             <Link href="/diary">
               <svg className="w-[36px] h-[36px] text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
