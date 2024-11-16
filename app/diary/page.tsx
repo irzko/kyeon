@@ -1,10 +1,12 @@
 import { unstable_cache } from 'next/cache';
 import prisma from "@/libs/prisma";
 import { Navbar, NavbarContent, NavbarItem } from "@/components/ui/navbar";
-
+import Link from "next/link";
+import { Style_Script } from "next/font/google";
 import Post from "@/components/diary/post";
 import ButtonLink from "@/components/ui/ButtonLink";
 
+const styleScript = Style_Script({ subsets: ["vietnamese"], weight: ["400"] });
 
 const getPosts = unstable_cache(
   async () => {
@@ -20,7 +22,7 @@ export default async function Page() {
     <div className="graph-paper">
       <Navbar position="bottom">
 
-        <NavbarContent>
+        <NavbarContent className="w-full">
           <NavbarItem>
             <ButtonLink
               radius="lg"
@@ -37,6 +39,12 @@ export default async function Page() {
       </Navbar>
 
       <main className="max-w-screen-sm mx-auto p-4">
+        <Link
+              href="/"
+              className={` ${styleScript.className} w-full text-center text-3xl font-black whitespace-nowrap text-white`}
+            >
+              #nhatkyvutru
+            </Link>
         <ul className="list-none space-y-4">
           {posts?.map((post) => (
             <Post key={post.id} diary={post} />
