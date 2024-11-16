@@ -26,7 +26,9 @@ export default async function Page() {
           <NavbarItem>
             <ButtonLink
               radius="lg"
-              className="gap-2 font-bold"
+              isIconOnly
+              size="lg"
+              className="px-2"
               color="light"
               href="/diary/create"
             >
@@ -41,7 +43,7 @@ export default async function Page() {
       <main className="max-w-screen-sm mx-auto p-4">
         <Link
               href="/"
-              className={` ${styleScript.className} my-4 flex-col item-center text-3xl font-black whitespace-nowrap text-white`}
+              className={` ${styleScript.className} my-4 block text-center text-3xl font-black whitespace-nowrap text-white`}
             >
               #nhatkyvutru
             </Link>
