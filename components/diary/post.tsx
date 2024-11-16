@@ -3,7 +3,7 @@ import Markdown from "react-markdown";
 import ActionMenu from "./action-menu";
 import remarkGfm from 'remark-gfm'
 import emoji from 'remark-emoji'
-import remarkSubSuper from 'remark-sub-super'
+import supersub from 'remark-supersub'
 
 const Post = ({ diary }: { diary: IDiary }) => {
   return (
@@ -20,7 +20,7 @@ const Post = ({ diary }: { diary: IDiary }) => {
             <ActionMenu diary={diary} />
           </div>
           <div className="py-6 px-4 space-y-6">
-            <Markdown remarkPlugins={[[remarkGfm],[emoji, {emoticon: true}],[remarkSubSuper]]}>{diary.content}</Markdown>
+            <Markdown remarkPlugins={[[remarkGfm],[emoji, {emoticon: true}],[supersub]]}>{diary.content}</Markdown>
             <p className="text-base font-normal text-gray-400 text-center">
               by <strong>{diary.author}</strong>
             </p>
