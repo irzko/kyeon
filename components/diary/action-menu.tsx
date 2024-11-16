@@ -19,7 +19,7 @@ export default function ActionMenu ({ diary }: { diary: IDiary }) {
               <ul className="flex flex-col p-2 space-y-2 list-none">
                 <li>
                   <ButtonLink
-                    color="light"
+                    color="dark"
                     className="justify-start gap-2"
                     href={`diary/edit/${diary.id}`}
                   >
@@ -45,7 +45,7 @@ export default function ActionMenu ({ diary }: { diary: IDiary }) {
                 </li>
                 <li>
                   <Button
-                    color="light"
+                    color="dark"
                     className="justify-start gap-2 w-full"
                     onClick={() => {
                       showModal("Xoá nhật ký", () => {
