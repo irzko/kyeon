@@ -27,7 +27,7 @@ export default async function Page() {
             <ButtonLink
               radius="lg"
               className="gap-2 font-bold"
-              color="dark"
+              color="light"
               href="/diary/create"
             >
               <svg className="w-[36px] h-[36px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -41,11 +41,11 @@ export default async function Page() {
       <main className="max-w-screen-sm mx-auto p-4">
         <Link
               href="/"
-              className={` ${styleScript.className} w-full text-center text-3xl font-black whitespace-nowrap text-white`}
+              className={` ${styleScript.className} my-4 flex-col item-center text-3xl font-black whitespace-nowrap text-white`}
             >
               #nhatkyvutru
             </Link>
-        <ul className="list-none space-y-4">
+        <ul className="mb-20 list-none space-y-4">
           {posts?.map((post) => (
             <Post key={post.id} diary={post} />
           ))}
