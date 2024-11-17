@@ -11,7 +11,7 @@ const navbar = tv({
 });
 
 const header = tv({
-  base: "z-40 flex px-6 gap-4 w-full flex-row relative flex-nowrap items-center justify-between max-w-screen-lg",
+  base: "z-40 flex px-4 gap-4 w-full flex-row relative flex-nowrap items-center justify-between max-w-screen-lg",
   variants: {
     position: {
       top: "h-16",
