@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ReactNode } from "react";
+import { ReactNode, JSX } from "react";
 import { tv } from "tailwind-variants";
 
 const buttonStyles = tv({
