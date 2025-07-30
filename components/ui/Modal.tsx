@@ -1,8 +1,8 @@
 import * as React from "react";
-import { ReactNode, useEffect, useRef } from "react";
+import { ReactNode, useEffect, useRef, JSX } from "react";
 import { createPortal } from "react-dom";
 import Button from "./Button";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 function PortalImpl({
   onClose,

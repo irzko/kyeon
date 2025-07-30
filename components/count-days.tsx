@@ -1,12 +1,12 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Moon from "./Moon";
 import moment from "moment";
 import localFont from "next/font/local";
 import AstronautBoy from "./astronaut-boy";
 import AstronautGirl from "./astronaut-girl";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 const Heart = () => {
   return (
