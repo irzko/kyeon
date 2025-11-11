@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
+import { Provider } from "@/components/ui/provider";
 import "./globals.css";
-import "moment/locale/vi";
 
 export const metadata: Metadata = {
   title: "Đếm ngày chúng ta bên nhau",
@@ -14,7 +14,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi">
-      <body className={`bg-gray-900 font-sans`}>{children}</body>
+      <body className={`bg-gray-900 font-sans`}>
+        <Provider>{children}</Provider>
+      </body>
     </html>
   );
 }

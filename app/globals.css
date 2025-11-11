@@ -1,125 +1,9 @@
-@import "tailwindcss";
-
-
-:root {
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: transparent;
-  -ms-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
-}
-
-
-
-@layer base {
-  h1 {
-    @apply text-5xl font-extrabold text-white;
-  }
-
-  h2 {
-    @apply text-4xl font-bold text-white;
-  }
-
-  h3 {
-    @apply text-3xl font-bold text-white;
-  }
-
-  h4 {
-    @apply text-2xl font-bold text-white;
-  }
-
-  h5 {
-    @apply text-xl font-bold text-white;
-  }
-
-  h6 {
-    @apply text-lg font-bold text-white;
-  }
-
-  strong {
-    @apply font-semibold text-white;
-  }
-
-  u {
-    @apply underline;
-  }
-
-  em {
-    @apply italic;
-  }
-
-  p {
-    @apply text-gray-400;
-  }
-
-  blockquote {
-    @apply p-4 my-4 border-s-4 border-gray-500 bg-gray-800;
-  }
-
-  ul {
-    @apply space-y-1 list-disc list-inside text-gray-400;
-  }
-
-  li>p {
-    @apply inline;
-  }
-
-  ol {
-    @apply space-y-1 list-decimal list-inside text-gray-400;
-  }
-
-  a {
-    @apply font-medium text-blue-500 hover:underline;
-  }
-
-  table {
-    @apply w-full text-sm text-left rtl:text-right text-gray-400;
-  }
-
-  thead {
-    @apply text-xs uppercase bg-gray-700 text-gray-400;
-  }
-
-  thead>tr>th {
-    @apply px-6 py-3;
-  }
-
-  tbody>tr {
-    @apply border-b bg-gray-800 border-gray-700
-  }
-
-  tbody>tr>th {
-    @apply px-6 py-4 font-medium whitespace-nowrap text-white;
-  }
-
-  td {
-    @apply px-6 py-4;
-  }
-
-  code {
-    @apply px-1 text-sm font-normal font-mono text-[#76a9fa];
-  }
-
-  pre {
-    @apply border text-sm rounded-lg p-2.5 bg-gray-700 border-gray-600 text-gray-400;
-  }
-
-  pre>code {
-    @apply bg-inherit text-inherit border-none rounded-none;
-  }
-}
-
-
 [data-footnote-ref]::before {
-  content: '[';
+  content: "[";
 }
 
 [data-footnote-ref]::after {
-  content: ']';
+  content: "]";
 }
 
 .glow {
@@ -135,10 +19,12 @@
 }
 
 .count-day-bg {
-  background: linear-gradient(0deg,
-      rgba(255, 255, 255, 1) 20%,
-      rgba(254, 224, 202, 1) 51%,
-      rgba(192, 228, 244, 1) 100%);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 1) 20%,
+    rgba(254, 224, 202, 1) 51%,
+    rgba(192, 228, 244, 1) 100%
+  );
 }
 
 .shadow2 {
@@ -158,9 +44,7 @@
   --c2: rgb(17 24 39);
 
   --_g: #0000 90deg, var(--c1) 0;
-  background:
-    conic-gradient(from 90deg at 1px 1px, var(--_g)),
-    conic-gradient(from 90deg at 0.5px 0.5px, var(--_g)),
-    var(--c2);
-  background-size: var(--s) var(--s), calc(var(--s)/5) calc(var(--s)/5);
+  background: conic-gradient(from 90deg at 1px 1px, var(--_g)),
+    conic-gradient(from 90deg at 0.5px 0.5px, var(--_g)), var(--c2);
+  background-size: var(--s) var(--s), calc(var(--s) / 5) calc(var(--s) / 5);
 }

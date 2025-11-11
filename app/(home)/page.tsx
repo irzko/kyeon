@@ -1,16 +1,24 @@
-// import XmasTheme from "@/components/xmas-theme";
+import XmasTheme from "@/components/xmas-theme";
+import { Box } from "@chakra-ui/react";
 
-import Background from "@/components/background";
-import CountDaysPage from "@/components/count-days";
+// import CountDaysPage from "@/components/count-days";
 
 export default function Page() {
   return (
     <>
-      <div className="flex fixed overflow-hidden place-items-center inset-0 m-0 justify-center items-center flex-col">
-        {/* <XmasTheme /> */}
-        <CountDaysPage /> 
-        <Background />
-      </div>
+      <Box
+      display="flex"
+      position="fixed"
+      overflow="hidden"
+      placeItems="center"
+      inset="0"
+      justifyContent="center"
+      alignItems='center'
+      flexDirection="column">
+        <XmasTheme />
+        {/* <CountDaysPage /> 
+        <Background /> */}
+      </Box>
     </>
   );
 }

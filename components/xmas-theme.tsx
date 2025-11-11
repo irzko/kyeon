@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import SnowmanBoy from "./xmas/snowman-boy";
 import SnowmanGirl from "./xmas/snowman-girl";
 import Snow from "./snow/snow";
@@ -7,6 +7,7 @@ import Background from "./xmas/background";
 import localFont from "next/font/local";
 import Sun from "./xmas/sun";
 import { useRouter } from "next/navigation";
+import { Box } from "@chakra-ui/react";
 
 const fontDay = localFont({
   src: "./fonts/Christmas.otf",
@@ -37,30 +38,50 @@ export default function XmasTheme() {
 
   return (
     <div>
-      <div className="h-screen relative w-screen overflow-hidden bg-gray-200">
-        <div className="fixed flex justify-center items-center inset-0">
-          <div className="relative">
+      <Box h="vh" position="relative" overflow="hidden">
+        <Box
+          position="fixed"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          inset="0"
+        >
+          <Box position="relative">
             <Background />
-            <div className="absolute -top-32 -left-40">
+            <Box position="relative" top="-32" left="-40">
               <Sun />
-            </div>
-            <div
+            </Box>
+            <Box
               onClick={handleClick}
-              className={`flex absolute top-12 left-24 text-6xl shadow2 items-end -rotate-12 font-bold text-white box-border ${fontDay.className}`}
+              display="flex"
+              position="absolute"
+              top="12"
+              left="24"
+              fontSize="6xl"
+              alignItems="end"
+              rotate="-12"
+              fontWeight="bold"
+              boxSizing="border-box"
+              className={`${fontDay.className}`}
             >
               {days}
-              <span className="ml-2">days</span>
-            </div>
+              <Box ml="2">days</Box>
+            </Box>
 
-            <div className="flex justify-center absolute -bottom-14 right-10">
+            <Box
+              display="flex"
+              justifyContent="center"
+              position="absolute"
+              bottom="-14"
+              right="10"
+            >
               <SnowmanBoy />
               <SnowmanGirl />
-            </div>
-
-          </div>
-        </div>
+            </Box>
+          </Box>
+        </Box>
         <Snow />
-      </div>
+      </Box>
     </div>
   );
 }

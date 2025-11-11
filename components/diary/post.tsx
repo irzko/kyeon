@@ -1,10 +1,8 @@
-import moment from "moment";
 import {
   MDXComponents,
   MDXRemote,
   type MDXRemoteOptions,
 } from "next-mdx-remote-client/rsc";
-import ActionMenu from "./action-menu";
 import remarkGfm from "remark-gfm";
 import emoji from "remark-emoji";
 import supersub from "remark-supersub";
@@ -12,58 +10,105 @@ import remarkIns from "remark-ins";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
+import {
+  Em,
+  Heading,
+  Text,
+  Blockquote,
+  Box,
+  Button,
+  Portal,
+  Dialog,
+  CloseButton,
+  Stack,
+} from "@chakra-ui/react";
+import { deleteDiary } from "@/app/action";
 
 const components: MDXComponents = {
   h1({ children }) {
-    return <h1 className="text-4xl">{children}</h1>;
+    return (
+      <Heading as="h1" size="4xl">
+        {children}
+      </Heading>
+    );
   },
-  // h2({ children }) {
-  //   return <h2 className="text-3xl font-medium">{children}</h2>;
-  // },
+  h2({ children }) {
+    return (
+      <Heading as="h2" size="3xl">
+        {children}
+      </Heading>
+    );
+  },
   h3({ children }) {
-    return <h3 className="text-2xl font-medium">{children}</h3>;
+    return (
+      <Heading as="h3" size="2xl">
+        {children}
+      </Heading>
+    );
   },
   h4({ children }) {
-    return <h4 className="text-lg font-medium">{children}</h4>;
+    return (
+      <Heading as="h4" size="xl">
+        {children}
+      </Heading>
+    );
   },
   h5({ children }) {
-    return <h5 className="text-sm font-medium">{children}</h5>;
+    return (
+      <Heading as="h5" size="lg">
+        {children}
+      </Heading>
+    );
   },
 
   h6({ children }) {
-    return <h6 className="text-xs font-medium">{children}</h6>;
+    return (
+      <Heading as="h6" size="xl">
+        {children}
+      </Heading>
+    );
   },
   strong({ children }) {
-    return <strong className="font-bold">{children}</strong>;
+    return (
+      <Text as="strong" fontWeight="bold">
+        {children}
+      </Text>
+    );
   },
   u({ children }) {
-    return <u className="underline">{children}</u>;
+    return (
+      <Text as="u" textDecoration="underline">
+        {children}
+      </Text>
+    );
   },
   em({ children }) {
-    return <em className="italic">{children}</em>;
+    return <Em>{children}</Em>;
   },
   // p({ children }) {
   //   return <p className="text-gray-500">{children}</p>;
   // },
   blockquote({ children }) {
     return (
-      <blockquote className="p-4 my-4 border-s-4 border-gray-300 bg-gray-50">
-        {children}
-      </blockquote>
+      <Blockquote.Root variant="subtle">
+        <Blockquote.Content>{children}</Blockquote.Content>
+      </Blockquote.Root>
     );
   },
 
   img({ alt, src }) {
-    return (
+    return src ? (
       <Image
         width={0}
         height={0}
-        alt={alt || ""}
+        alt={alt || src}
         sizes="100vw"
         style={{ width: "100%", height: "auto" }}
         src={src || "./no-image.jpg"}
         className="rounded-lg"
       />
+    ) : (
+      <></>
     );
   },
   table({ children }) {
@@ -147,17 +192,94 @@ const Post = ({ diary }: { diary: IDiary }) => {
   return (
     <>
       <li>
-        <div className="flex flex-col bg-gray-700/70 rounded-2xl border border-gray-700 shadow">
-          <div className="flex justify-between items-center pt-2 px-2">
-            <h3 className="w-full text-gray-400 text-base">
+        <Box
+          display="flex"
+          flexDirection="column"
+          bg="black/70"
+          rounded="2xl"
+          borderWidth="1px"
+        >
+          <Box
+            display="flex"
+            justifyContent="space-between"
+            alignItems="center"
+            pt="2"
+            px="2"
+          >
+            <h3>
               Ngày thứ{" "}
               <strong>
-                {moment(diary.date).diff(moment("2023-07-27"), "days")}
+                {/* {moment(diary.date).diff(moment("2023-07-27"), "days")} */}
               </strong>
             </h3>
-            <ActionMenu diary={diary} />
-          </div>
-          <div className="py-6 px-4 space-y-6">
+
+            <Dialog.Root placement="center">
+              <Dialog.Trigger asChild>
+                <Button variant="outline" size="sm" rounded="xl">
+                  ...
+                </Button>
+              </Dialog.Trigger>
+              <Portal>
+                <Dialog.Backdrop />
+                <Dialog.Positioner>
+                  <Dialog.Content>
+                    <Dialog.Header>
+                      <Dialog.Title>Tuỳ chọn bài viết</Dialog.Title>
+                    </Dialog.Header>
+                    <Dialog.Body>
+                      <Stack>
+                        <Dialog.ActionTrigger asChild>
+                          <Button variant="ghost" asChild>
+                            <Link href={`diary/edit/${diary.id}`}>
+                              Chỉnh sửa bài viết
+                            </Link>
+                          </Button>
+                        </Dialog.ActionTrigger>
+                        <Dialog.Root>
+                          <Dialog.Trigger asChild>
+                            <Button variant="ghost" colorPalette="red">
+                              Xoá bài viết
+                            </Button>
+                          </Dialog.Trigger>
+                          <Portal>
+                            <Dialog.Backdrop />
+                            <Dialog.Positioner>
+                              <Dialog.Content>
+                                <Dialog.Header>
+                                  <Dialog.Title>Xoá nhật ký</Dialog.Title>
+                                </Dialog.Header>
+                                <Dialog.Body>
+                                  <p>Bạn có chắc chắn muốn xoá nhật ký này?</p>
+                                </Dialog.Body>
+                                <Dialog.Footer>
+                                  <Dialog.ActionTrigger asChild>
+                                    <Button variant="outline">Huỷ</Button>
+                                  </Dialog.ActionTrigger>
+                                  <form
+                                    action={(formData) => {
+                                      formData.append("id", diary.id);
+                                      deleteDiary(formData);
+                                    }}
+                                  >
+                                    <Button colorPalette="red">Xoá</Button>
+                                  </form>
+                                </Dialog.Footer>
+                              </Dialog.Content>
+                            </Dialog.Positioner>
+                          </Portal>
+                        </Dialog.Root>
+                      </Stack>
+                    </Dialog.Body>
+
+                    <Dialog.CloseTrigger asChild>
+                      <CloseButton size="sm" />
+                    </Dialog.CloseTrigger>
+                  </Dialog.Content>
+                </Dialog.Positioner>
+              </Portal>
+            </Dialog.Root>
+          </Box>
+          <Box py="6" px="4" spaceY="6">
             <Suspense
               fallback={
                 <div className="w-full h-48 bg-gray-700 rounded-lg animate-pulse"></div>
@@ -169,11 +291,11 @@ const Post = ({ diary }: { diary: IDiary }) => {
                 components={components}
               />
             </Suspense>
-            <p className="text-base font-normal text-gray-400 text-center">
+            <Text textAlign="center">
               by <strong>{diary.author}</strong>
-            </p>
-          </div>
-        </div>
+            </Text>
+          </Box>
+        </Box>
       </li>
     </>
   );
