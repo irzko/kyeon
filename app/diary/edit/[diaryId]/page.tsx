@@ -1,43 +1,23 @@
 import prisma from "@/libs/prisma";
-import { revalidateTag } from "next/cache";
-import { unstable_cache } from 'next/cache';
 import { redirect } from "next/navigation";
 import SubmitButton from "@/components/submit-button";
 import moment from "moment";
 import { Navbar, NavbarContent, NavbarItem } from "@/components/ui/navbar";
 import ButtonLink from "@/components/ui/ButtonLink";
 import Input from "@/components/ui/Input";
-
-const getAllPosts = unstable_cache(
-  async () => {
-    return await prisma.diary.findMany({ orderBy: { date: "desc" } })
-  },
-  ['diary'],
-  { tags: ['diary'] }
-)
-
-export async function generateStaticParams() {
-  const diaries: IDiary[] = await getAllPosts();
-  return diaries.map((diary) => ({
-    diaryId: diary.id,
-  }));
-}
-
-const getPost = unstable_cache(
-  async (diaryId: string) => {
-    return await prisma.diary.findUnique({
-      where: {
-        id: diaryId,
-      },
-    })
-  },
-  ['diary'],
-  { tags: ['diary'] }
-)
+import { updateTag } from "next/cache";
 
 const Page = async ({ params }: { params: Promise<{ diaryId: string }> }) => {
-  const diaryId = (await params).diaryId
-  const diary: IDiary = (await getPost(diaryId))!;
+  const diaryId = (await params).diaryId;
+  const diary = await prisma.diary.findUnique({
+    where: {
+      id: diaryId,
+    },
+  });
+
+  if (diary === null) {
+    return <p>Bài viết này không tồn tại</p>;
+  }
   const updateAction = async (formData: FormData) => {
     "use server";
     await prisma.diary.update({
@@ -48,7 +28,7 @@ const Page = async ({ params }: { params: Promise<{ diaryId: string }> }) => {
         author: formData.get("author") as string,
       },
     });
-    revalidateTag("diary");
+    updateTag("diary");
     redirect("/diary");
   };
 
@@ -57,9 +37,27 @@ const Page = async ({ params }: { params: Promise<{ diaryId: string }> }) => {
       <Navbar>
         <NavbarContent>
           <NavbarItem className="flex items-center gap-2">
-            <ButtonLink color="dark" className="bg-transparent" isIconOnly href="/diary">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={24} height={24} color={"#ffffff"} fill={"none"}>
-                <path d="M19.0005 4.99988L5.00049 18.9999M5.00049 4.99988L19.0005 18.9999" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            <ButtonLink
+              color="dark"
+              className="bg-transparent"
+              isIconOnly
+              href="/diary"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width={24}
+                height={24}
+                color={"#ffffff"}
+                fill={"none"}
+              >
+                <path
+                  d="M19.0005 4.99988L5.00049 18.9999M5.00049 4.99988L19.0005 18.9999"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </ButtonLink>
           </NavbarItem>
@@ -71,7 +69,7 @@ const Page = async ({ params }: { params: Promise<{ diaryId: string }> }) => {
       <form
         id="diary-form"
         action={updateAction}
-        className="p-4 max-w-screen-md mx-auto flex flex-col"
+        className="p-4 max-w-3xl mx-auto flex flex-col"
       >
         <div className="mb-6">
           <Input

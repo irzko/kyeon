@@ -1,6 +1,6 @@
 "use server";
 import prisma from "@/libs/prisma";
-import { revalidateTag } from "next/cache";
+import { updateTag } from "next/cache";
 import { redirect } from "next/navigation";
 
 export const deleteDiary = async (formData: FormData) => {
@@ -9,7 +9,7 @@ export const deleteDiary = async (formData: FormData) => {
       id: formData.get("id") as string,
     },
   });
-  revalidateTag("diary");
+  updateTag("diary");
   redirect("/diary");
 };
 
@@ -21,6 +21,6 @@ export const createDiaryAction = async (formData: FormData) => {
       author: formData.get("author") as string,
     },
   });
-  revalidateTag("diary");
+  updateTag("diary");
   redirect("/diary");
 };
