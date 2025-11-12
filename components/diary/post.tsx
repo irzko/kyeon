@@ -12,6 +12,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { Em, Heading, Text, Blockquote, Box } from "@chakra-ui/react";
 import OptionMenu from "./option-menu";
+import { differenceInDays } from "date-fns";
 
 const components: MDXComponents = {
   h1({ children }) {
@@ -197,9 +198,7 @@ const Post = ({ diary }: { diary: IDiary }) => {
           >
             <h3>
               Ngày thứ{" "}
-              <strong>
-                {/* {moment(diary.date).diff(moment("2023-07-27"), "days")} */}
-              </strong>
+              <strong>{differenceInDays(new Date(), "2023-07-27")}</strong>
             </h3>
             <OptionMenu diaryId={diary.id} />
           </Box>

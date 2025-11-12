@@ -9,7 +9,6 @@ export default function Background() {
         left={0}
         width="100%"
         height="100%"
-        bg="gray.900"
         zIndex={-10}
       ></Box>
       <div className={styles["star-field"]}>

@@ -1,15 +1,14 @@
-import * as React from "react"
+import * as React from "react";
 const AstronautGirl = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 1847.6 1763.82"
-    className="w-[calc(1847.599px_/_16)] h-[calc(1763.825px_/_16)]"
-
+    style={{ width: "calc(1847.599px / 16)", height: "calc(1763.825px / 16)" }}
   >
     <defs>
       <style>
         {
-          ".cls-1{fill:#fff}.cls-2{fill:#374151}.cls-3{opacity:.25}.cls-5{fill:#22a7f0}.cls-6{fill:#1c7aea}.cls-9{opacity:.5}"
+          ".cls-1{fill:#fff}.cls-2{fill:#18181b}.cls-3{opacity:.25}.cls-5{fill:#22a7f0}.cls-6{fill:#1c7aea}.cls-9{opacity:.5}"
         }
       </style>
     </defs>
@@ -347,5 +346,5 @@ const AstronautGirl = () => (
       </g>
     </g>
   </svg>
-)
-export default AstronautGirl
+);
+export default AstronautGirl;

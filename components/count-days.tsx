@@ -7,6 +7,7 @@ import localFont from "next/font/local";
 import AstronautBoy from "./astronaut-boy";
 import AstronautGirl from "./astronaut-girl";
 import { motion } from "motion/react";
+import { differenceInDays } from "date-fns";
 
 // Chakra UI motion components
 const MotionButton = motion.create(Button);
@@ -65,9 +66,9 @@ const DaysCounterButton = () => {
   const router = useRouter();
   const [days, setDays] = useState(0);
 
-  // useEffect(() => {
-  //   setDays(moment().diff(moment("2023-07-27"), "days"));
-  // }, []);
+  useEffect(() => {
+    setDays(differenceInDays(new Date(), "2023-07-27"));
+  }, []);
 
   const handleClick = () => {
     const count = touch + 1;
@@ -88,6 +89,10 @@ const DaysCounterButton = () => {
       justifyContent="center"
       alignItems="center"
       mb="56px"
+      transition={{
+        duration: 0.4,
+        scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
+      }}
       _hover={{ bg: "transparent" }}
       _active={{ bg: "transparent" }}
     >
