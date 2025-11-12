@@ -1,4 +1,3 @@
-import XmasTheme from "@/components/xmas-theme";
 import { Box } from "@chakra-ui/react";
 
 import CountDaysPage from "@/components/count-days";
