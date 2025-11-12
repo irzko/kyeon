@@ -1,11 +1,8 @@
+"use server";
+
 import prisma from "@/libs/prisma";
 import Link from "next/link";
-import {
-  Box,
-  Link as ChakraLink,
-  Container,
-  IconButton,
-} from "@chakra-ui/react";
+import { Box, Link as ChakraLink, IconButton } from "@chakra-ui/react";
 import { Style_Script } from "next/font/google";
 import Post from "@/components/diary/post";
 import { cacheTag } from "next/cache";

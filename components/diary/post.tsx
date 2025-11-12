@@ -10,19 +10,8 @@ import remarkIns from "remark-ins";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
-import {
-  Em,
-  Heading,
-  Text,
-  Blockquote,
-  Box,
-  Button,
-  Portal,
-  Dialog,
-  CloseButton,
-  Stack,
-} from "@chakra-ui/react";
-import { deleteDiary } from "@/app/action";
+import { Em, Heading, Text, Blockquote, Box } from "@chakra-ui/react";
+import OptionMenu from "./option-menu";
 
 const components: MDXComponents = {
   h1({ children }) {
@@ -212,72 +201,7 @@ const Post = ({ diary }: { diary: IDiary }) => {
                 {/* {moment(diary.date).diff(moment("2023-07-27"), "days")} */}
               </strong>
             </h3>
-
-            <Dialog.Root placement="center">
-              <Dialog.Trigger asChild>
-                <Button variant="outline" size="sm" rounded="xl">
-                  ...
-                </Button>
-              </Dialog.Trigger>
-              <Portal>
-                <Dialog.Backdrop />
-                <Dialog.Positioner>
-                  <Dialog.Content>
-                    <Dialog.Header>
-                      <Dialog.Title>Tuỳ chọn bài viết</Dialog.Title>
-                    </Dialog.Header>
-                    <Dialog.Body>
-                      <Stack>
-                        <Dialog.ActionTrigger asChild>
-                          <Button variant="ghost" asChild>
-                            <Link href={`diary/edit/${diary.id}`}>
-                              Chỉnh sửa bài viết
-                            </Link>
-                          </Button>
-                        </Dialog.ActionTrigger>
-                        <Dialog.Root>
-                          <Dialog.Trigger asChild>
-                            <Button variant="ghost" colorPalette="red">
-                              Xoá bài viết
-                            </Button>
-                          </Dialog.Trigger>
-                          <Portal>
-                            <Dialog.Backdrop />
-                            <Dialog.Positioner>
-                              <Dialog.Content>
-                                <Dialog.Header>
-                                  <Dialog.Title>Xoá nhật ký</Dialog.Title>
-                                </Dialog.Header>
-                                <Dialog.Body>
-                                  <p>Bạn có chắc chắn muốn xoá nhật ký này?</p>
-                                </Dialog.Body>
-                                <Dialog.Footer>
-                                  <Dialog.ActionTrigger asChild>
-                                    <Button variant="outline">Huỷ</Button>
-                                  </Dialog.ActionTrigger>
-                                  <form
-                                    action={(formData) => {
-                                      formData.append("id", diary.id);
-                                      deleteDiary(formData);
-                                    }}
-                                  >
-                                    <Button colorPalette="red">Xoá</Button>
-                                  </form>
-                                </Dialog.Footer>
-                              </Dialog.Content>
-                            </Dialog.Positioner>
-                          </Portal>
-                        </Dialog.Root>
-                      </Stack>
-                    </Dialog.Body>
-
-                    <Dialog.CloseTrigger asChild>
-                      <CloseButton size="sm" />
-                    </Dialog.CloseTrigger>
-                  </Dialog.Content>
-                </Dialog.Positioner>
-              </Portal>
-            </Dialog.Root>
+            <OptionMenu diaryId={diary.id} />
           </Box>
           <Box py="6" px="4" spaceY="6">
             <Suspense
