@@ -12,6 +12,7 @@
   "dependencies": {
     "@chakra-ui/react": "^3.29.0",
     "@emotion/react": "^11.14.0",
+    "@lexical/react": "^0.38.2",
     "@prisma/client": "^6.19.0",
     "date-fns": "^4.1.0",
     "motion": "^12.23.24",

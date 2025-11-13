@@ -24,3 +24,17 @@ export const createDiaryAction = async (formData: FormData) => {
   updateTag("diary");
   redirect("/diary");
 };
+
+export const updateAction = async (formData: FormData) => {
+  const diaryId = formData.get("id") as string;
+  await prisma.diary.update({
+    where: { id: diaryId },
+    data: {
+      date: new Date(formData.get("date") as string),
+      content: formData.get("content") as string,
+      author: formData.get("author") as string,
+    },
+  });
+  updateTag("diary");
+  redirect("/diary");
+};

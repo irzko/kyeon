@@ -9,9 +9,10 @@ export default function Moon() {
       initial={{ opacity: 0.5, scale: 0 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{
-        duration: 4,
+        duration: 2,
         ease: "easeInOut",
       }}
+      filter="drop-shadow(0 0 5px #fff) drop-shadow(0 0 15px #fff)"
     >
       <Box asChild>
         <svg

@@ -1,21 +1,29 @@
 "use client";
-import { Button, Portal, Dialog, CloseButton, Stack } from "@chakra-ui/react";
+import {
+  Button,
+  Portal,
+  Dialog,
+  CloseButton,
+  Stack,
+  IconButton,
+} from "@chakra-ui/react";
 import { deleteDiary } from "@/app/action";
 import Link from "next/link";
+import { FiMoreHorizontal } from "react-icons/fi";
 
 export default function OptionMenu({ diaryId }: { diaryId: string }) {
   return (
-    <Dialog.Root placement="center">
+    <Dialog.Root size="xs" placement="center">
       <Dialog.Trigger asChild>
-        <Button variant="outline" size="sm" rounded="xl">
-          ...
-        </Button>
+        <IconButton variant="ghost" size="sm" rounded="xl">
+          <FiMoreHorizontal />
+        </IconButton>
       </Dialog.Trigger>
       <Portal>
         <Dialog.Backdrop />
         <Dialog.Positioner>
-          <Dialog.Content>
-            <Dialog.Header>
+          <Dialog.Content rounded="2xl">
+            <Dialog.Header borderBottomWidth="1px">
               <Dialog.Title>Tuỳ chọn bài viết</Dialog.Title>
             </Dialog.Header>
             <Dialog.Body>
@@ -27,7 +35,7 @@ export default function OptionMenu({ diaryId }: { diaryId: string }) {
                     </Link>
                   </Button>
                 </Dialog.ActionTrigger>
-                <Dialog.Root>
+                <Dialog.Root size="xs" placement="center">
                   <Dialog.Trigger asChild>
                     <Button variant="ghost" colorPalette="red">
                       Xoá bài viết
@@ -53,7 +61,11 @@ export default function OptionMenu({ diaryId }: { diaryId: string }) {
                               deleteDiary(formData);
                             }}
                           >
-                            <Button colorPalette="red">Xoá</Button>
+                            <Dialog.ActionTrigger asChild>
+                              <Button type="submit" colorPalette="red">
+                                Xoá
+                              </Button>
+                            </Dialog.ActionTrigger>
                           </form>
                         </Dialog.Footer>
                       </Dialog.Content>
@@ -64,7 +76,7 @@ export default function OptionMenu({ diaryId }: { diaryId: string }) {
             </Dialog.Body>
 
             <Dialog.CloseTrigger asChild>
-              <CloseButton size="sm" />
+              <CloseButton rounded="xl" size="sm" />
             </Dialog.CloseTrigger>
           </Dialog.Content>
         </Dialog.Positioner>

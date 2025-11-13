@@ -39,7 +39,7 @@ export default async function Page() {
         </ul>
       </Box>
       <Box position="fixed" bottom="1rem" right="1rem">
-        <IconButton asChild>
+        <IconButton rounded="xl" asChild>
           <Link href="/diary/create">
             <HiPencilSquare />
           </Link>

@@ -8,9 +8,19 @@ import emoji from "remark-emoji";
 import supersub from "remark-supersub";
 import remarkIns from "remark-ins";
 import Image from "next/image";
-import Link from "next/link";
+import NextLink from "next/link";
 import { Suspense } from "react";
-import { Em, Heading, Text, Blockquote, Box } from "@chakra-ui/react";
+import {
+  Em,
+  Heading,
+  Text,
+  Blockquote,
+  Box,
+  Flex,
+  List,
+  SkeletonText,
+  Link,
+} from "@chakra-ui/react";
 import OptionMenu from "./option-menu";
 import { differenceInDays } from "date-fns";
 import DiffDays from "./diff-days";
@@ -76,9 +86,7 @@ const components: MDXComponents = {
   em({ children }) {
     return <Em>{children}</Em>;
   },
-  // p({ children }) {
-  //   return <p className="text-gray-500">{children}</p>;
-  // },
+
   blockquote({ children }) {
     return (
       <Blockquote.Root variant="subtle">
@@ -102,64 +110,22 @@ const components: MDXComponents = {
       <></>
     );
   },
-  table({ children }) {
-    return (
-      <div className="relative overflow-x-auto">
-        <table className="w-full text-sm text-left rtl:text-right text-gray-500">
-          {children}
-        </table>
-      </div>
-    );
-  },
-  thead({ children }) {
-    return (
-      <thead className="text-xs text-gray-700 uppercase bg-gray-50">
-        {children}
-      </thead>
-    );
-  },
-  th({ children }) {
-    return (
-      <th className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-        {children}
-      </th>
-    );
-  },
-  td({ children }) {
-    return <td className="px-6 py-4">{children}</td>;
-  },
-  tr({ children }) {
-    return <tr className="border-b">{children}</tr>;
-  },
+
   ul({ children }) {
-    return (
-      <ul className="space-y-1 text-gray-500 list-disc list-inside">
-        {children}
-      </ul>
-    );
+    return <List.Root>{children}</List.Root>;
   },
   ol({ children }) {
-    return (
-      <ol className="space-y-1 text-gray-500 list-decimal list-inside">
-        {children}
-      </ol>
-    );
+    return <List.Root as="ol">{children}</List.Root>;
   },
   li({ children }) {
-    return <li>{children}</li>;
+    return <List.Item>{children}</List.Item>;
   },
   a({ href, children }) {
     return (
-      <Link
-        className="font-medium text-blue-600 hover:underline"
-        href={href || ""}
-      >
-        {children}
+      <Link asChild>
+        <NextLink href={href || ""}>{children}</NextLink>
       </Link>
     );
-  },
-  hr() {
-    return <hr className="h-px my-8 bg-gray-200 border-0" />;
   },
 };
 
@@ -183,32 +149,15 @@ const Post = ({ diary }: { diary: IDiary }) => {
   return (
     <>
       <li>
-        <Box
-          display="flex"
-          flexDirection="column"
-          bg="black/70"
-          rounded="2xl"
-          borderWidth="1px"
-        >
-          <Box
-            display="flex"
-            justifyContent="space-between"
-            alignItems="center"
-            pt="2"
-            px="2"
-          >
+        <Flex direction="column" bg="black/70" rounded="2xl" borderWidth="1px">
+          <Flex justify="space-between" align="center" pt="2" px="2">
             <h3>
-              Ngày thứ{" "}
-              <DiffDays day={diary.date} />
+              Ngày thứ <DiffDays day={diary.date} />
             </h3>
             <OptionMenu diaryId={diary.id} />
-          </Box>
-          <Box py="6" px="4" spaceY="6">
-            <Suspense
-              fallback={
-                <div className="w-full h-48 bg-gray-700 rounded-lg animate-pulse"></div>
-              }
-            >
+          </Flex>
+          <Box py="6" px="6" spaceY="6">
+            <Suspense fallback={<SkeletonText noOfLines={3} gap="4" />}>
               <MDXRemote
                 source={diary.content}
                 options={options}
@@ -219,7 +168,7 @@ const Post = ({ diary }: { diary: IDiary }) => {
               by <strong>{diary.author}</strong>
             </Text>
           </Box>
-        </Box>
+        </Flex>
       </li>
     </>
   );

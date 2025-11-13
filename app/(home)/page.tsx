@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 
 import CountDaysPage from "@/components/count-days";
 import Background from "@/components/background";
@@ -6,20 +6,19 @@ import Background from "@/components/background";
 export default function Page() {
   return (
     <>
-      <Box
-        display="flex"
+      <Flex
         position="fixed"
         overflow="hidden"
         placeItems="center"
         inset="0"
-        justifyContent="center"
-        alignItems="center"
-        flexDirection="column"
+        justify="center"
+        align="center"
+        direction="column"
       >
         {/* <XmasTheme /> */}
         <CountDaysPage />
         <Background />
-      </Box>
+      </Flex>
     </>
   );
 }

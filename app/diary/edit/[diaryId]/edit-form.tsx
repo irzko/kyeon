@@ -1,22 +1,24 @@
 "use client";
 import SubmitButton from "@/components/submit-button";
-import { createDiaryAction } from "@/app/action";
 import { format } from "date-fns";
-import { Card, Flex, IconButton, Input } from "@chakra-ui/react";
+import { Card, Input } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
 import { useCallback, useState } from "react";
 import { EditorState } from "lexical";
 import { PLAYGROUND_TRANSFORMERS } from "@/components/lexical/plugins/MarkdownTransformers";
 import { $convertToMarkdownString } from "@lexical/markdown";
-import Link from "next/link";
-import { FiChevronLeft } from "react-icons/fi";
 
+import { updateAction } from "@/app/action";
 const LexicalEditor = dynamic(() => import("@/components/lexical"), {
   ssr: false,
 });
 
-const Page = () => {
-  const [content, setContent] = useState("");
+const EditForm = ({ diary }: { diary: IDiary }) => {
+  if (diary === null) {
+    return <p>Bài viết này không tồn tại</p>;
+  }
+
+  const [content, setContent] = useState(diary?.content || "");
   const handleChange = useCallback((editorState: EditorState) => {
     editorState.read(() => {
       const markdownText = $convertToMarkdownString(PLAYGROUND_TRANSFORMERS);
@@ -26,40 +28,38 @@ const Page = () => {
 
   return (
     <>
-      <Flex align="center" py={2} gap={2}>
-        <IconButton rounded="xl" variant="ghost" asChild>
-          <Link href="/diary">
-            <FiChevronLeft />
-          </Link>
-        </IconButton>
-        <h1>Bài viết mới</h1>
-      </Flex>
       <Card.Root bg="black/70" asChild>
         <form
           id="diary-form"
           action={(formData) => {
             formData.append("content", content);
-            createDiaryAction(formData);
+            formData.append("id", diary.id);
+            updateAction(formData);
           }}
         >
-          <Card.Body gap="4">
+          <Card.Body gap="2">
             <Input
               type="datetime-local"
               id="date"
               name="date"
-              defaultValue={format(new Date(), "yyyy-MM-dd'T'HH:mm")}
+              defaultValue={format(
+                new Date(diary?.date || Date.now()),
+                "yyyy-MM-dd'T'HH:mm"
+              )}
               required
             ></Input>
             <Input
               type="text"
               id="author"
               name="author"
+              defaultValue={diary?.author || ""}
               placeholder="Người viết"
               required
             ></Input>
-            <div>
-              <LexicalEditor onChange={handleChange} />
-            </div>
+            <LexicalEditor
+              onChange={handleChange}
+              markdown={diary?.content || ""}
+            />
 
             <SubmitButton />
           </Card.Body>
@@ -69,4 +69,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default EditForm;
