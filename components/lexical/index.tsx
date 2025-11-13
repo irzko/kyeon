@@ -17,7 +17,6 @@ import { ToolbarContext } from "./context/ToolbarContext";
 import Editor from "./Editor";
 import PlaygroundNodes from "./nodes/PlaygroundNodes";
 import PlaygroundEditorTheme from "./themes/PlaygroundEditorTheme";
-import "./index.css";
 import { OnChangePlugin } from "@lexical/react/LexicalOnChangePlugin";
 
 export default function LexicalEditor({

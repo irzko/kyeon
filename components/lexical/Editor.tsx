@@ -31,6 +31,7 @@ import ShortcutsPlugin from "./plugins/ShortcutsPlugin";
 import TabFocusPlugin from "./plugins/TabFocusPlugin";
 import ToolbarPlugin from "./plugins/ToolbarPlugin";
 import ContentEditable from "./ui/ContentEditable";
+import { Box } from "@chakra-ui/react";
 
 export default function Editor(): JSX.Element {
   const { historyState } = useSharedHistoryContext();
@@ -74,11 +75,9 @@ export default function Editor(): JSX.Element {
           <HistoryPlugin externalHistoryState={historyState} />
           <RichTextPlugin
             contentEditable={
-              <div className="editor-scroller">
-                <div className="editor">
-                  <ContentEditable placeholder={placeholder} />
-                </div>
-              </div>
+              <Box position="relative">
+                <ContentEditable placeholder={placeholder} />
+              </Box>
             }
             ErrorBoundary={LexicalErrorBoundary}
           />
