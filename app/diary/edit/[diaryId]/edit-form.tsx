@@ -37,7 +37,7 @@ const EditForm = ({ diary }: { diary: IDiary }) => {
             updateAction(formData);
           }}
         >
-          <Card.Body gap="2">
+          <Card.Body gap="4">
             <Input
               type="datetime-local"
               id="date"
@@ -56,10 +56,12 @@ const EditForm = ({ diary }: { diary: IDiary }) => {
               placeholder="Người viết"
               required
             ></Input>
-            <LexicalEditor
-              onChange={handleChange}
-              markdown={diary?.content || ""}
-            />
+            <div>
+              <LexicalEditor
+                onChange={handleChange}
+                markdown={diary?.content || ""}
+              />
+            </div>
 
             <SubmitButton />
           </Card.Body>
