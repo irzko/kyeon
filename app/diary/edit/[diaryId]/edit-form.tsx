@@ -28,7 +28,7 @@ const EditForm = ({ diary }: { diary: IDiary }) => {
 
   return (
     <>
-      <Card.Root bg="black/70" asChild>
+      <Card.Root rounded="2xl" asChild>
         <form
           id="diary-form"
           action={(formData) => {
@@ -42,6 +42,9 @@ const EditForm = ({ diary }: { diary: IDiary }) => {
               type="datetime-local"
               id="date"
               name="date"
+              rounded="xl"
+              bg="gray.900"
+              outline="none"
               defaultValue={format(
                 new Date(diary?.date || Date.now()),
                 "yyyy-MM-dd'T'HH:mm"
@@ -50,6 +53,9 @@ const EditForm = ({ diary }: { diary: IDiary }) => {
             ></Input>
             <Input
               type="text"
+              rounded="xl"
+              bg="gray.900"
+              outline="none"
               id="author"
               name="author"
               defaultValue={diary?.author || ""}

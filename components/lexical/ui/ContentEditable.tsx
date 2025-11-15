@@ -23,7 +23,7 @@ export default function LexicalContentEditable({
   placeholder,
 }: Props): JSX.Element {
   return (
-    <Textarea minH="150px" asChild>
+    <Textarea minH="150px" rounded="xl" outline="none" bg="gray.900" asChild>
       <ContentEditable
         aria-placeholder={placeholder}
         placeholder={

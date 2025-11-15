@@ -593,7 +593,7 @@ export default function ToolbarPlugin({
   }, [$updateToolbar, activeEditor, editor, updateToolbarState]);
 
   return (
-    <Flex roundedTop="sm" pb={2} align="center" gap="0.5rem" overflowX="auto">
+    <Flex roundedTop="sm" py={2} align="center" gap="0.25rem" overflowX="auto">
       <IconButton
         variant="ghost"
         size="xs"

@@ -34,7 +34,7 @@ const Page = () => {
         </IconButton>
         <h1>Bài viết mới</h1>
       </Flex>
-      <Card.Root bg="black/70" asChild>
+      <Card.Root rounded="2xl" asChild>
         <form
           id="diary-form"
           action={(formData) => {
@@ -45,6 +45,9 @@ const Page = () => {
           <Card.Body gap="4">
             <Input
               type="datetime-local"
+              rounded="xl"
+              bg="gray.900"
+              outline="none"
               id="date"
               name="date"
               defaultValue={format(new Date(), "yyyy-MM-dd'T'HH:mm")}
@@ -53,7 +56,10 @@ const Page = () => {
             <Input
               type="text"
               id="author"
+              bg="gray.900"
               name="author"
+              rounded="xl"
+              outline="none"
               placeholder="Người viết"
               required
             ></Input>

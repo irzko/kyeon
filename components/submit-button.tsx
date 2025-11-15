@@ -9,6 +9,7 @@ export default function SubmitButton() {
     <>
       <Button
         type="submit"
+        rounded="full"
         colorPalette="blue"
         variant="surface"
         loading={pending}
