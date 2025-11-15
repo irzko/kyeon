@@ -1,5 +1,3 @@
-"use server";
-
 import prisma from "@/libs/prisma";
 import Link from "next/link";
 import { Box, Button, IconButton } from "@chakra-ui/react";
@@ -17,6 +15,14 @@ const countPosts = async () => {
   return await prisma.diary.count();
 };
 
+export async function generateStaticParams() {
+  const postsCount: number = await countPosts();
+  const totalPages = Math.ceil(postsCount / 10);
+  return Array.from({ length: totalPages }, (_, i) => ({
+    index: (i + 1).toString(),
+  }));
+}
+
 const getPostsByPage = async (index: number) => {
   "use cache";
   cacheTag("diary");
@@ -27,8 +33,10 @@ const getPostsByPage = async (index: number) => {
   });
 };
 
-export default async function Page() {
-  const posts: IDiary[] = await getPostsByPage(1);
+const Page = async ({ params }: { params: Promise<{ index: string }> }) => {
+  const { index } = await params;
+  const pageIndex = parseInt(index, 10);
+  const posts: IDiary[] = await getPostsByPage(pageIndex);
   const totalPosts: number = await countPosts();
   return (
     <>
@@ -39,7 +47,7 @@ export default async function Page() {
           </Link>
         </Button>
       </Box>
-      <Box asChild mb="14" spaceY="4" listStyle="none">
+      <Box asChild mb="4" spaceY="4" listStyle="none">
         <ul>
           {posts?.map((post) => (
             <Post key={post.id} diary={post} />
@@ -54,11 +62,13 @@ export default async function Page() {
         </IconButton>
       </Box>
       <Pagination
-        pageIndex={1}
+        pageIndex={pageIndex}
         totalPosts={totalPosts}
         pageSize={10}
         defaultPage={1}
       />
     </>
   );
-}
+};
+
+export default Page;

@@ -27,7 +27,7 @@ export default function OptionMenu({ diaryId }: { diaryId: string }) {
               <Dialog.Title fontSize="sm">Tuỳ chọn bài viết</Dialog.Title>
             </Dialog.Header>
             <Dialog.Body>
-              <Stack gap={0}>
+              <Stack>
                 <Dialog.ActionTrigger asChild>
                   <Button variant="ghost" size="sm" asChild>
                     <Link href={`diary/edit/${diaryId}`}>
