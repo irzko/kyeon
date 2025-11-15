@@ -3,20 +3,37 @@ import SubmitButton from "@/components/submit-button";
 import { createDiaryAction } from "@/app/action";
 import { Card, Flex, IconButton, Input } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { EditorState } from "lexical";
 import { PLAYGROUND_TRANSFORMERS } from "@/components/lexical/plugins/MarkdownTransformers";
 import { $convertToMarkdownString } from "@lexical/markdown";
 import Link from "next/link";
 import { FiChevronLeft } from "react-icons/fi";
+import { format } from "date-fns";
 
 const LexicalEditor = dynamic(() => import("@/components/lexical"), {
   ssr: false,
 });
 
-const DayInput = dynamic(() => import("@/components/diary/day-input"), {
-  ssr: false,
-});
+function DateTimeInput() {
+  const [elapsedTime, setElapsedTime] = useState("");
+  useEffect(() => {
+    const now = Date.now();
+    setElapsedTime(format(new Date(now), "yyyy-MM-dd'T'HH:mm"));
+  }, []);
+  return (
+    <Input
+      type="datetime-local"
+      rounded="xl"
+      bg="gray.900"
+      outline="none"
+      id="date"
+      name="date"
+      defaultValue={elapsedTime}
+      required
+    ></Input>
+  );
+}
 
 const Page = () => {
   const [content, setContent] = useState("");
@@ -46,7 +63,7 @@ const Page = () => {
           }}
         >
           <Card.Body gap="4">
-            <DayInput />
+            <DateTimeInput />
             <Input
               type="text"
               id="author"

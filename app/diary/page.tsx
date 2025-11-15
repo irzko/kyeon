@@ -2,7 +2,7 @@
 
 import prisma from "@/libs/prisma";
 import Link from "next/link";
-import { Box, Link as ChakraLink, IconButton } from "@chakra-ui/react";
+import { Box, Button, Link as ChakraLink, IconButton } from "@chakra-ui/react";
 import { Style_Script } from "next/font/google";
 import Post from "@/components/diary/post";
 import { cacheTag } from "next/cache";
@@ -20,17 +20,13 @@ export default async function Page() {
   const posts: IDiary[] = await getPosts();
   return (
     <>
-      <ChakraLink
-        textAlign="center"
-        my="10"
-        display="block"
-        fontSize="3xl"
-        asChild
-      >
-        <Link href="/" className={` ${styleScript.className}`}>
-          #nhatkyvutru
-        </Link>
-      </ChakraLink>
+      <Box textAlign="center" my="10">
+        <Button variant="plain" fontSize="3xl" asChild>
+          <Link href="/" className={` ${styleScript.className}`}>
+            #nhatkyvutru
+          </Link>
+        </Button>
+      </Box>
       <Box asChild mb="14" spaceY="4" listStyle="none">
         <ul>
           {posts?.map((post) => (

@@ -33,20 +33,21 @@ const Page = async ({ params }: { params: Promise<{ diaryId: string }> }) => {
         </IconButton>
         <h1>Chỉnh sửa bài viết</h1>
       </Flex>
-      <Card.Root rounded="2xl">
-        <Card.Body gap="4">
-          <Suspense
-            fallback={
+
+      <Suspense
+        fallback={
+          <Card.Root rounded="2xl">
+            <Card.Body gap="4" asChild>
               <Stack flex="1">
                 <Skeleton height="5" />
                 <Skeleton height="5" width="80%" />
               </Stack>
-            }
-          >
-            <DiaryEditPage diaryId={diaryId} />
-          </Suspense>
-        </Card.Body>
-      </Card.Root>
+            </Card.Body>
+          </Card.Root>
+        }
+      >
+        <DiaryEditPage diaryId={diaryId} />
+      </Suspense>
     </>
   );
 };
