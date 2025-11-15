@@ -7,6 +7,9 @@ import { useCallback, useState } from "react";
 import { EditorState } from "lexical";
 import { PLAYGROUND_TRANSFORMERS } from "@/components/lexical/plugins/MarkdownTransformers";
 import { $convertToMarkdownString } from "@lexical/markdown";
+const DayInput = dynamic(() => import("@/components/diary/day-input"), {
+  ssr: false,
+});
 
 import { updateAction } from "@/app/action";
 const LexicalEditor = dynamic(() => import("@/components/lexical"), {
@@ -38,19 +41,7 @@ const EditForm = ({ diary }: { diary: IDiary }) => {
           }}
         >
           <Card.Body gap="4">
-            <Input
-              type="datetime-local"
-              id="date"
-              name="date"
-              rounded="xl"
-              bg="gray.900"
-              outline="none"
-              defaultValue={format(
-                new Date(diary?.date || Date.now()),
-                "yyyy-MM-dd'T'HH:mm"
-              )}
-              required
-            ></Input>
+            <DayInput defaultValue={format(diary.date, "yyyy-MM-dd'T'HH:mm")} />
             <Input
               type="text"
               rounded="xl"
