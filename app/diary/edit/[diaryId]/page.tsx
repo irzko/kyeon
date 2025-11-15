@@ -1,23 +1,28 @@
 import prisma from "@/libs/prisma";
 
-import { Flex, IconButton } from "@chakra-ui/react";
+import { Card, Flex, IconButton, Skeleton, Stack } from "@chakra-ui/react";
 
 import Link from "next/link";
 import { FiChevronLeft } from "react-icons/fi";
 import EditForm from "./edit-form";
+import { Suspense } from "react";
 
-const Page = async ({ params }: { params: Promise<{ diaryId: string }> }) => {
-  const diaryId = (await params).diaryId;
+const DiaryEditPage = async ({ diaryId }: { diaryId: Promise<string> }) => {
+  const id = await diaryId;
   const diary = await prisma.diary.findUnique({
     where: {
-      id: diaryId,
+      id,
     },
   });
 
-  if (diary === null) {
+  if (!diary) {
     return <p>Bài viết này không tồn tại</p>;
   }
+  return <EditForm diary={diary} />;
+};
 
+const Page = async ({ params }: { params: Promise<{ diaryId: string }> }) => {
+  const diaryId = params.then((p) => p.diaryId);
   return (
     <>
       <Flex align="center" py={2} gap={2}>
@@ -28,7 +33,20 @@ const Page = async ({ params }: { params: Promise<{ diaryId: string }> }) => {
         </IconButton>
         <h1>Chỉnh sửa bài viết</h1>
       </Flex>
-      <EditForm diary={diary} />
+      <Card.Root rounded="2xl">
+        <Card.Body gap="4">
+          <Suspense
+            fallback={
+              <Stack flex="1">
+                <Skeleton height="5" />
+                <Skeleton height="5" width="80%" />
+              </Stack>
+            }
+          >
+            <DiaryEditPage diaryId={diaryId} />
+          </Suspense>
+        </Card.Body>
+      </Card.Root>
     </>
   );
 };
