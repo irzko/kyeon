@@ -2,9 +2,16 @@
 import SubmitButton from "@/components/submit-button";
 import { createDiaryAction } from "@/app/action";
 import { format } from "date-fns";
-import { Card, Flex, IconButton, Input } from "@chakra-ui/react";
+import {
+  Card,
+  Flex,
+  IconButton,
+  Input,
+  Skeleton,
+  Stack,
+} from "@chakra-ui/react";
 import dynamic from "next/dynamic";
-import { useCallback, useState } from "react";
+import { Suspense, useCallback, useState } from "react";
 import { EditorState } from "lexical";
 import { PLAYGROUND_TRANSFORMERS } from "@/components/lexical/plugins/MarkdownTransformers";
 import { $convertToMarkdownString } from "@lexical/markdown";
@@ -43,16 +50,25 @@ const Page = () => {
           }}
         >
           <Card.Body gap="4">
-            <Input
-              type="datetime-local"
-              rounded="xl"
-              bg="gray.900"
-              outline="none"
-              id="date"
-              name="date"
-              defaultValue={format(new Date(), "yyyy-MM-dd'T'HH:mm")}
-              required
-            ></Input>
+            <Suspense
+              fallback={
+                <Stack flex="1">
+                  <Skeleton height="5" />
+                  <Skeleton height="5" width="80%" />
+                </Stack>
+              }
+            >
+              <Input
+                type="datetime-local"
+                rounded="xl"
+                bg="gray.900"
+                outline="none"
+                id="date"
+                name="date"
+                defaultValue={format(new Date(), "yyyy-MM-dd'T'HH:mm")}
+                required
+              ></Input>
+            </Suspense>
             <Input
               type="text"
               id="author"
